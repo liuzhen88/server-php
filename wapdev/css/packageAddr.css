@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#FFF;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+/*选择收货地址*/
+.addr_check{float:left; width:70px; height:80px;  background:url(../images/addr_check.png) center center no-repeat;}
+.addr_checkon{float:left; width:70px; height:80px;  background:url(../images/addr_checkon.png) center center no-repeat;}
+
+.addr_box{  float:left; text-align:left; padding:15px 20px 15px 0px;}
+
+.addrName{ color:#333;}
+.addrName span{ padding-right:20px;}
+.addrAddress{ font-size:12px; color:#888; margin-top:12px; line-height:20px;}
+
+.addr_list{ margin-bottom:60px;}
+.addr_list ul li{ border-bottom:#eee solid 1px; cursor:pointer;}
+
+.addr_message{ width:100%; height:60px; border-top:#eee solid 1px; position:fixed; bottom:0px; left:0px; background-color:#fff;}
+.addr_message_btn{ display:block; margin:10px auto 0px; width:150px; height:40px; line-height:40px; border-radius:5px; font-size:16px; background-color:#f44336;}

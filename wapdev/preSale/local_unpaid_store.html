@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>本土待付款订单详情</title>
+
+
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/foot.header.css"/>
+    <link rel="stylesheet" href="css/commom_order_details.css"/>
+
+
+</head>
+<body>
+<!--店铺详情过来的 goods_type=0-->
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+    <h2>订单详情</h2>
+</div>
+<div class="jianxi"></div>
+<div id="goodsMain"></div>
+<script type="text/template" id="orderDetails">
+    <section class="goods-details">
+        <section class="goods-box">
+            <section class="goods-img">
+                <img src="{{=it.store.store_avatar}}" width="70px" height="70px">
+            </section>
+            <section class="goods-contain">
+                <div class="goods-name">{{=it.store.store_name}}</div>
+                <!--<div class="goods-introduce"></div>-->
+                <div class="goods-price">{{=it.store.area_info}}</div>
+
+            </section>
+            <!--<div class="distance">{{=it.store.distance}}</div>-->
+            <div class="sale-num">{{=it.store.distance}}</div>
+        </section>
+
+    </section>
+    <div id="pay">付款</div>
+
+    <div class="line-div"></div>
+    <div class="order-info">
+        <div class="order-contain">
+            <div class="order-title">订单信息</div>
+            <div class="list-info">
+                <div class="list-info-key">订单号</div>
+                <div class="list-info-value">{{=it.order.order_sn}}</div>
+            </div>
+            <div class="list-info">
+                <div class="list-info-key">下单时间</div>
+                <div class="list-info-value">{{=it.order.payment_time}}</div>
+            </div>
+            <div class="list-info">
+                <div class="list-info-key">总价</div>
+                <div class="list-info-value">{{=it.order.order_amount}}元</div>
+            </div>
+            <!--<div class="list-info">
+                <div class="list-info-key">数量</div>
+                <div class="list-info-value">{{=it.order.goods_num}}</div>
+            </div>-->
+            <div class="list-info">
+                <div class="list-info-key">完成后获得积分</div>
+                <div class="list-info-value">{{=it.order.rebate}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript" src="../js/config.js"></script>
+
+
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="js/localUnpaid.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+*{margin: 0;padding: 0;font-size: 14px;font-family: "微软雅黑";}
+body{background: #F6F3F3;}
+header{width: 100%;height: 44px;background: #FF4946;position: relative;}
+header h2 {  font-size:16px;  color:#FFF;  text-align: center;  line-height: 44px;  }
+header .back{  display: block;  position: absolute;  left: 0;  top:0;  width:44px;  height:44px;  background:url("../../images/back.png") center no-repeat;  background-size: auto 20px;  }
+.get-more{width: auto;height: 44px;line-height: 44px;position: absolute;right: 10px;top: 0;color: #ffffff;font-size: 16px;}
+.goods-info{width: 100%;height: 120px;background: #fff;}
+.goods-info-container{width: 90%;height: 100px;margin: 0 auto;padding-top: 10px;}
+p{color: #979797;width: 100%;height: 25px;line-height: 25px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.buyer{width: 100%;}
+.buyer-container{width: 90%;margin: 0 auto;}
+/*table,thead,tr,tbody{width: 100%;}*/
+/*td{width: 25%;height: 40px;line-height: 40px;color: #616262;}*/
+/*dd{width: 25%;height: 40px;line-height: 40px;}*/
+.header {width: 100%;list-style: none;height: 40px;}
+.header li{width: 22%;height: 40px;line-height: 40px;color: #616262;float: left;text-align: left;font-size: 12px;}
+.list{width: 100%;height: 30px;}
+.list-container{width: 90%;margin: 0 auto;}
+.list ul{width: 100%;list-style: none;height: 30px;}
+.list ul li{width: 22%;height: 30px;line-height: 30px;color: #616262;float: left;text-align: left;font-size: 12px;overflow: hidden;}
+.list:nth-child(even){background: #fff;}

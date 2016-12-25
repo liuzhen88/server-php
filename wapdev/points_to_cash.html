@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>积分提现</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/points_to_cash.css"/>
+</head>
+<body>
+
+    <div class="sheader">
+        <a href="my_points_main.html" class="sh_back"></a>
+        <h2>积分提现</h2>
+    </div>
+
+    <div class="s_main">
+        <section class="bank-info">
+            <section class="bank-container">
+                <section class="bank-card-name">
+                    <p id="bankName"></p>
+                    <p class="word-style bank-card-wh">尾号<span id="last-card-number"></span><span id="bank-card-type"></span></p>
+                </section>
+                <section class="change-bank word-style">
+                    更改银行卡 >
+                </section>
+            </section>
+        </section>
+        <div class="jx"></div>
+        <section class="cash-number">
+            <section class="cash-number-container">
+                <label>提现金额</label>
+                <input type="text" placeholder="请输入金额(1积分=1元人民币)" class="cash-money" id="cashMoney"/>
+            </section>
+        </section>
+        <section class="cash-number">
+            <section class="cash-number-container">
+                <label>交易密码</label>
+                <input type="password" placeholder="请输入交易密码" class="cash-money" id="cashPassword"/>
+            </section>
+        </section>
+        <section class="current-total-points">
+            <section class="current-total-points-container">
+                当前可提现<span class="red"></span>元
+            </section>
+        </section>
+        <div class="submit">提现</div>
+    </div>
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/points_to_cash.js"></script>
+</body>
+</html>

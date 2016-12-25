@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+body{}
+
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.main-con{ width:100%; height:100%; overflow: hidden;}
+.login-bg{width: 512px; height: 146px; margin: 0px auto; background: url("../images/login-bg.png") bottom no-repeat;}
+
+.login-head{ font-size: 20px; color: #333; font-weight: 600; margin:25px 0px 0px 25px;}
+.login-head-two{font-size: 16px;color: #413b35; margin-left: 10px;}
+
+.login-input-box{ margin: 20px 0px 0px 20px; }
+.login-input{ width: 187px; height: 45px; background: url("../images/login-input.png") center center no-repeat; margin: 0px 4px;}
+input{background: #80776a; width: 167px; color: #eee; border: 0; line-height: 30px; margin: 8px 0px 0px 10px;}
+
+::-webkit-input-placeholder { /* WebKit browsers */ color: #eee;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: #eee;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */ color: #eee;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */ color: #eee;}
+
+.login-btn{ cursor: pointer; float:left; width:75px; height: 45px; margin-left: 5px; color: #eee; line-height:45px; text-align: center; letter-spacing: 2px; background: url("../images/login-btn.png") center center no-repeat;}

@@ -1,0 +1,15 @@
+*{ margin:0; padding:0; letter-spacing:1px; font-family:"微软雅黑"; font-size:14px;}
+header{ width:100%; height:56px; background:#ff4946; text-align:center; line-height:56px; font-size:20px; color:#fff;}
+#se1{ width:100%; height:110px; background:#FFF;}
+#sec1_contain{ width:90%; height:100px; margin:0 auto; padding-top:10px;}
+#sec_header{ width:100%; height:30px; position:relative;}
+#sec_header_left{ position:absolute; width:auto; height:30px; left:0; top:0;}
+#sec_header_left img{ padding-top:3px;}
+#sec_header_right{ position:absolute; left:35px; top:0px; width:auto; height:30px; line-height:30px; font-size:16px; color:#333333;}
+#back_money{ width:100%; height:30px; line-height:30px; color:#666666;}
+#money{ color:#F29820;}
+p{ color:#666666;}
+#se2{ width:100%; height:auto; background:#FFF;}
+#se2_contain{ width:90%; height:auto; margin:0 auto; margin-top:20px; padding-top:15px; padding-bottom:20px;}
+.box{ width:100%; height:25px; line-height:25px;}
+.box span{ color:#666666; margin-left:5px;}

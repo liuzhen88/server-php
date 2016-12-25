@@ -1,0 +1,90 @@
+@charset "utf-8";
+html{color:#000}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,span,a{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img,iframe{border:0}
+:focus{outline:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-weight:normal;font-style:normal}
+ol,ul{list-style:none}
+li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+blockquote:before,blockquote:after,q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+/* to preserve line-height and selector appearance */
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+/*input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit; vertical-align:middle;}*/
+/*to enable resizing for IE*/
+input,textarea,select{*font-size:100%}
+/*because legend doesn't inherit in IE */
+legend{color:#000}
+/*clear float*/
+.clearfix{zoom:1}
+.clearfix:after{display:block;clear:both;content:'\20'}
+.fleft{float:left}
+.fright{float:right}
+:not(input){
+    -webkit-user-select:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-touch-callout:none;
+    -webkit-text-size-adjust:none;
+}
+body{font-size:1em;font-family: 'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;color: #6d6d6d;}
+body, input, textarea, select, button, table{line-height: 1.25em;}
+body{min-width: 320px;}
+a{text-decoration: none;}
+.h22{height: 22px;}
+.h25{height:25px;}
+.h40{height: 40px;}
+.h100{height: 100px;}
+.wp100{width: 100%;}
+.fleft{float: left;}
+.fright{float: right;}
+.hide{display: none;}
+.m10{margin:10px;}
+.mt5{margin-top: 5px;}
+.mt10{margin-top: 10px;}
+.mr5{margin-right: 5px;}
+.ml5{margin-left: 5px;}
+.pdb10{padding-bottom: 10px;}
+.pd6{padding-bottom: 6px;}
+.clr-999{color: #999;}
+.clr-d94{color:#D9434E;}
+.clr-green{color: #6cb248;}
+.clr-c07{color: #C07A07;}
+.clr-e63{color:#e63632;}
+.main {padding-top:56px;}
+.clr-e53 {color:#ef5350;}
+.box-shw{box-shadow:0 1px 3px rgba(0,0,0,.24);}
+.b-radius{ -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; position:relative;}
+.bg_c {background:#f2f2f2;}
+@media screen and (min-width: 640px){
+    .main{width: 640px;margin:0 auto;}
+}
+/*header*/
+.header-wrap{position:fixed;background:#ef5350;z-index: 8888;height: 56px;width:100%;}
+.header-back{position: absolute;top: 8px;left:8px;width: 40px;height: 40px;}
+.header-back span{width:40px;height: 40px;text-indent:-9999px;background:url(../images/back.png) center center no-repeat;background-size:24px auto;display:block;}
+.header-wrap h2{height: 56px;line-height: 56px;font-size: 20px;color:#fff;text-align: left;padding-left:60px;}
+.header-nav {width:40px;height:40px;display:block;position:absolute;top:8px;right:8px;background:url(../images/header-nav.png) center center no-repeat;background-size:24px auto;}
+.header-search {width:40px;height:40px;display:block;position:absolute;top:8px;right:56px;background:url(../images/search1.png) center center no-repeat;background-size:24px auto;}
+/*退货退款*/
+.jl-refund {padding:0 16px;}
+.jl-refund-info {padding:8px 0;}
+.jl-refund-info dt{padding:16px 0;color:rgba(0,0,0,.54);font-size:14px;line-height:14px;}
+.jl-refund-info dd{background:#fff;padding:16px;border-radius:2px;box-shadow:0 1px 1px rgba(0,0,0,.12);}
+.jl-refund-info dd input,.jl-refund-info dd select{background:none;height:20px;line-height:20px;font-size:16px;font-family:"microsoft yahei";border:none;width:100%;}
+.jl-refund-info dd textarea{line-height:20px;font-size:16px;font-family:"microsoft yahei";border:none;width:100%;height:80px;resize: none;}
+.jl-refund-img {margin:16px 0;}
+.jl-refund-img .refund-btn{padding:0 16px;display:inline-block;height:36px;background:#eee;position:relative;overflow:hidden;color:rgba(0,0,0,.84);line-height:36px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.jl-refund-img .refund-btn:active{background:#ddd;box-shadow:0 1px 1px rgba(0,0,0,.2);}
+.jl-refund-img .refund-btn input{width:116px;height:36px;position:absolute;left:0;top:0;opacity:0;}
+.jl-refund-img .refund-ps {font-size:12px;color:rgba(0,0,0,.54);padding:16px 0;}
+.jl-refund-img ul{width:104%;margin:0 -2%;font-size:0;}
+.jl-refund-img li{text-align:center;display:inline-block;width:30%;margin:0 1.6%;}
+.jl-refund-img li img{width:100%;display:block;}
+.jl-refund-btn {display:block;width:40px;height:40px;margin:0 auto;padding:0 0 16px;}
+.jl-refund-btn a.ok{display:block;border-radius:50%;width:40px;height:40px;background:url(../images/ok_icon2.png) center center #ef5350 no-repeat;background-size:24px;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.jl-refund-btn a:active{background:url(../images/ok_icon2.png) center center #e53935 no-repeat;background-size:24px;box-shadow:0 1px 1px rgba(0,0,0,.2);}
+.close{ width:15px; top:15px; position:absolute; right:-5px; top:-5px;}

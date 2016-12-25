@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<title>卖家同意</title>
+
+<link rel="stylesheet" type="text/css" href="../css/style_jl.css">
+<link type="text/css" rel="stylesheet" href="../css/return_by_voucher.css"/>
+<link rel="stylesheet" href="../css/foot.header.css"/>
+
+</head>
+
+<body>
+<header id="header"></header>
+<section class="font-color-333 total-title">请退货给商家并填写物流信息</section>
+<section class="font-color-666 space-time" id="time"></section>
+<section class="return-addr-box">
+	<section class="float-left font-color-333 return-addr-title">退货地址：</section>
+	<section class="float-left font-color-666 return-addr-con"><textarea id="returnAddrCon" style="width:100%; height:40px;"></textarea></section>
+	<section class="clear-float"></section>
+</section>
+
+<section class="up-voucher-box">
+
+	<section class="up-voucher-line">
+		<section class="up-voucher-title float-left font-color-333">物流公司：</section>
+		<section class="up-voucher-content float-left">
+			<select id="select">
+				<option selected="selected">请选择物流公司</option>
+				 
+			</select>
+		</section>
+		<section class="clear-float"></section>
+	</section>
+
+	<section class="up-voucher-line">
+		<section class="up-voucher-title float-left font-color-333">物流单号：</section>
+		<section class="up-voucher-content float-left">
+			<input type="text" name="" class="" id="invoice_no" placeholder="请输入物流单号"/>
+		</section>
+		<section class="clear-float"></section>
+	</section>
+
+	<section class="up-voucher-line">
+		<section class="up-voucher-title float-left font-color-333">发货说明：</section>
+		<section class="up-voucher-content float-left">
+			<textarea name="" class="" id=" " placeholder="请输入发货说明"></textarea>
+		</section>
+		<section class="clear-float"></section>
+	</section>
+
+	<!--<section class="up-voucher-line">
+		<section class="up-voucher-title float-left font-color-333">上传凭证：</section>
+		<section class="up-voucher-content float-left up-v-img">
+			<ul>
+				<li class="up-v-imgdef"><img src="../images/addfile.png" /></li>
+			</ul>
+		</section>
+		<section class="clear-float"></section>
+	</section>-->
+</section>
+
+<section id="send_imgBox"><input type="file" id="send_img"/></section>
+
+<section class="return-v-commit">提交</section>
+
+
+<!--<div id="footer"></div>-->
+
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/getUrlParameter.js"></script>
+<!--<script type="text/javascript" src="evaluate/js/exif.js"></script>
+<script type="text/javascript" src="evaluate/js/lrz.js"></script>
+<script type="text/javascript" src="evaluate/js/ys_img.js"></script>-->
+
+<script type="text/javascript" src="../js/tmpl/return_by_voucher.js"></script>
+
+</body>
+</html>

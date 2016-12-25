@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>位置</title>
+    <!-- build:css css/build_position_bd.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/position.css">
+    <!-- endbuild -->
+</head>
+<body>
+<header>
+    <h2>位置</h2>
+    <a href="javascript:history.back();" class="head-back"></a>
+</header>
+<div class="my-main">
+    <div class="my-list">
+        <a href="javascript:" class="position"><span></span>点击自动定位当前位置</a>
+    </div>
+    <div class="my-list">
+        <a href="map_position1.html" class="map-position"><span></span>点击手动定位当前位置</a>
+    </div>
+    <ul class="address-list" id="addressList">
+    </ul>
+</div>
+<script type="text/template" id="addrListTmpl">
+    {{ for(var i=0;i< it.address_list.length;i++){ }}
+        {{ if(it.address_id==it.address_list[i].address_id){ }}
+        <li class="default">
+            <a class="addr-info" href="index1.html?set_location={{=it.address_list[i].address}}&lat={{=it.address_list[i].lat}}&lng={{=it.address_list[i].lng}}&address_id={{=it.address_list[i].address_id}}">
+                <p class="user"><span>{{=it.address_list[i].true_name}}</span>{{=it.address_list[i].mob_phone}}</p>
+                <p class="area">{{=it.address_list[i].address}}{{=it.address_list[i].door_number}}</p>
+            </a>
+        </li>
+        {{ }else{ }}
+        <li>
+            <a class="addr-info" href="index1.html?set_location={{=it.address_list[i].address}}&lat={{=it.address_list[i].lat}}&lng={{=it.address_list[i].lng}}&address_id={{=it.address_list[i].address_id}}">
+                <p class="user"><span>{{=it.address_list[i].true_name}}</span>{{=it.address_list[i].mob_phone}}</p>
+                <p class="area">{{=it.address_list[i].address}}{{=it.address_list[i].door_number}}</p>
+            </a>
+        </li>
+        {{ } }}
+    {{ } }}
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/share_wx.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=btsVVWf0TM1zUBEbzFz6QqWF"></script>
+<!-- build:js2  js/build_position_bd.min.js -->
+<script type="text/javascript" src="js/position.js"></script>
+<!-- endbuild -->
+</body>
+</html>

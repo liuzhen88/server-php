@@ -1,0 +1,68 @@
+@charset "utf-8";
+body{background:#eee;}
+.header-ok {width:40px;height:40px;display:block;position:absolute;top:8px;right:8px;background:url(../images/ic_send@3x.png) center center no-repeat;background-size:26px auto;}
+.jl_evaluate {width:100%;margin:0 auto;background:#fff; padding-top:10px;}
+.jl_evaluate .goods_name {width:95%;height:80px;background:#fff;margin:0 auto;padding:5px 0;}
+.jl_evaluate .goods_name dt {width:70px;height:70px;float:left;overflow:hidden;}
+.jl_evaluate .goods_name dt img{width:100%;height:100%;display: block;}
+.jl_evaluate .goods_name dd {float:right;width:-webkit-calc(100% - 76px);}
+.jl_evaluate .goods_name dd a{display: block;font-size:14px;line-height:20px;color:rgba(0,0,0,.87);}
+.jl_evaluate .goods_name p {color:rgba(0,0,0,.54);font-size:12px;line-height:24px;}
+.jl_evaluate .goods_name p span{color:#000;font-size:16px;padding-right:4px;}
+.jl_star{font-size:14px;color:rgba(0,0,0,.87);height:44px;line-height:44px;margin:0 auto;width:95%}
+.imgbox{vertical-align: middle;/* 针对IE的Hack */ *display: block;*font-size: 175px;/*约为高度的0.873，200*0.873 约为175*/*font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/}
+.jl_star .star_title {display:block;float:left;font-size: 16px;font-family: "microsoft yahei";font-weight: 500;}
+.jl_star ul{float:right;width:60%;text-align:right;font-size:0;}
+.jl_star li{display:inline-block;width:24px;height:24px;margin-left:10px;}
+.jl_star .star_icon {vertical-align: middle;background:url(../images/ic_star_orange@2x.png) no-repeat;background-size:100%;}
+.jl_star .star_icon2 {vertical-align: middle;background:url(../images/ic_star_gray@2x.png) no-repeat;background-size:100%;}
+.jl_star li.on{vertical-align: middle;background:url(../images/ic_star_orange@2x.png) no-repeat;background-size:100%;}
+.jl_evaluate .eva_con {padding:0 7px;}
+.jl_evaluate .title{color:rgba(0,0,0,.87);font-size:14px;padding-bottom:16px;line-height:14px;}
+.jl_evaluate .eva_con .text{background:#efefef;padding:8px;height:100px;}
+.jl_evaluate .eva_con textarea{-webkit-touch-callout:default;-webkit-user-select:text; -webkit-appearance: none;resize: none;font-size:13px;width:100%;background:none;border:none;height:100px;color:rgba(0,0,0,.87);font-family:"microsoft yahei"}
+
+.jl-eva-img {height:44px;line-height:44px;font-size:15px;width:95%;margin-left:7px;}
+.jl-eva-img2 {height:64px;}
+.jl-eva-img2 ul{height:64px;width:100%;}
+.jl-eva-img2 ul li{height:64px;width:64px;float:left;position:relative}
+.y-firstmargin{margin-left:10px;}
+.y-secmargin{margin-left:7px; position:relative;}
+.jl-eva-img2 img{width:64px; height:64px;}
+.jl-eva-img2 li span.del{width:20px;height:20px;background:url(../images/ic_refuse@2x.png) center center #ee534f no-repeat;background-size:20px;position:absolute;display:block;right:-10px;top:-10px;border-radius:50%;border:#fff solid 2px;}
+
+.jl-eva-img .title{padding-bottom:8px;}
+
+.jl-eva-img .eva-btn{display: block;color:#333;float: left;font-size: 16px;font-family: "microsoft yahei";font-weight: 500;}
+.jl-eva-img .eva-btn:active{background:#d2d2d2;box-shadow:none;}
+.jl-eva-img .eva-btn input{width:100%;height:36px;position:absolute;left:0;top:0;opacity:0;}
+.jl-eva-img .eva-ps {font-size:12px;color:rgba(0,0,0,.54);padding:0 0 8px;}
+.jl-eva-img ul{width:95%;margin:0 auto;overflow:hidden;float:left;height:64px;}
+.jl-eva-img li{width:64px;margin-left:2%;position:relative;height:64px;}
+.jl-eva-img li img{width:100%;display:block;}
+.jl-eva-img li span.del{width:20px;height:20px;background:url(../images/ic_close_w.png) center center #ee534f no-repeat;background-size:10px;position:absolute;display:block;right:3px;top:3px;border-radius:50%;border:#fff solid 2px;}
+.jl_serve_eva {background:#fff;padding:24px 16px 16px;}
+.jl_serve_eva .title{color:#fff;font-size:14px;}
+.jl_serve_eva .jl_star {padding:16px 0 8px;}
+.jl_eva_chk{margin:16px;font-size:14px;color:rgba(0,0,0,.87);line-height:26px;display:inline-block;}
+.jl_eva_chk span{display:block;float:left;background:url(../images/ic_checkbox@3x.png) left center no-repeat;background-size:24px;width:24px;height:24px;margin-right:8px;}
+.jl_eva_chk.on span{background:url(../images/ic_checkbox_sl@3x.png) left center no-repeat;background-size:24px;}
+.jl_eva_chk span input{opacity:0;}
+.fl{float:left;}
+.eva-btn2{font-size:11px;height:44px;line-height:44px;color:#999999}
+.fr{float:right}
+
+.y-text{font-size: 14px;font-family: "microsoft yahei";font-weight: 500;}
+.y-text2{color:#999999;}	
+.y-sm{height:44px;line-height:22px;text-align:left; overflow:hidden; display:block;}
+.y-sm2{height:22px;line-height:22px;text-align:right;}	
+.y-sm3{width:50%;height:30px;line-height:30px;text-align:left;padding-left:10px;}	
+.y-line{width:100%;border-bottom:1px solid #e6e6e6;}
+.my_goodName{ margin-left:10px; color:#333;}
+.my_price{ text-align:right; float:right;color:#333;}
+.my_num{ text-align:right; float:right;}
+.y-firstwidth{width:60%;}
+#send_img{ width:100%; height:100%; opacity:0; position:relative; z-index:20;}
+.select{ position:absolute; left:0; top:0; z-index:10; width:100%; height:100%;}
+
+.imgToBase64{ display:none;}

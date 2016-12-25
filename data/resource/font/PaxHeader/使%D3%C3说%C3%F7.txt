@@ -1,0 +1,6 @@
+59 path=server-php/data/resource/font/ʹ%D3%C3˵%C3%F7.txt
+20 ctime=1440424744
+20 atime=1440424744
+23 SCHILY.dev=16777218
+23 SCHILY.ino=17702181
+18 SCHILY.nlink=1

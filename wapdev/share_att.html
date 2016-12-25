@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_shareatt.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/sharelike.css">
+    <!-- endbuild -->
+
+    <title>我的关注</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>我的关注</h2>
+</div>
+<div class="s_main">
+    <ul class="share-like">
+    </ul>
+</div>
+<script type="text/template" id="followeelistTmpl">
+{{ if(it.data.length == 0) { }}
+    <div class="dataNull">您目前还没有关注过别人</div>
+{{ }else{ }}
+    {{ for ( var i=0 ; i<it.data.length;i++){ }}
+    <li>
+        <a href="share_personal.html?member_id={{=it.data[i].member_id }}">
+            <div class="user-img"><img src="{{=it.data[i].member_avatar }}"></div>
+        </a>
+        <div class="slike-r">
+            <div class="sfans">
+                <a href="share_personal.html?member_id={{=it.data[i].member_id }}">
+                    <h4>{{=it.data[i].member_name }}<span class="{{=memberSex(it.data[i].member_sex) }}"></span></h4>
+                </a>
+                <a onclick="attention(this);" class="att" data-memberid="{{=it.data[i].member_id}}"><div class="loading"></div><span class="att{{=it.data[i].friend_followstate}}"></span></a>
+            </div>
+        </div>
+    </li>
+    {{ } }}
+{{ } }}
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_shareatt.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/share_common.js"></script>
+<script type="text/javascript" src="js/share_follow.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

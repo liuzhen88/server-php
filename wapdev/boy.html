@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<title>男神女神 嗨翻一夏</title>
+</head>
+<body>
+<script src="js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/lib/jweixin-1.0.0.js"></script>
+<script>
+var human_id;
+$(document).ready(function(){
+	var timestamp=new Date().getTime()+"";
+	timestamp=timestamp.substring(0,10);
+	var ranStr=randomString();
+	var nurl=document.URL;
+	 function randomString(len) {
+		　　len = len || 20;
+		　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+		　　var maxPos = $chars.length;
+		　　var pwd = '';
+		　　for (i = 0; i < len; i++) {
+		　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+		　　}
+		　　return pwd;
+		}
+	 wx.ready(function(){
+
+			 wx.getLocation({
+				    success: function (res) {
+				        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+				        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+				        var speed = res.speed; // 速度，以米/每秒计
+				        var accuracy = res.accuracy; // 位置精度
+				        alert(latitude);
+				        alert(longitude);
+				    }
+				});
+		   
+	});
+wx.error(function(res){
+	});
+
+ $.ajax({
+	    async:false,
+		url:'http://wx.51aigegou.com/aigegou/ws/webGetTicketSignJsonP',
+		type:'get',
+		dataType:'jsonp',
+		cache : false,
+		jsonp: 'jsonpcallback',
+		data:{
+			'timestamp':timestamp,
+			'nonceStr':ranStr,
+			'url':nurl
+		},
+		success:function(data){
+			var si=data.sign.toLowerCase();
+			wx.config({
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: 'wxa0641282049ed265', // 必填，公众号的唯一标识
+			    timestamp:timestamp, // 必填，生成签名的时间戳
+			    nonceStr: ranStr, // 必填，生成签名的随机串
+			    signature: si,// 必填，签名，见附录1
+			    jsApiList: [    'checkJsApi',
+			                    'getLocation'
+			               ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			}); 
+		},
+		error:function(){
+		}
+	});	  
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#fff;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+#header{ width:100%; height:44px; line-height:44px; background-color:#ff4745; color:#fff; font-size:18px; position:fixed; top:0px; left:0px; z-index:10000; }
+#header a{color:#fff; position:absolute; top:0px; left:10px;font-size:16px;}
+#header a img{width: 22px; height: auto; vertical-align: top; margin-top: 11px; margin-left: 10px;}
+#shaBgColor{ width:100%; position:relative; margin-top:44px; background-color:#fefaf4;}
+#shaBgImg{ position:absolute; top:0px; left:0px; padding:10px;}
+#shaBgImg img{ width:100%; height:100%;}
+
+#shaRCon{position:absolute; overflow:scroll; top:0px; left:0px; margin:30px; color:#583d28; line-height:25px; text-align:left;}
+#shaRCon p{ line-height:25px; margin:5px 0px;}
+
+#shaRAccept{ cursor:pointer; width:90%; height:46px; line-height:46px; color:#fff; background-color:#ff4745;font-size:18px; margin:0px auto; border-radius:4px; text-align:center;}
+

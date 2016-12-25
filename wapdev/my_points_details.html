@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>收支明细</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/my_points_details.css"/>
+    </head>
+
+    <body>
+        <div class="sheader">
+            <a href="javascript:history.back();" class="sh_back"></a>
+            <h2>收支明细</h2>
+            <a class="sh_btn_share"></a>
+        </div>
+
+        <div class="s_main">
+            <section class="per-line-box">
+                <section class="per-line"  id="order_sn">
+                    <section class="fleft">订单号</section>
+                    <section class="fright on"></section>
+                    <section class="clear-float"></section>
+                </section>
+                <section class="per-line" id="serial_number">
+                    <section class="fleft">流水号</section>
+                    <section class="fright on"></section>
+                    <section class="clear-float"></section>
+                </section>
+                <section class="per-line" id="lg_add_time">
+                    <section class="fleft">时间</section>
+                    <section class="fright on"></section>
+                    <section class="clear-float"></section>
+                </section>
+                <section class="per-line" id="lg_type_tip">
+                    <section class="fleft">类型</section>
+                    <section class="fright on"></section>
+                    <section class="clear-float"></section>
+                </section>
+                <section class="per-line" id="lg_av_amount_box">
+                    <section class="fleft lg_av_amount_type"></section>
+                    <section class="fright lg_av_amount"></section>
+                    <section class="clear-float"></section>
+                </section>
+            </section>
+        </div>
+
+
+        <!-- build:inlinejs -->
+        <script type="text/javascript" src="js/config.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/tmpl/common-top.js"></script>
+        <script type="text/javascript" src="js/my_points_details.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>活动详情</title>
+
+    <!-- build:css css/build_wap_product_detail.min.css -->
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper3.1.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile-photo-preview.min.css">
+    <link type="text/css" rel="stylesheet" href="css/wap_productDetails.css"/>
+    <!-- endbuild -->
+
+</head>
+
+<body>
+<header class="pro-header">
+    <a class="back" href="javascript:history.back();"></a>
+</header>
+<div class="goods-main" id="goodsMain"></div>
+
+<div class="mdmPayLay">
+    <div class="mdmPayLayBox">
+        <div class="lay-quit"></div>
+        <div class="mdmPLText1">　　您可以先和商家预约，确认后再进行下单，也可以直接下单后去店里消费。</div>
+        <div class="btnLayBox">
+            <div class="btnLayB1"><a href="">电话预约</a></div>
+            <div class="btnLayB2">立即下单</div>
+        </div>
+    </div>
+</div>
+
+<div class="PDBottomBox">
+    <a class="bottom-btn-share"></a>
+    <a class="bottom-btn-favorites"></a>
+
+    <div class="mdmPay">
+        <a>当面付</a>
+    </div>
+    <div class="btOrder">
+        <a>预售</a>
+    </div>
+</div>
+
+<div class="dialog-weichat-share" style="display:none;position: fixed;top:0;right:0;width:100%;height:100%;z-index: 10000; background: url('images/shareweichat2.png') no-repeat right 5px rgba(0,0,0,0.5);background-size:144px;"></div>
+
+<script type="text/template" id="goodstmpl">
+    <div id="goodsHeight">
+        <div class="shopDImg_boxPa">
+            <div class="swiper-container">
+                <ul class="swiper-wrapper">
+                    {{ for ( var i=0 ; i<it.good_image.length;i++){ }}
+                    <li class="swiper-slide"><img src="{{=it.good_image[i]}}"></li>
+                    {{ } }}
+                </ul>
+            </div>
+        </div>
+        <div class="goodsInfo">
+            <p class="goodsName">{{=it.good_info.goods_name}}</p>
+            <div class="goodsInfoLeft">
+                <!--<a href="store_detail.html?store_id={{=it.store_info.store_id}}" class="goodsShop">{{=it.good_info.store_name}}</a>-->
+                {{ if(parseFloat(it.good_info.goods_price) != 0) { }}
+                <span class="goodsPriceN">￥<strong>{{=parseFloat(it.good_info.goods_price)}}</strong></span>
+                {{ if(it.good_info.goods_price != it.good_info.goods_marketprice) { }}
+                <span class="goodsPriceF">￥{{=parseFloat(it.good_info.goods_marketprice)}}</span>
+                {{ } }}
+                {{}else{}}
+                <span class="goodsPriceN"><strong>面议</strong></span>
+                {{ } }}
+            </div>
+            <div class="goodsInfoRight">
+                <p class="goodsNum">已售
+                    {{ if(it.good_info.goods_salenum < 10000) { }}
+                    {{=it.good_info.goods_salenum}}
+                    {{}else{}}
+                    9999+
+                    {{ } }}
+                </p>
+            </div>
+        </div>
+        <div class="goodsFT">
+            <p class="goodSale">
+                <span class="sale1">都有利</span>
+
+                <span class="sale3">过期退</span>
+
+                {{ if(it.good_info.limit_count!=0){ }}
+                <span class="sale2">限购</span>
+                {{ } }}
+            </p>
+
+        </div>
+
+        <div class="goodsEvaluate" id="goodsEvaluate"></div>
+        <!--<div class="evaluate-list" id="evaluateList"></div>-->
+
+        <div class="zkBox">
+            <div class="shopT">商家信息</div>
+            {{ if(parseFloat(it.store_info.per_consumption) != 0) { }}
+            <div class="shopRJ">人均{{=it.store_info.per_consumption}}元</div>
+            {{ } }}
+        </div>
+        <div class="shopBox">
+            <div class="shopBoxC">
+                <p class="shopName">
+                    <a href="store_detail.html?store_id={{=it.store_info.store_id}}">{{=it.store_info.store_name}}</a>
+                    <span class="shopAddr">{{=it.store_info.area_info}}{{=it.store_info.store_address}}</span>
+                </p>
+
+                <div class="telButton"><a class="telicon" href="tel:{{=it.store_info.store_phone}}"></a></div>
+            </div>
+        </div>
+        <div class="shopOther">
+            {{ if(   it.store_info.is_stopcart == 1) { }}
+            <p class="parking-sign"><span>免费车位</span></p>
+            {{ } }}
+
+            {{ if(   it.store_info.is_wifi == 1) { }}
+            <p class="wi-fi"><span>免费wifi</span></p>
+            {{ } }}
+
+            {{ if(   it.store_info.is_cash == 1) { }}
+            <p class="credit-card"><span>支持刷卡</span></p>
+            {{ } }}
+        </div>
+
+        {{if(it.good_info.wap_buy_notes != null){}}
+        <div class="product-details">
+            <div class="title">购买须知</div>
+            <div class="buy-know">
+                {{ if(  it.good_info.validate_time!="" && it.good_info.validate_time!=null ) { }}
+                <h2>有效期</h2>
+                {{ if(  it.good_info.validate_time==0){ }}
+                <p><pre>永久有效</pre></p>
+                {{ }else{ }}
+                <p><pre>{{=get_time(it.good_info.validate_time)}}</pre></p>
+                {{ } }}
+                {{ } }}
+
+                {{ if(  it.good_info.using_time!="" && it.good_info.using_time!=null ) { }}
+                <h2>使用时间</h2>
+                <p><pre>{{=it.good_info.using_time}}</pre></p>
+                {{ } }}
+
+                {{ if(  it.good_info.wap_buy_notes.appoint_note!="" && it.good_info.wap_buy_notes.appoint_note!=null ) { }}
+                <h2>预约信息</h2>
+                <p><pre>{{=it.good_info.wap_buy_notes.appoint_note}}</pre></p>
+                {{ } }}
+
+                {{ if(  it.good_info.wap_buy_notes.r_remark!="" && it.good_info.wap_buy_notes.r_remark!=null ) { }}
+                <h2>温馨提示</h2>
+                <p><pre>{{=it.good_info.wap_buy_notes.r_remark}}</pre></p>
+                {{ } }}
+
+                {{ if(  it.good_info.try_area!="" && it.good_info.try_area!=null ) { }}
+                <h2>适用范围</h2>
+                <p><pre>{{=it.good_info.try_area}}</pre></p>
+                {{ } }}
+            </div>
+        </div>
+        {{}}}
+
+        {{ if(it.good_info.wap_activity_notes != null  &&  it.good_info.wap_activity_notes.activity_name[0] != ''&& it.good_info.wap_buy_notes != null  &&it.good_info.using_time != null&&it.good_info.activity_notes != null&&it.good_info.wap_buy_notes.appoint_note != null) { }}
+        <div class="product-details">
+            <div class="title">本单详情</div>
+            <ul class="order-details">
+                <li class="order-title">
+                    <span class="name">名称</span>
+                    <span class="price">原价</span>
+                    <span class="size">数量/规格</span>
+                    <span class="subtotal">小计</span>
+                </li>
+                {{ for ( var i=0 ; i <  it.good_info.wap_activity_notes.activity_name.length ; i++){ }}
+                <li>
+                    <span class="name">{{=it.good_info.wap_activity_notes.activity_name[ i]}}</span>
+                    <span class="price">￥{{=it.good_info.wap_activity_notes.activity_price[ i]}}</span>
+                    <span class="size">{{=it.good_info.wap_activity_notes.activity_spc[ i]}}</span>
+                    <span class="subtotal">￥{{=it.good_info.wap_activity_notes.activity_total[ i]}}</span>
+                </li>
+                {{ } }}
+            </ul>
+            <div class="product-price">原价：¥{{=parseFloat(it.good_info.goods_marketprice)}} &nbsp;&nbsp;爱个购价：<span class="priceN">¥{{=parseFloat(it.good_info.goods_price)}}</span></div>
+        </div>
+
+        {{ if(  it.good_info.package_note!="" && it.good_info.package_note!=null ) { }}
+        <div class="bd-remark-box"><pre>{{=it.good_info.package_note}}</pre></div>
+        {{ } }}
+
+        {{ } }}
+    </div>
+    <div id="goodsMore">
+        <div class="product-more-box">
+            <div class="title">图文详情</div>
+            <div class="activDetailH">
+                {{ if(  it.good_info.mobile_body!="" && it.good_info.mobile_body!=null ) { }}
+                {{=it.good_info.mobile_body}}
+                {{ }else{ }}
+                    <div class="picInfoNull">暂无图文信息~</div>
+                {{ } }}
+            </div>
+        </div>
+    </div>
+
+    {{ if(it.goods_info_sort.length>0 && it.goods_info_sort!=null){ }}
+    <div class="hotRecoBox">
+        <div class="title">热门推荐</div>
+        <div class="hotRecommendConBox">
+            <ul>
+                {{ for( var i=0 ; i <  it.goods_info_sort.length ; i++){ }}
+                <li>
+                    <a href="wap_product_details.html?goods_id={{=it.goods_info_sort[i].goods_id}}&latitude={{=it.lat}}&longitude={{=it.lng}}">
+                        <div class="h-r-imgbox fleft">
+                            <img src="{{=it.goods_info_sort[i].goods_image}}"/>
+                        </div>
+                        <div class="h-r-text fleft">
+                            <div class="h-r-text-k">
+                                <div class="h-r-productName">{{=it.goods_info_sort[i].goods_name}}</div>
+                                <div class="h-r-storeName">{{=it.goods_info_sort[i].store_name}}</div>
+                            </div>
+                            <div class="h-r-priceBox">
+                                {{ if(it.goods_info_sort[i].goods_promotion_type==0){ }}
+                                <span class="h-r-priceNow fleft">¥{{=it.goods_info_sort[i].goods_price}}</span>
+                                {{ if(it.goods_info_sort[i].goods_price!=it.goods_info_sort[i].goods_marketprice){ }}
+                                <span class="h-r-priceOld fleft">¥{{=it.goods_info_sort[i].goods_marketprice}}</span>
+                                {{ } }}
+                                {{ }else{ }}
+                                <span class="h-r-priceNow fleft">¥{{=it.goods_info_sort[i].goods_promotion_price}}</span>
+                                <span class="h-r-priceOld fleft">¥{{=it.goods_info_sort[i].goods_price}}</span>
+                                {{ } }}
+                                <span class="h-r-sale fright">已售：{{=it.goods_info_sort[i].goods_salenum}}</span>
+                                <span class="clear-float"></span>
+                            </div>
+                        </div>
+                        <div class="clear-float"></div>
+                    </a>
+                </li>
+                {{ } }}
+            </ul>
+        </div>
+    </div>
+    {{ } }}
+</script>
+<script type="text/template" id="evaluatetmpl">
+    <a href="evaluate_list.html?goods_id={{=it.goods_id}}">
+        <p class="goodScore"><span class="star" style="width:{{=evaluateNum(it.data.goods_info.evaluation_good_star)}}%"></span></p>
+        <span class="text">{{=parseFloat(it.data.goods_info.evaluation_good_star).toFixed(1)}}分</span>
+        <p class="goodsEvaNum">全部评价</p>
+    </a>
+</script>
+<script type="text/template" id="evaluateListtmpl">
+    {{ if(  it.data.evaluate_list.length == 0) { }}
+        <div class="eva-li no-more">暂无评价</div>
+    {{ }else if(  it.data.evaluate_list.length < 5){ }}
+        {{ for ( var i=0 ; i <  it.data.evaluate_list.length ; i++){ }}
+        <div class="eva-li">
+            <div class="eva-user-img"><img src="{{=it.data.evaluate_list[i].geval_frommemberavara}}"></div>
+            <div class="eva-title">
+                {{ if( it.data.evaluate_list[i].geval_isanonymous == 0) { }}
+                <p class="evaluate-l eva-user-name"><span>{{=it.data.evaluate_list[i].geval_frommembername}}</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+                {{ }else{ }}
+                <p class="evaluate-l eva-user-name"><span>匿名</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+                {{ } }}
+                <p class="evaluate-r eva-star-list"><span style="width:{{=evaluateNum(it.data.evaluate_list[i].geval_scores)}}%"></span></p>
+            </div>
+            <div class="eva-li-con">{{=it.data.evaluate_list[i].geval_content}}</div>
+            {{ if( it.data.evaluate_list[i].images.length != 0) { }}
+            <div class="preview-list">
+                {{ if( it.data.evaluate_list[i].images.length < 4) { }}
+                {{ for ( var j=0 ; j <  it.data.evaluate_list[i].images.length ; j++){ }}
+                <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                {{ } }}
+                {{ }else{ }}
+                {{ for ( var j=0 ; j < 3 ; j++){ }}
+                <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                {{ } }}
+                {{ for ( var j=3 ; j < it.data.evaluate_list[i].images.length ; j++){ }}
+                <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview" style="display:none;"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                {{ } }}
+                <div class="evaPicNum">共{{=it.data.evaluate_list[i].images.length}}张</div>
+                {{ } }}
+            </div>
+            {{ } }}
+        </div>
+        {{ } }}
+    {{ }else { }}
+        {{ for ( var i=0 ; i <  4 ; i++){ }}
+        <div class="eva-li">
+            <div class="eva-user-img"><img src="{{=it.data.evaluate_list[i].geval_frommemberavara}}"></div>
+            <div class="eva-title">
+                {{ if( it.data.evaluate_list[i].geval_isanonymous == 0) { }}
+                <p class="evaluate-l eva-user-name"><span>{{=it.data.evaluate_list[i].geval_frommembername}}</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+                {{ }else{ }}
+                <p class="evaluate-l eva-user-name"><span>匿名</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+                {{ } }}
+                <p class="evaluate-r eva-star-list"><span style="width:{{=evaluateNum(it.data.evaluate_list[i].geval_scores)}}%"></span></p>
+            </div>
+            <div class="eva-li-con">{{=it.data.evaluate_list[i].geval_content}}</div>
+            {{ if( it.data.evaluate_list[i].images.length != 0) { }}
+            <div class="preview-list">
+                {{ if( it.data.evaluate_list[i].images.length < 4) { }}
+                {{ for ( var j=0 ; j <  it.data.evaluate_list[i].images.length ; j++){ }}
+                <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                {{ } }}
+                {{ }else{ }}
+                {{ for ( var j=0 ; j < 3 ; j++){ }}
+                <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                {{ } }}
+                {{ for ( var j=3 ; j < it.data.evaluate_list[i].images.length ; j++){ }}
+                <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview" style="display:none;"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                {{ } }}
+                <div class="evaPicNum">共{{=it.data.evaluate_list[i].images.length}}张</div>
+                {{ } }}
+            </div>
+            {{ } }}
+        </div>
+        {{ } }}
+    {{ } }}
+</script>
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_wap_product_detail.min.js -->
+<script type="text/javascript" src="js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="js/lib/doT.min.js"></script>
+<script type="text/javascript" src="js/lib/dialog.min.js"></script>
+<script type="text/javascript" src="js/lib/mobile-photo-preview.min.js"></script>
+<script type="text/javascript" src="js/lib/swipe.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/wap_product_details.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

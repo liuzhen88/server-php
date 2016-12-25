@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#fff;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+#header{ width:100%; height:44px; line-height:44px; background-color:#ff4745; color:#fff; font-size:18px; position:fixed; top:0px; left:0px; z-index:100; }
+#header a{color:#fff; position:absolute; top:0px; left:10px;}
+#header a img{width: 22px; height: auto; vertical-align: top; margin-top: 11px; margin-left: 10px;}
+
+#shaFCon{ margin-top: 90px;}
+
+#shaRAccept{ width:90%; height:46px; line-height:46px; color:#fff; background-color:#ff4745;font-size:18px; margin:15px auto; border-radius:4px; text-align:center; cursor:pointer;}
+
+#shaRAcceptForAnd{width:90%; height:0px;}
+
+
+#shaFConLay{ display:none; position:fixed; top:0px; left:0px; width:100%; height:100%; background:url(../images/lay_lmy.png) repeat;z-index:1000;}
+
+#shaFCongraBox{width:90%; overflow:hidden; border-radius:6px; background-color:#fef5aa; margin:0px auto; position:relative;}
+#shaFCImg{ height:55%; overflow:hidden; overflow: hidden;}
+#shaFCImg img{ width:100%; height:100%;}
+
+#shaFCClose{ position:absolute; top:15px; right:15px; z-index:5; cursor:pointer;}
+#shaFCClose img{width:20px; height:20px;}
+
+#shaFCCon{height:45%; background-color:#fff;}
+#shaFCC1{color:#ff4745;font-size:18px; line-height:35px;}
+#shaFCC2{color:#999; line-height:25px;}
+#goShareSale{ background-color:#ff4745; height:50px; line-height:50px; color:#fff; font-size:18px; width:80%; border-radius:50px; margin:10px auto 0px;}
+
+#shaFCConB{ height:125px;}
+
+#toSaleRole{ width:100%; height:40px; line-height:40px; border-bottom: #e6e6e6 solid 1px; background: #fff; text-align:left; position: fixed; top:44px;left: 0; z-index: 100;}
+#toSaleRole img{ width:16px; height:16px; vertical-align:top; margin:13px 10px 0px 15px;}
+#toSaleRole a{ text-decoration:underline; color:#ff4745;}
+#toSaleRole span{ display:none;}
+
+#shaFContant{ width:90%; text-align:left; font-size:14px; margin:0px auto;}
+#shaFContant p{ line-height:25px; margin-top:8px; margin-bottom:8px;}
+#shaFContant p span{color:#ff4745;}
+#shaFContant p img{width:100%; height:auto;}
+ 
+

@@ -1,0 +1,197 @@
+@charset "utf-8";
+.header-wrap{
+    position: fixed;
+    height:44px;
+    background: none;
+}
+.header-wrap h2{
+    font-size:18px;
+    height:44px;
+    line-height: 44px;
+}
+.header-back {
+    position: absolute;
+    top:0;
+    width: 44px;
+    height: 44px;
+}
+.header-back span {
+    width: 44px;
+    height: 44px;
+    text-indent: -9999px;
+    background: url(../images/back.png) center center no-repeat;
+    background-size: auto 26px;
+    display: block;
+}
+.myinfo{
+    position: relative;
+    height: 160px;
+    width: 100%;
+    background:#FF4946 no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+.main{
+  padding:0 0 45px;
+}
+.info-wrap{
+    position: relative;
+    padding-top: 66px;
+    height:64px;
+}
+.info-image{
+    position: absolute;
+    left:15px;
+    width:64px;
+    height:64px;
+    border-radius: 32px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: url("../images/default-img.png") no-repeat;
+    background-size:100%;
+    overflow:hidden;
+}
+.info-image img {
+    width:100%;
+    height:100%;
+}
+.info-name{
+    position: absolute;
+    left:94px;
+    padding:10px 0;
+    color: #fff;
+}
+.info-name-text{
+    font-size: 16px;
+    line-height: 28px;
+    height:28px;
+    text-shadow:1px 1px 1px #000;
+}
+.info-name-code{
+    font-size: 12px;
+    line-height: 16px;
+    height:16px;
+    text-shadow:1px 1px 1px #000;
+}
+.info-arrows{
+    position: absolute;
+    right:15px;
+    top:86px;
+    width:18px;
+    height:18px;
+    background:url(../images/my_arrow_more_white.png) center center no-repeat;
+    background-size:contain ;
+}
+.myshare{
+    margin-top: 30px;
+    display: none;
+}
+.myshare a{
+    display: block;
+    float:left;
+    width:33%;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+.myshare .fans{
+    border-left:1px solid #b79999;
+    border-right:1px solid #b79999;
+}
+.jl-member .member-list{
+    width:100%;
+    margin-bottom:16px;
+    background:#fff;
+    border-bottom:1px solid #e5e5e5;
+}
+.jl-member .member-list li{
+    height:40px;
+    border-top:1px solid #e5e5e5;
+    padding:0;
+}
+.jl-member .member-list a {
+    display:block;
+    padding:0 16px;
+    height:100%;
+    color:rgba(0,0,0,87);
+    line-height:40px;
+    font-size:14px;
+}
+.jl-member .member-list span{
+    display:inline-block;
+    width:24px;
+    height:24px;
+    vertical-align:middle;
+    margin-right:18px;
+}
+.jl-member span.order {
+    background: url(../images/member/my_ic_order@3x.png) center center no-repeat;
+    background-size: 24px;
+}
+.jl-member span.collect {
+    background: url(../images/member/my_ic_collect@3x.png) center center no-repeat;
+    background-size: 24px;
+}
+.jl-member span.tel{
+    background: url(../images/member/my_ic_phone@3x.png) center center no-repeat;
+    background-size: 24px;
+}
+.jl-member span.follow{
+    background: url(../images/member/ic-attention@3x.png) center center no-repeat;
+    background-size: 24px;
+}
+.jl-member span.address{
+    background:url(../images/pers_icon4.png) center center no-repeat;
+    background-size:24px;
+}
+
+.jl-member span.share-sale-be{
+    background:url(../images/ic_fenxiao@2x.png) center center no-repeat;
+    background-size:24px;
+}
+
+.jl-member span.share-sale-manager{
+    background:url(../images/ic_fen-xiao-guan-li@2x.png) center center no-repeat;
+    background-size:24px;
+}
+
+.jl-member span.points{
+    background:url(../images/my_ic_point@3x.png) center center no-repeat;
+    background-size:24px;
+}
+
+.jl-member span.people{
+    background:url(../images/my_ic_people@3x.png) center center no-repeat;
+    background-size:24px;
+}
+
+.jl-member span.more{
+    background:url(../images/my_ic_more@3x.png) center center no-repeat;
+    background-size:24px;
+}
+
+
+
+.jl-member .member-list span.tel-text{
+    float: right;
+    color: #999;
+    width:auto;
+    height:48px;
+    line-height: 48px;
+    margin:0;
+}
+.member-list-tel {
+    display: block;
+}
+.mem_exit {
+    display:block;
+    width:92%;
+    margin:10px 4%;
+    height:44px;}
+.mem_exit a {
+    display: block;
+    background:#ff4946;
+    color:#fff;
+    text-align:center;
+    line-height:44px;
+    font-size:14px;
+}

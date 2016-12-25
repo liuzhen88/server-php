@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title></title>
+
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="position.html" class="my-address">
+            <span class="my-address-location"></span>
+            <span class="my-address-text">跑腿邦</span>
+            <span class="my-address-arrow"></span>
+        </a>
+        <a href="personal.html" class="my-center"></a>
+    </div>
+    <div class="content">
+        <div class="list-category">
+            <ul id="categoryWrap">
+            </ul>
+        </div>
+        <div class="list-product" id="productWrap">
+        </div>
+        <div class="noStore">当前定位地址暂未开通服务~</div>
+    </div>
+    <div class="pub-cart">
+        <div class="cart-num">
+            <span class="shopping-count"></span>
+        </div>
+        <div class="cart-total">
+            <div class="cart-total-pay">共 <span id="totalPrice">0.00</span>元</div>
+            <div class="cart-total-postage">另需配送费 <span id="cart-pei-money">￥</span></div>
+        </div>
+        <a class="cart-sure">选好了</a>
+        <a class="cart-clear">清空购物车</a>
+        <a class="cart-none" href="javascript:"></a>
+    </div>
+
+    <!--蒙层-->
+    <div class="index-lay"></div>
+
+    <!--购物车-->
+
+    <div class="pub-cart-box">
+        <div class="pub-cart-ul">
+            <ul id="list">
+
+
+            </ul>
+        </div>
+        <div class="cart-total-box">
+            <div class="float-left cart-total-left">
+                <div class="cart-total-price">共<span id="total-money"></span>元</div>
+                <div class="cart-send-price">免配送费</div>
+            </div>
+            <div class="float-right cart-total-right" id="selectOver">选好了</div>
+            <div class="clear-float"></div>
+        </div>
+    </div>
+
+    <!--商品详情-->
+    <div class="product-detail-box"></div>
+    <div class="product-detail-confirm">确定</div>
+
+</div>
+
+<script type="text/template" id="list-category-tmpl">
+    {{ for(var i=0;i< it.length;i++){ }}
+    <li data-id="{{=it[i].gc_id}}">{{=it[i].gc_name}}</li>
+    {{ } }}
+</script>
+<script type="text/template" id="list-product-tmpl">
+    {{ for(var i=0;i< it.length;i++){ }}
+    <li class="clearfix list-per-goods" data-goodsid="{{=it[i].goods_id}}">
+        <div class="product-image" style="background-image: url({{=it[i].goods_image}})"></div>
+        <div class="product-desc">
+            <p class="product-desc-title"><span>{{=it[i].goods_name}}</span>
+                {{ if(it[i].league_goods_storage == 0){ }}
+                缺货
+                {{ } }}
+            </p>
+            <div class="product-desc-box clearfix">
+                <div class="product-desc-box-text">
+                    <p class="product-desc-attribute">{{=it[i].goods_size}}</p>
+                    <p class="product-desc-price">
+                        <span>￥</span>
+                        <span class="price-num">{{=it[i].league_goods_price}}</span>
+                    </p>
+                </div>
+                <div class="product-desc-box-btn" data-goodsid="{{=it[i].goods_id}}" data-price="{{=it[i].league_goods_price}}">
+                    {{ if(it[i].cart_goods_num!=0){ }}
+                    <div class="desc-box-btn-del" style="display: block;float: left;"></div>
+                    <div class="desc-box-num" style="display: block; float: left;">{{=it[i].cart_goods_num}}</div>
+                    {{ } else{ }}
+                    <div class="desc-box-btn-del"></div>
+                    <div class="desc-box-num">{{=it[i].cart_goods_num}}</div>
+                    {{ } }}
+
+
+                    {{ if(it[i].league_goods_storage != 0){ }}
+                    <div class="desc-box-btn-add"></div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+        <span class="none">{{=it[i].goods_id}}</span>
+    </li>
+    {{ } }}
+</script>
+
+<script type="text/template" id="product-detail-tmpl">
+    <div class="product-detail-banner">
+        {{ if(it.good_image.length>0){ }}
+        <img src="{{=it.good_image[0]}}"/>
+        {{ }else{ }}
+        <img src="img/pd_img.jpg"/>
+        {{ } }}
+    </div>
+    <div class="pd-goods-name">{{=it.good_info.goods_name}}</div>
+    <div class="pd-price-box">
+        {{ if(it.good_info.goods_promotion_type==0){ }}
+        <div class="pd-price-now float-left">¥{{=it.good_info.goods_price}}</div>
+        {{ }else{ }}
+        <div class="pd-price-now float-left">¥{{=it.good_info.goods_promotion_price}}</div>
+        <div class="pd-price-old float-left">¥{{=it.good_info.goods_price}}</div>
+        {{ } }}
+        <div class="pd-price-right float-right"><img src="img/add_icon.png" /><span class="goods_id">{{=it.good_info.goods_id}}</span></div>
+        <div class="pd-price-center float-right">1</div>
+        <div class="pd-price-left float-right"><img src="img/del_icon.png" /><span class="goods_id">{{=it.good_info.goods_id}}</span></div>
+        <div class="clear-float"></div>
+    </div>
+    <div class="pd-goods-style">
+        <span class="pd-goods-left">产品规格</span>
+        <span class="pd-goods-right">{{=it.good_info.goods_size}}</span>
+    </div>
+    <div class="product-details">
+        {{ if(it.good_info.mobile_body==""){ }}
+            <div class="pd-null">
+                <img src="img/data_null.png"/>
+                主人太懒，没留下商品详情~
+            </div>
+        {{ }else{ }}
+            {{=it.good_info.mobile_body}}
+        {{ } }}
+    </div>
+</script>
+
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common/jsfloat.js"></script>
+<script type="text/javascript" src="js/get_location.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/shopping_cart.js"></script>
+<script type="text/javascript" src="js/product_details.js"></script>
+</body>
+</html>

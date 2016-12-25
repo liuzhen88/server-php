@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_share_message.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/share_message.css">
+    <!-- endbuild -->
+
+    <title>消息</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>消息</h2>
+</div>
+<section class="height-for-margin"></section>
+<section class="s-Mess-head">
+    <section class="smh-box float-left smh-box-in"><span>评论</span></section>
+    <section class="smh-box float-left"><span>赞</span></section>
+</section>
+<section class="clear-float sm-list">
+    <ul>
+
+    </ul>
+</section>
+
+
+<script type="text/template" id="commentlistTmpl">
+    {{ if(it.data.length==0){ }}
+    <div class="dataNull">目前还没有评论</div>
+    {{ }else{ }}
+    {{ for ( var i=0 ; i<it.data.length;i++){ }}
+    <li class="sm-list_li">
+        <section class="sm-list-box special">
+            <section class="float-left sm-imgavator-box">
+                <img src="{{=it.data[i].member_avatar}}" >
+            </section>
+            <section class="float-left sm-text-box">
+                <section class="sm-text-box1">{{=it.data[i].member_truename}}<span>{{=changeTimeFormat(it.data[i].reply_addtime)}}</span></section>
+                <section class="sm-text-box2"><span>{{=isComment(it.data[i].reply_replyid)}}：{{=it.data[i].reply_content}}</span>…</section>
+            </section>
+            <section class="float-left sm-img-box">
+                <img src="{{=it.data[i].theme_pic}}" >
+            </section>
+            <section class="float-left sm-delbtn" onclick="delComment($(this),{{=it.data[i].theme_id}},{{=it.data[i].reply_id}});">
+                删除
+            </section>
+        </section>
+    </li>
+    {{ } }}
+    {{ } }}
+</script>
+
+<script type="text/template" id="zanlistTmpl">
+    {{ if(it.data.length==0){ }}
+    <div class="dataNull">目前还没有赞</div>
+    {{ }else{ }}
+    {{ for ( var i=0 ; i<it.data.length;i++){ }}
+    <li class="sm-list_li">
+        <section class="sm-list-box special">
+            <section class="float-left sm-imgavator-box">
+                <img src="{{=it.data[i].member_avatar}}" >
+            </section>
+            <section class="float-left sm-text-box">
+                <section class="sm-text-box1">{{=it.data[i].member_truename}}<span>{{=changeTimeFormat(it.data[i].addtime)}}</span></section>
+                <section class="sm-text-box2">赞了你</section>
+            </section>
+            <section class="float-left sm-img-box">
+                <img src="{{=it.data[i].theme_pic}}" >
+            </section>
+            <section class="float-left sm-delbtn" onclick="delZan($(this),{{=it.data[i].theme_id}},{{=it.data[i].id}});">
+                删除
+            </section>
+        </section>
+    </li>
+    {{ } }}
+    {{ } }}
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_share_message.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/share_common.js"></script>
+<script type="text/javascript" src="js/share_message.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

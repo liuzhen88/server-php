@@ -1,0 +1,89 @@
+@charset "utf-8";
+.content{
+     width:100%;height:100%;padding-top:56px ;overflow-y: auto;overflow-x:hidden;-webkit-overflow-scrolling: touch;margin-bottom: 10px;
+ }
+.clear{
+    clear: both;
+}
+.fl{float: left}
+.fr{float:right}
+.line{
+    height:15px;width: 100%;
+}
+.border{border-bottom: 1px solid #eeeeee; border-top: 1px solid #eeeeee;}
+/*product*/
+.product{
+    width:100%;height:90px;background: #ffffff;overflow: hidden;
+}
+.product-img{width:30%;height: 100%;}
+.product-img img{width:70px;height:70px;padding:12px 12px 12px 15px;}
+.product-tittle{width:45%;height: 100%;;position: relative;}
+.product-name{position: absolute;top:18px;left:0;width:100%;height:20px;overflow: hidden;color: #333333;font-size:15px;}
+.product-price{position: absolute;top:50px;left:0;width:100%;overflow: hidden;color: #333333;font-size:15px;}
+.product-distance{position:relative;width:25%;height: 100%;}
+.product-dist{position: absolute;top:20px;right:15px;width:100%;overflow: hidden;color: #999999;font-size:12px;text-align: right}
+.product-sold{position: absolute;top:50px;right:15px;width:100%;overflow: hidden;color: #999999;font-size:12px;text-align: right}
+
+/*evaluate*/
+.evaluate{height:44px;width:100%;background: #ffffff;}
+.evaluate-star{width:auto;height: 100%;}
+.evaluate-star ul{float:left;margin: 12px 5px 12px 15px;width:auto}
+.evaluate ul li{float:left;list-style-type:none;padding:0 3px;text-align: center}
+.evaluate ul li img{width:15px;height: 15px;}
+.evaluate-score{height:100%;line-height: 44px;color: #ffad00;}
+
+/*address*/
+.address{height:102px;width:100%;background: #ffffff}
+.address-info{height:43px;line-height:44px;border-bottom: 1px solid #cccccc;position: relative;padding-left: 15px;color: #333333;font-size: 15px;}
+.address-dist{position: absolute;top:0px;right:15px;width:100%;overflow: hidden;color: #999999;font-size:12px;text-align: right}
+.address-call{height:58px;position: relative;padding-left: 15px;}
+.address-name{height:15px;color: #333333;font-size: 15px;position: absolute;top:10px;left:15px;}
+.address-explain{height:15px;color: #999999;font-size: 12px;position: absolute;top:35px;left:15px;}
+.address-phone{height:38px;top:10px;width:38px;position: absolute;right:15px;}
+.address-phone img{height:38px;width: 38px;}
+
+/*order*/
+.order{height:auto;width:100%;background: #ffffff;padding-bottom:15px}
+.order-info{height:44px;line-height:44px;position: relative;padding-left: 15px;color: #333333;font-size: 15px;}
+table{width:100%;height: auto;}
+table tr{width:100%;height:28px;}
+.table-name{width:35%;text-align: left;padding-left: 15px;color:#999999;font-size: 12px;line-height: 28px;}
+.table-value{width:65%;text-align: left;padding-left: 15px;color:#333333;font-size: 13px;line-height: 28px;position: relative}
+
+/*to be evaluated*/
+.product-star{position: absolute;top:40px;left:0;color: #999999;font-size:12px;width:100%;height: 30px;}
+.product-star ul{display: inline-block;width:auto;}
+.eva{height:25px;line-height: 25px;padding-left: 5px;}
+.product ul li{float:left;list-style-type:none;width:20%;text-align: center;height: 20px;line-height: 20px;}
+.product ul li img{width:25px;height: 18px;text-align: center}
+.product-score{height:100%;line-height: 44px;color: #ffad00;}
+.product-tittle2{position:relative;width:55%;height: 100%;}
+.product-distance2{position:relative;width:15%;height: 100%;}
+.product-address{position: absolute;top:62px;left:0;width:100%;overflow: hidden;color: #999999;font-size:12px;}
+.table-tips{position: absolute;right:10px;top:0;height:28px;width:auto;line-height: 28px;color: #999999;font-size:12px;}
+/*apply_refund*/
+.refund{height:39px;width:100%;background: #ffffff;position: relative}
+.refund-money{height:40px;line-height: 40px;font-size: 15px;padding-left: 15px;color: #333333}
+.refund-price{position: absolute;top:11px;right:15px;font-size: 15px;color: #999999}
+.refund-tips{height:36px;line-height: 36px;font-size: 12px;color: #999999;padding-left: 15px;}
+.submit{width:80%;background: #ef5350;color: #ffffff;font-size: 15px;height: 40px;line-height: 40px;margin: 0 10%;text-align: center}
+.submit a{color: #ffffff;display: inline-block;height: 40px;line-height: 40px;width: 100%;}
+
+/*refund_success*/
+.success{height: 40px;width:100%;padding-top: 44px;text-align: center}
+.success img{
+    width:40px;height: 40px;
+}
+.success-tittle{
+    width:100%;height:20px;padding:10px 0 40px 0 ;text-align: center;color: #ff4946;font-size: 15px;
+}
+.success-text{
+    width:80%;height:40px;line-height:20px;margin:0 10% 20px 10%;text-align: left;color: #999999;font-size: 13px;
+}
+.success-click{
+    width:60%;height:40px;line-height:40px;margin: 0 20%;text-align: center;font-size: 18px;font-weight: 600;color: #FF4946;border: 1px solid #FF4946;border-radius: 20px;
+}
+.success-click a{width:100%;height: 100%;display: inline-block}
+
+
+

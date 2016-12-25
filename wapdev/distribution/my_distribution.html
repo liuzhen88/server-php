@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我的分销</title>
+    <link href="css/my_distribution.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <h2>我的分销</h2>
+    <a class="back" href="javascript:history.back();"></a>
+    <div class="get-more">查看统计</div>
+</header>
+<section id="goods_container"></section>
+<script type="text/template" id="goods">
+<section class="person-total">
+    <div class="person-total-content">
+        <div class="get-total-money">总共赚取佣金</div>
+        {{ if(it.list.length>0){ }}
+        <div class="money-container">
+            ￥{{=it.count}}
+        </div>
+        {{ }else{ }}
+        <div class="money-container">
+            ￥0.00
+        </div>
+        {{ } }}
+    </div>
+</section>
+{{ if(it.list.length==0){ }}
+<section class="null-data">~亲，您暂无分销商品哟~</section>
+{{ }else{ }}
+{{ for(var i=0;i<it.list.length;i++){ }}
+<section class="list">
+    <section class="list-container">
+        <section class="list-img">
+            <img src="{{=it.list[i].goods_image}}" width="70px" height="70px" id="goods-img"/>
+        </section>
+        <section class="list-details">
+            <div class="goods_name">{{=it.list[i].goods_name}}</div>
+            <div class="goods-money">佣金   <span class="money">￥{{=it.list[i].goods_price}}</span></div>
+        </section>
+        <div class="total-money">￥{{=it.list[i].goods_price}}</div>
+        <div class="details">明细 >
+            <span class="goods-id">{{=it.list[i].goods_id}}</span>
+        </div>
+    </section>
+</section>
+{{ } }}
+{{ } }}
+</script>
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/my_distribution.js"></script>
+</body>
+</html>

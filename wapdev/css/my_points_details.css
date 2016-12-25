@@ -1,0 +1,5 @@
+.per-line-box{margin-top: 10px; border-top:#e6e6e6 solid 1px;  font-size: 14px; color: #999;background: #fff;}
+.per-line{line-height: 44px; height: 44px;border-bottom:#e6e6e6 solid 1px;padding: 0px 15px; }
+
+#order_sn,#serial_number,#lg_add_time,#lg_type_tip,#lg_av_amount_box{display: none;}
+.lg_av_amount,#lg_type_tip .on{color:#43bfa4;}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style_jl.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body style="background:url(images/login_bg@2x.png) no-repeat;height:100%;">
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back header-back3"><span>返回</span></a>
+    <h2>登录</h2>
+</div>
+
+<section class="my_loginLogo"><img src="images/login_logo2x.png"/></section>
+<section class="my_loginBox">
+    <form action="" method="">
+        <section class="my_loginUser">
+            <img src="images/phone@2x.png"/><input type="text" name="username" id="username" placeholder="请输入手机号"/>
+            <!--<section class="userName_lay"></section>-->
+        </section>
+
+        <section class="my_loginPass">
+            <img src="images/lock@2x.png"/><input type="password" name="pwd" id="userpwd" placeholder="请输入密码"/>
+            <!--<section class="userPwd_lay"></section>-->
+        </section>
+    </form>
+</section>
+
+<section class="my_passwordBox clearfix">
+    <section class="my_passwordBoxL"><img src="images/checked@2x.png"/>记住密码</section>
+    <section class="my_passwordBoxR"><img src="images/forgetPwd@2x.png"/>忘记密码</section>
+    <section class="clear_float"></section>
+</section>
+
+<div class="messageTips"></div>
+<section class="my_btnLogin" id="loginbtn">登录</section>
+<section class="my_btnRegister">快速注册</section>
+
+<input type="hidden" name="referurl">
+
+<script type="text/javascript" src="../../js/config.js"></script>
+
+<script type="text/javascript" src="../../js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/tmpl/login.js"></script>
+</body>
+</html>

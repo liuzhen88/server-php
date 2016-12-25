@@ -1,0 +1,333 @@
+@charset "utf-8";
+html{height: 100%}
+body {
+    background:#f7f3f2;height: 100%;width: 100%;
+}
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:28px;
+    padding:8px 0;
+    background:#ff4946;
+    z-index: 9999;
+}
+header .head-back{
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0;
+    width:44px;
+    height:44px;
+    background:url("../img/ic-back.png") center no-repeat;
+    background-size: auto 20px;
+}
+header .refresh{
+    display: block;
+    position: absolute;
+    right: 0;
+    top:0;
+    width:44px;
+    height:44px;
+    line-height: 44px;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.nav-header {
+    width:155px;
+    height:27px;
+    margin:0 auto;
+    overflow:hidden;
+    font-size: 0;
+    border:#fff solid 1px;
+    border-radius:4px;
+}
+.nav-header li{
+    display: inline-block;
+    width:50%;
+    height:27px;
+    text-align: center;
+    font-size: 14px;
+    line-height:27px;
+    color:#fff;
+    border-radius:4px;
+}
+.nav-header li.on{
+    color:#ff4946;
+    background:#fff;
+}
+.my-main{
+    overflow: hidden;
+    padding-top:44px;
+}
+.order-status {
+    position: relative;
+    padding-left:44px;
+}
+.status-info {
+    width:100%;
+}
+.status-info li {
+    padding:12px 15px 12px 0;
+    color:#999;
+    font-size: 12px;
+    line-height: 22px;
+    height:44px;
+    border-bottom:#e5e5e5 solid 1px;
+}
+.status-info p.time {
+    text-align: right;
+    height:22px;
+}
+p.time span {
+    font-size: 14px;
+    color:#333;
+    float: left;
+}
+.status {
+    position: absolute;
+    width:14px;
+    top:17px;
+    left:15px;
+}
+.status .line{
+    position: absolute;
+    height:100%;
+    margin-left:6px;
+    border-left:#e5e5e5 solid 2px;
+}
+.status .round1 {
+    position: relative;
+    display: block;
+    width:14px;
+    height:14px;
+    background: url("../img/ic-round1.png") no-repeat;
+}
+.status .round2 {
+    position: relative;
+    display: block;
+    width:14px;
+    height:14px;
+    margin-bottom:54px;
+    background: url("../img/ic-round2.png") no-repeat;
+}
+.status .round3 {
+    position: relative;
+    display: block;
+    width:14px;
+    height:14px;
+    background: url("../img/ic-round2.png") no-repeat;
+}
+.order-details{
+    display: none;
+}
+.order-details-box{
+    margin-top:10px ;
+    padding:7px 15px 11px;
+    background:#fff;
+    border-top:#e5e5e5 solid 1px;
+    border-bottom:#e5e5e5 solid 1px;
+}
+.order-details-box .jl-title {
+    font-size:14px;
+    color:#666;
+    line-height: 36px;
+}
+.order-info {
+    font-size: 0;
+}
+.order-info span {
+    display: inline-block;
+    line-height: 24px;
+    color:#333;
+    font-size: 12px;
+    vertical-align: top;
+}
+.order-info .goods {
+    width:60%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.order-info .num {
+    width:20%;
+    text-align: center;
+}
+.order-info .price {
+    width:20%;
+    text-align: right;
+    color:#ff4946;
+}
+.total {
+    padding-top:7px;
+    text-align: right;
+    font-size: 12px;
+    line-height: 12px;
+    color:#999;
+}
+.total span {
+    color:#ff4946;
+}
+.details {
+    font-size: 12px;
+    color:#999;
+    line-height:24px;
+}
+.details span{
+    color:#333;
+}
+@keyframes marginB {
+    from {
+        margin-bottom:0;
+    }
+    to {
+        margin-bottom:54px;
+    }
+}
+
+@-webkit-keyframes marginB  {
+    from {
+        margin-bottom:0;
+    }
+    to {
+        margin-bottom:54px;
+    }
+}
+.status .round2 {
+    animation: marginB 400ms ease-in-out;
+    -webkit-animation: marginB 400ms ease-in-out;
+}
+/*订单状态*/
+.steps{
+    height: auto;
+    background: #ffffff;
+    padding-left: 44px;
+    margin-bottom:100px;
+    overflow-y: auto;
+}
+.step{
+    display: none;/*默认都是隐藏的*/
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0 0 0;
+    color: #999999;
+}
+
+.title{
+    overflow: hidden;
+    height: 20px;
+    line-height: 20px;
+    width:auto;
+    text-align: left;
+    font-size: 14px;
+    position: relative;
+}
+.time{
+    top:0;
+    right: 10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    position: absolute;
+
+}
+.cont{
+    overflow: hidden;
+    font-size: 12px;
+    height:auto;
+    line-height: 15px;
+    padding: 10px 0;
+    width:auto;
+    table-layout:fixed;
+    word-break:break-all;
+    border-bottom: 1px solid #d6d6d6;
+}
+.cont p{letter-spacing: 1px;}
+.shouhuoma{color: #ff4946;font-size: 14px;margin: 0 0 8px 0;text-align: center}
+.erweima{width: 100%;height: 140px;padding-top: 5px;display: inline-block;position: relative;}
+.cont img{width:140px;height: 140px;text-align: center;position: absolute;top:0 ;left: 50%;margin-left: -70px;}
+.line1{
+    position: absolute;
+    left:21px;
+    top:72px;
+    border: 1px solid #e5e5e5;
+    height: 0;/*step1高度减去28px再减去2px的边框,直径*/
+}
+.line2{
+    position: absolute;
+    left:21px;
+    top:0;/*line1的height+top+30px*/
+    border: 1px solid #e5e5e5;
+    height: 0;/*第二个show的高度*/
+}
+.line3{
+    position: absolute;
+    left:21px;
+    top:0;/*line1的height+top+30px*/
+    border: 1px solid #e5e5e5;
+    height: 0;/*第三个show的高度*/
+}
+.top1{
+    top:58px;/*line1的top-30px*/
+    position: absolute;
+}
+.top2{
+    top:0;/*line2的top-30px*/
+    position: absolute;
+}
+.top3{
+    top:0;/*line3的top-30px*/
+    position: absolute;
+}
+.top4{
+    top:0;/*line4的top-30px*/
+    position: absolute;
+}
+.success{border-bottom: 1px solid #d6d6d6;padding-bottom: 10px;}
+.yuanquan{height: 14px;width: 14px;border: 1px solid #e5e5e5;border-radius: 14px;position: absolute;left:14px;}
+.dian{height: 3px;width: 3px;border-radius: 3px;text-align: center;background: #666666;position: absolute;top:50%;left:50%;margin: -1px 0 0 -1px}
+.choose{border:1px solid #f00}
+.dian-choose{background: #f00; height: 3px;width: 3px;border-radius: 3px;text-align: center;position: absolute;top:50%;left:50%;margin: -1px 0 0 -1px}
+.foot1{display:none;float:left;position: fixed;width:100%;height: 48px;bottom: 0;border-top: 1px solid #d6d6d6;background: #ffffff;margin: 0 auto}
+.foot2{display:none;position: fixed;width:100%;height: 80px;bottom: 0;border-top: 1px solid #d6d6d6;background: #ffffff;margin: 0 auto}
+.foot3{display:none;position: fixed;width:100%;height: 80px;bottom: 0;border-top: 1px solid #d6d6d6;background: #ffffff;margin: 0 auto}
+.foot-time{position:relative;height: 32px;text-align: left;padding:0 15px;font-size: 14px;line-height: 32px;border-bottom: 1px solid #e6e6e6;color: #999999}
+.foot-time p{padding-left: 30px;}
+.song-time{color: #000000}
+.foot-time img{position:absolute;height:21px;width: 21px;top:11px; }
+.foot-cancel{display:inline-block;height:48px;text-align: center;width: 100%;font-size:16px;line-height: 48px;position: relative;color: #ff9e05}
+.go{display:inline-block;height:100%;text-align: center;width: 49%;font-size:16px;line-height: 48px;position: relative;color: #ff9e05}
+.fengexian{width:0px;border-left:1px solid #e6e6e6;height:24px;bottom:12px;position: absolute;left: 50%}
+.cancel{float:right;height:100%;text-align: center;width: 49%;font-size:16px;line-height: 48px;position: relative;color: #ff9e05}
+.zhezhao{
+    display:none;
+    position: fixed;top:0;z-index: 9;
+    width:100%;height: 100%;opacity: 0.8;background: #000000;
+}
+.phone-tip{
+    height: 140px;
+    width: 270px;
+    display: none;
+    position: fixed;
+    top:50%;
+    left:50%;
+    z-index: 10;
+    margin: -70px 0 0 -135px;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: #ffffff;
+}
+.sure{position: absolute;top:24px;width:100%;text-align: center;font-size: 16px;color: #000000}
+.sure2{position: absolute;top:35px;width:100%;text-align: center;font-size: 16px;color: #000000}
+.phone{position: absolute;top:52px;width:100%;text-align: center;font-size: 16px;color: #666666}
+.select{height:44px;line-height:44px;float:left;position: absolute;top:95px;width:100%;text-align: center;font-size: 16px;color: #000000;border-radius: 0 0 4px 4px;border-top: 1px solid #d6d6d6}
+.phone-cancel{float:left;width:49%;border-right: 1px solid #d6d6d6;font-size: 16px;color: #999999;text-align: center}
+.phone-call{float:right;width:48%;font-size: 16px;color: #FF4946;text-align: center}
+.phone-call a{width:100%;display: inline-block;height: 44px;}
+.bottom{width: 100%;height: 48px;background: #fff;position: fixed;left: 0;bottom: 0;z-index: 99;color: #ff9e05;display: none;}
+.bottom-left{font-size: 16px;line-height: 48px;text-align: center;width: 49%;float: left;}
+.bottom-right{font-size: 16px;line-height: 48px;text-align: center;width: 49%;float: right;border-left:solid #ccc 1px; }

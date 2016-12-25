@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/personal_card.css">
+
+    <title>二维码名片</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>二维码名片</h2>
+    <a class="sh_btn_share"></a>
+</div>
+
+<div class="s_main">
+    <div class="bg-2d-code">
+        <div class="avator-box">
+            <div class="avator-img-box float-left">
+                <img src=""/>
+            </div>
+            <div class="user-text-box float-left">
+                <div class="user-text"></div>
+                <div class="invite-text"></div>
+            </div>
+        </div>
+        <div class="code-image-box">
+            <div class="code-image-main">
+                <img src="images/gigegoulogo.png"/>
+            </div>
+        </div>
+        <div class="title-code">简简单单一键分享</div>
+        <div class="title-code">轻轻松松坐享其成</div>
+    </div>
+</div>
+
+<!--分享-->
+<div class="code-lay"></div>
+<div id="share">
+    <div id="share_top">
+        <ul>
+
+            <li class="share"><img src="tmpl/shareSale/images/qq.png" width="52px" class="share_img"/></li>
+            <li class="share"><img src="tmpl/shareSale/images/share4.png" width="52px" class="share_img"/></li>
+            <li class="share"><img src="tmpl/shareSale/images/friend.png" width="52px" class="share_img"/></li>
+            <li class="share"><img src="tmpl/shareSale/images/share1.png" width="52px" class="share_img"/></li>
+        </ul>
+    </div>
+    <div id="share_bottom">取消</div>
+</div>
+<div class="code-lay-jiantou"></div>
+
+<script type="text/javascript" src="js/config.js"></script>
+
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/personal_card.js"></script>
+
+</body>
+</html>

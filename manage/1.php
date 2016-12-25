@@ -1,0 +1,1 @@
+{"form_submit":"ok","adv_cityids":"74,88","adv_provinceids":"[object Object],[object Object]","adv_title":"23123123123","adv_channel":["0","1","2","3","4"],"adv_limit_area":"1","adv_type":"1","adv_start_date":"2015-10-26","adv_end_date":"2015-11-26","adv_order":"1000","adv_link":"454335"}

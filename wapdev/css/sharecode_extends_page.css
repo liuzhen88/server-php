@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+body{background: #fff;font-size: 14px;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.avator-box{ width:202px; height: 44px; margin: 15px 15px 28px 15px;}
+
+.avator-img-box{width:44px;height: 44px;background: #eee;}
+.avator-img-box img{width: 100%; height: 100%; overflow: hidden; border-radius: 4px;}
+.user-text-box{width:150px; height: 44px; margin-left: 8px;}
+.user-text{ font-size: 16px; color: #333; line-height: 24px; height: 24px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.invite-text{font-size: 12px;color: #999; line-height: 20px; height: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+.code-image-box{ width: 220px; height: 220px; margin: 0px auto;}
+.code-image-main{width: 220px; height: 220px;}
+.code-image-main img{width: 50px; height: 50px; margin: 85px 0px 0px 85px;}
+
+.title-code{ color: #666; text-align: center; font-size: 14px; margin-top: 10px;}
+.title-code-line{ width: 100%; border-top: #e6e6e6 solid 1px; margin-top: 24px; padding-top:32px; padding-bottom: 28px;}
+.title-code-line img{ text-align: center; display: block; margin: 0px auto; width: 120px; height: auto;}
+
+.code-page-con{ padding: 0px 15px 60px; color: #666;}
+.code-page-con p{ margin-bottom: 5px;}
+
+.btn-register{ width: 100%; height: 48px; line-height: 48px; text-align: center; position: fixed; bottom: 0; left: 0; z-index: 1001;  border-top: #e6e6e6 solid 1px; background: #fff; color: #ff4946; font-size: 16px; }
+

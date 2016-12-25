@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/personal_center.css">
+
+    <title>个人中心</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>个人中心</h2>
+</div>
+
+<div class="s_main">
+
+    <div class="jl-member">
+        <ul class="member-list">
+            <li>
+                <a id="avator">头像<span class="ic-cont ic-image"><img /></span><span class="ic-jian"></span></a>
+                <form id="file-form" action="http://devshop.aigegou.com/mobile/index.php?act=member_index&op=upload_pic&client_type=wap" method="post" enctype= "multipart/form-data">
+                    <input type="file" id="select-file" name="member_avatar"/>
+                    <input type="submit" id="submit"/>
+                </form>
+
+            </li>
+            <li>
+                <a id="nickname">昵称<span class="ic-cont" id="nick-name"></span><span class="ic-jian"></span></a>
+            </li>
+            <li>
+                <a id="sex">性别<span class="ic-cont"></span><span class="ic-jian"></span></a>
+            </li>
+            <li>
+                <a id="personal-card">个人名片<span class="ic-cont ic-image2"><img src="images/ic-erweima@2x.png"/></span><span class="ic-jian"></span></a>
+            </li>
+        </ul>
+        <ul class="member-list">
+            <li>
+                <a id="login-pwd">登录密码<span class="ic-cont">修改</span><span class="ic-jian"></span></a>
+            </li>
+            <li>
+                <a id="trans-pwd">交易密码<span class="ic-cont"></span><span class="ic-jian"></span></a>
+            </li>
+            <li>
+                <a id="real-name">实名认证<span class="ic-cont"></span><span class="ic-jian"></span></a>
+            </li>
+        </ul>
+        <ul class="member-list">
+            <li>
+                <a id="address">地址管理<span class="ic-jian"></span></a>
+            </li>
+            <li>
+                <a id="link-tel">绑定手机<span class="ic-cont"></span><span class="ic-jian"></span></a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div id="modify-name">
+    <input type="text" id="get_name"/>
+    <div id="modify-name-confirm">
+        <div class="quit">取消</div>
+        <div class="confirm">确认</div>
+    </div>
+</div>
+<div id="screen"></div>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/personal_center.js"></script>
+
+</body>
+</html>

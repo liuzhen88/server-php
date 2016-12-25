@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>收支明细</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/my_points.css"/>
+    </head>
+
+    <body>
+        <div class="sheader">
+            <a href="javascript:history.back();" class="sh_back"></a>
+            <h2>收支明细</h2>
+            <a class="sh_btn_share"></a>
+        </div>
+
+        <div class="s_main">
+            <div id="goodsMain"></div>
+            <section class="add-data-class">数据加载中~</section>
+            <section class="no-data-class">没有相关数据~</section>
+        </div>
+
+        <script type="text/template" id="orderDetails">
+
+            {{ for(var i=0;i<it.length;i++){ }}
+            <section class="points-details">
+                <section class="data_order_sn">{{=it[i].order_sn}}</section>
+                <section class="data_serial_number">{{=it[i].serial_number}}</section>
+
+                <section class="store-details">{{=it[i].lg_type_tip}}</section>
+                <section class="points-date">{{=get_time(it[i].lg_add_time)}}</section>
+
+                {{ if(it[i].lg_av_amount>=0){ }}
+                <section class="points-add">{{=it[i].lg_av_amount}}</section>
+                {{ }else{ }}
+                <section class="points-not-add">{{=it[i].lg_av_amount}}</section>
+                {{ } }}
+
+            </section>
+            {{ } }}
+
+        </script>
+
+
+        <!-- build:inlinejs -->
+        <script type="text/javascript" src="js/config.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/tmpl/common-top.js"></script>
+        <script type="text/javascript" src="js/my_points.js"></script>
+
+    </body>
+</html>

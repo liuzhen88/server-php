@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<title>卖家拒绝</title>
+<link rel="stylesheet" type="text/css" href="../../css/style_jl.css"/>
+<link href="css/sellersRefuse.css" type="text/css" rel="stylesheet"/>
+<script src="../../js/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="../../js/config.js" type="text/javascript"></script>
+<script src="js/getUrlParameter.js" type="text/javascript"></script>
+<script src="../../js/common.js" type="text/javascript"></script>
+<script src="../../js/tmpl/common-top.js" type="text/javascript"></script>
+
+<script src="js/sellersRefuse.js" type="text/javascript"></script>
+</head>
+<body style="background:#f6f3f3;">
+<header id="header"></header>
+<div class="main" id="main-container">
+<section id="se1">
+	<section id="se1_box">
+    	<p style="color:#333333; font-size:16px;">卖家(<span id="sellerName">某某</span>)拒绝了您的退货申请</p>
+        <div id="refuse_reason">
+        	<div id="refuse_left">拒绝说明：</div>
+            <div id="refuse_right"></div>
+        </div>
+        <div id="refuseVoucher">
+        	<div id="voucher_left">拒绝凭证：</div>
+            <div id="voucher_right">
+            	<ul>
+                	<li><img src="images/qw.jpg" width="70px" height="70px"/></li>
+                    <li><img src="images/qw.jpg" width="70px" height="70px"/></li>
+                    <li><img src="images/qw.jpg" width="70px" height="70px"/></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div id="btn">
+        	 
+            	<div id="btn_left">修改申请</div>
+                <!--<div id="btn_right">申请爱个购客服介入</div>-->
+            
+        </div>
+    </section>
+</section>
+<section id="se2">
+	<section id="se2_box">
+        <p><span style="color:#333333;">退款编号：</span><span id="order_num"></span></p>
+        <p><span style="color:#333333;">申请时间：</span>2015-12-25 12:35:41</p>
+        <p><span style="color:#333333;">退款类型：</span><span id="order_reason"></span></p>
+        <p><span style="color:#333333;">退款金额：</span><span id="order_money"></span></p>
+        <p><span style="color:#333333;">退款原因：</span><span id="reason_right"></span></p>
+    </section>
+</section>
+</div>
+</body>
+</html>

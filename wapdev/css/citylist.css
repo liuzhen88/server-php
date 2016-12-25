@@ -1,0 +1,87 @@
+
+.header{
+    height:44px;
+    background: #ee534f;
+}
+.head-text{
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+}
+
+.now-city{
+    margin-top: 5px;
+    padding:0 20px;
+    height:50px;
+    line-height: 50px;
+    border-top:1px solid #dcdcdc;
+    border-bottom:1px solid #dcdcdc;
+}
+.now-city .city-title{
+    display: inline-block;
+    color:#959595;
+}
+.now-city .city-name{
+    display: inline-block;
+    color:#f32d2e;
+    font-size: 18px;
+}
+.hot-city,.all-city{
+    background: #efefef;
+}
+.hot-city .city-title,.all-city .city-title{
+    padding:0 20px;
+    height:36px;
+    line-height: 36px;
+    color:#959595;
+}
+.hot-city-cnt{
+    padding:15px 0;
+    background: #fff;
+}
+.hot-city-cnt .city-box{
+    float: left;
+    width:33.3%;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    color: #696969;
+    background: #fff;
+}
+
+.all-city-box .all-city-box-title{
+    padding-left: 20px;
+    height: 50px;
+    line-height: 50px;
+    background: #E0DDDD;
+    color: #555;
+    font-size: 24px;
+}
+.all-city-box li{
+    height:50px;
+    line-height: 50px;
+    padding-left:18px;
+    border-bottom: 1px solid #c8c7cc;
+}
+
+.all-city-box .noborder{
+    border:none;
+}
+.select-box{
+    background: #fff;
+    padding: 20px;
+}
+.select-box li{
+    padding:8px 0;
+    float:left;
+    width:14.2%;
+    height:45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 20px;
+}
+.select-box li a{
+    color: inherit;
+    display: block;
+}

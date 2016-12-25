@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>我的收藏</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/style_jl.css"/>
+</head>
+<body>
+<header id="header"></header>
+<div class="main" id="main-container">  
+    <div class="jl-goods-list">
+        <ul class="lmy">
+            
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript">
+
+//获取url参数
+function request(paras)
+	    { 
+	        var url = location.href; 
+	        url=decodeURI(url);
+	        var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+	        var paraObj = {}; 
+	        for (var i=0; j=paraString[i]; i++){ 
+	        paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+	        } 
+	        var returnValue = paraObj[paras.toLowerCase()]; 
+	        if(typeof(returnValue)=="undefined"){ 
+	        return ""; 
+	        }else{ 
+	        return returnValue; 
+	        } 
+	    }
+var doc_h;//document的高度
+var height;//window的高度
+var scroll_top;//滚动条距离顶部的高度
+var curpage_num=1;
+var cur_num=1;
+var lat=request("lat");
+var lng=request("lng");
+$(document).ready(function(){
+	
+	var key=request('key');
+	var type=request('client_type');
+	addcookie('type',type);
+	type=getcookie('type');
+	if(key==''){
+		if(request('client_type')=='ios'||request('client_type')=='android'||request('client_type')=='iOS'){
+			if(getcookie("key")!=''){
+			key=getcookie('key');
+			}else{
+					addcookie("key","");
+			}
+			 
+			
+		}else{
+			key=getcookie('key');
+		}
+	}else{
+		addcookie('key',key);
+		key=getcookie('key');	
+	}
+	if(lat==''){
+		lat=getcookie('lat');	
+	}else{
+		addcookie('lat',lat);
+		lat=getcookie('lat');
+		
+	}
+	if(lng==''){
+		lng=getcookie('lng');	
+	}else{
+		addcookie('lng',lng);
+		lng=getcookie('lng');	
+	}
+	var version_name=request("version_name");
+	
+	if(type=='android'||type=='ios'||type=='iOS'){
+		addcookie("version_name",version_name);
+		 
+	}
+	if(key==''){
+		window.location.href=WapSiteUrl+"/tmpl/member/login.html";
+	}else{
+		var cart_id=new Array(),store_id=new Array(),goods_name=new Array(),goods_price=new Array(),goods_id=new Array(),goods_image_url=new Array(),fav_id=new Array();
+		//线上
+		$.ajax({
+			url:ApiUrl+"/index.php?act=member_favorites&op=favorites_list&key="+key+"&client_type=wap&is_online=2",
+			type:"get",
+			dataType:"jsonp",
+			jsonp:"callback",
+			success: function(data){
+				if(data.code==200){
+					if(data.data.datas.favorites_list.length == 0){
+						$(".lmy").html("<p style='padding:16px;'>您目前还没有收藏商品</p>");
+					}else{
+						$(data.data.datas.favorites_list).each(function(index,lmy){
+							cart_id[index]=lmy.cart_id;
+							store_id[index]=lmy.store_id;
+							goods_name[index]=lmy.goods_name;
+							goods_price[index]=lmy.goods_price;
+							goods_id[index]=lmy.goods_id;
+							goods_image_url[index]=lmy.goods_image_url;
+							fav_id[index]=lmy.fav_id;
+							var subdiv="<li><a href='"+WapSiteUrl+"/tmpl/productdetail.html?goods_id="+goods_id[index]+"'><div class='jl-goods-img'><img src='"+goods_image_url[index]+"'/></div><div class='jl-goods-info'><div class='jl-goods-name'>"+goods_name[index]+"</div><div class='jl-goods-price clr-e53'>￥"+goods_price[index]+"</div><div class='jl-goods-evaluate'><span>好评96%</span><span>96人</span></div></div></a><div class='jl-goods-del'><span class='del' onclick='del(this)'>删除<span style='display:none;' class='fav'>"+fav_id[index]+"</span></span></div><span style='display:none' id='lss'>"+goods_id[index]+"</span></li>";
+							$(".lmy").append(subdiv);
+						});
+					}
+					$(window).scroll(function(){
+						scroll_top=$(window).scrollTop();
+						doc_h=$(document).height();
+						height=$(window).height();
+						if(scroll_top>=doc_h-height){
+							curpage_num++;
+						 	get_scroll_message(2,curpage_num);
+						}	
+					});
+				}
+			}	
+		});
+	}
+	//封装滚动条事件
+function get_scroll_message(is_online,curpage){
+	$.ajax({
+		url:ApiUrl+"/index.php?act=member_favorites&op=favorites_list&key="+key+"&client_type=wap&is_online="+is_online+"&curpage="+curpage,
+		type:"get",
+		dataType:"jsonp",
+		jsonp:"callback",
+		success: function(data){
+			if(data.code==200){
+				$(data.data.datas.favorites_list).each(function(index,lmy){
+						cart_id[index]=lmy.cart_id;
+						store_id[index]=lmy.store_id;
+						goods_name[index]=lmy.goods_name;
+						goods_price[index]=lmy.goods_price;
+						goods_id[index]=lmy.goods_id;
+						goods_image_url[index]=lmy.goods_image_url;
+						fav_id[index]=lmy.fav_id;
+						var subdiv="<li><a href='"+WapSiteUrl+"/tmpl/productdetail.html?goods_id="+goods_id[index]+"'><div class='jl-goods-img'><img src='"+goods_image_url[index]+"'/></div><div class='jl-goods-info'><div class='jl-goods-name'>"+goods_name[index]+"</div><div class='jl-goods-price clr-e53'>￥"+goods_price[index]+"</div><div class='jl-goods-evaluate'><span>好评96%</span><span>96人</span></div></div></a><div class='jl-goods-del'><span class='del' onclick='del(this)'>删除<span style='display:none;' class='fav'>"+fav_id[index]+"</span></span></div><span style='display:none' id='lss'>"+goods_id[index]+"</span></li>";
+						$(".lmy").append(subdiv);
+				});	
+			}
+		}	
+	});	
+}
+});
+function del(this_obj){
+	var fav_id=$(this_obj).find(".fav").html();
+	var this_del=$(this_obj);
+	$.ajax({
+		url:ApiUrl+"/index.php?act=member_favorites&op=favorites_del&fav_id="+fav_id+"&key="+key+"&client_type=wap&type=goods",
+		type:"get",
+		dataType:"jsonp",
+		jsonp:"callback",
+		success: function(data){
+			if(data.code=200){
+				alert("删除成功");	
+				this_del.parents("li").remove();
+			}else{
+				alert(data.message);
+			}
+		}	
+	});
+}
+    if (getcookie('type') == '') {
+        var client_type = request("client_type");
+        if (client_type != '') {
+            //alert(client_type);
+            addcookie('type', client_type);
+        }
+    }
+
+var username=getcookie("username");
+	var password=getcookie("password");
+    $(function(){
+        $(".header-back").on("click", function () {
+            if (type == "iOS"||type == "ios") {
+                pop();
+            } else if (type == "android") {
+                app.pop();
+            } else {
+                history.back();
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

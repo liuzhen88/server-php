@@ -1,0 +1,30 @@
+*{ margin:0; padding:0; font-family:"微软雅黑"; letter-spacing:1px;}
+header{ width:100%; height:56px; background:#ff4946; text-align:center; line-height:56px; font-size:20px; color:#fff;}
+.all{ width:90%; height:auto; margin:0 auto;}
+p{ color:#8c8c8c; margin-top:8px; font-size:16px;}
+.jianxi{width:100%; height:20px; background:#f6f3f3; margin-top:20px;}
+p span{ color:#fd8900;}
+.order_company{ margin-top:10px;}
+.order_num{ margin-top:3px;}
+.order_company span{ color:#8c8c8c;}
+.order_num span{ color:#8c8c8c;}
+.getInfo{ color:#ff4946; margin-top:5px;}
+.footer{ width:100%; height:auto; margin:0 auto; background:#f6f3f3; padding-top:15px; margin-top:25px; display:none;}
+.btn{ width:90%; height:50px; line-height:50px; text-align:center; color:#FFF; background:#ff4946; font-size:18px; margin:0 auto; margin-top:15px; border-radius:4px; margin-bottom:30px;}
+.time-color{color:#fd8900;}
+.border-bottom{border-bottom: #e7e7e7 solid 1px;}
+.border-top{border-top: #e7e7e7 solid 1px;}
+.logist-header{ margin-top: 10px; padding: 10px; line-height: 25px; font-size: 16px;}
+.font-color-333{ color:#333;}
+.border-bottom{border-bottom: #e7e7e7 solid 1px;}
+.float-left{float: left;}
+.logist-img-box{ width: 55px; height:55px; overflow: hidden; border: #e7e7e7 solid 1px; margin: 10px;}
+.logist-img-box img{ width: 100%;height: 100%;}
+.font-color-666{ color:#666;}
+.logist-line{ line-height: 19px; font-size: 12px; margin-top: 10px;}
+.font-color-fd8900{ color:#fd8900;}
+.clear-float{clear: both;}
+.list-of-logist{ padding:0px 10px; margin-bottom: 65px;}
+.list-of-logist ul{}
+.list-of-logist ul li{height:77px; overflow: hidden;}
+.list-of-logist img{ height: 77px; width: auto; margin-right: 10px;}

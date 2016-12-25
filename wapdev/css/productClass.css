@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#FFF;}
+*{margin:0px;padding:0px;}
+img{border:none;}
+p,ul,ol,li,form {margin: 0;padding: 0;list-style: none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+
+/*产品分类*/
+.first_class{ float:left; width:25%;overflow-y:auto;height:100%;-webkit-overflow-scrolling: touch;}
+.first_class ul{width:100%;}
+.first_class ul li{ background:#ededed; height:60px; line-height:60px;}
+.first_class_in{ background:#fff !important; color:#e74c4a;}
+
+.second_class{ float:left; width:75%; height:100%;overflow-y:auto;}
+
+.class_item{ width:95%; margin:0px auto; overflow:hidden;}
+.class_item ul{ width:10000px;}
+.class_item ul li{ float:left; overflow:hidden;}
+.class_item ul li img{ height:auto;}
+
+.class_r_con{width:100%;}
+.class_r_con ul{width:100%;}
+.class_r_con ul li{ width:33.3333%; float:left;}
+.class_r_con ul li img{ width:100%; height:auto;}

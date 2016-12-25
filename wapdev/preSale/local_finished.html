@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>订单详情</title>
+
+
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/foot.header.css"/>
+    <link rel="stylesheet" href="css/local_finished.css"/>
+
+
+</head>
+<body>
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+    <h2>订单详情</h2>
+</div>
+<div class="content">
+    <div class="clear line"></div>
+    <div class="product border">
+
+    </div>
+    <div class="clear line"></div>
+    <div class="evaluate border">
+
+    </div>
+    <div class="clear line"></div>
+    <div class="address border">
+
+    </div>
+    <div class="clear line"></div>
+    <div class="order border">
+
+    </div>
+</div>
+<footer></footer>
+
+
+<script type="text/template" id="product">
+    <div class="fl product-img">
+        <img src="{{=it.order.goods_image}}">
+    </div>
+    <div class="fl product-tittle">
+        <p class="product-name">{{=it.order.goods_name}}</p>
+        <p class="product-price">￥{{=it.order.goods_price}}<strike style="color:#999999;font-size: 12px;padding-left: 5px">￥{{=it.order.goods_marketprice}}</strike></p>
+    </div>
+    <div class="fr product-distance">
+        <p class="product-sold">已售&nbsp;{{=it.order.goods_count}}</p>
+    </div>
+</script>
+<script type="text/template" id="evaluate">
+    <div class="fl evaluate-star">
+        <ul>
+            <li><img src="images/golden_star.png"></li>
+            <li><img src="images/golden_star.png"></li>
+            <li><img src="images/golden_star.png"></li>
+            <li><img src="images/golden_star.png"></li>
+            <li><img src="images/golden_star.png"></li>
+        </ul>
+    </div>
+    <div class="fl evaluate-score">{{=it.store.store_credit}}分</div>
+</script>
+<script type="text/template" id="address">
+    <div class="address-info">商家信息<p class="address-dist">{{=it.store.distance}}</p></div>
+    <div class="address-call">
+        <div class="address-name">{{=it.store.store_name}}</div>
+        <div class="address-explain">{{=it.store.area_info}}</div>
+        <div class="address-phone"><img src="images/icon-phone@3x.png"></div>
+    </div>
+</script>
+<script type="text/template" id="order">
+    <div class="order-info">订单信息</div>
+    <table class="table">
+        <tr>
+            <td class="table-name">订单号</td>
+            <td class="table-value">{{=it.order.order_sn}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">下单时间</td>
+            <td class="table-value">{{=it.order.payment_time}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">总价</td>
+            <td class="table-value">{{=it.order.order_amount}}元</td>
+        </tr>
+        <tr>
+            <td class="table-name">数量</td>
+            <td class="table-value">{{=it.order.goods_num}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">完成后获得积分</td>
+            <td class="table-value">{{=it.order.rebate}}</td>
+        </tr>
+    </table>
+</script>
+
+<script type="text/javascript" src="../js/config.js"></script>
+
+
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="js/local_finished.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的关注</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- build:css css/build_favorites.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/swiper3.1.0.min.css"/>
+    <link rel="stylesheet" href="css/favorites.css"/>
+    <!-- endbuild -->
+
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+
+    <h2>我的关注</h2>
+</div>
+<div class="s_main" id="main-container">
+    <div class="goods-list">
+        <ul class="goods-nav">
+            <li class="on" onclick="changMenu(this,'goodsFavList');"><span>活动</span></li>
+            <li onclick="changMenu(this,'storeFavList');"><span>商家<span></li>
+        </ul>
+        <div class="goods-list-box">
+            <ul id="goodsFavList">
+
+            </ul>
+            <ul id="storeFavList">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="goodsFavListtmpl">
+    {{ for ( var i=0 ; i
+    <it.data.datas.favorites_list.length;i++){   }}
+    <li>
+        <a href="wap_product_details.html?goods_id={{=it.data.datas.favorites_list[i].goods_id }}">
+            <div class="goods-img"><img src="{{=it.data.datas.favorites_list[i].goods_image_url }}"/></div>
+            <div class="goods-info">
+                <div class="goods-name">{{=it.data.datas.favorites_list[i].goods_name }}</div>
+                <div class="store-n">{{=it.data.datas.favorites_list[i].store_name }}</div>
+                <div class="goods-price">￥{{=it.data.datas.favorites_list[i].goods_price }}<span class="marketprice">￥{{=it.data.datas.favorites_list[i].goods_marketprice }}</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+<script type="text/template" id="storeFavListtmpl">
+    {{ for ( var i=0 ; i
+    <it.data.datas.favorites_list.length;i++){   }}
+    <li>
+        <a href="store_detail.html?store_id={{=it.data.datas.favorites_list[i].store_id }}">
+            <div class="goods-img"><img src="{{=it.data.datas.favorites_list[i].store_avatar }}"/></div>
+            <div class="goods-info">
+                <div class="srote-name">{{=it.data.datas.favorites_list[i].store_name }}
+                    {{ if(it.data.datas.favorites_list[i].distance<500){ }}
+                    <span class="distance">&lt;500m</span>
+                    {{ } else if(it.data.datas.favorites_list[i].distance<1000) { }}
+                    <span class="distance">&lt;1km</span>
+                    {{ } else if(it.data.datas.favorites_list[i].distance<10000) { }}
+                    <span class="distance">&lt;10km</span>
+                    {{ } else{ }}
+                    <span class="distance">&gt;10km</span>
+                    {{ } }}
+                </div>
+                <div class="srote-area">{{=it.data.datas.favorites_list[i].area }}</div>
+                <div class="srote-tel">{{=it.data.datas.favorites_list[i].store_phone }}</div>
+            </div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_favorites.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/favorites.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

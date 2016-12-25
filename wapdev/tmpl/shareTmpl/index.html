@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+</head>
+<body>
+<div class="swiper-container">
+    <div class="music-info ">
+        <audio src="mp3/bg.mp3" autoplay="autoplay" id="music" loop="loop">您的浏览器不支持 audio标签。</audio>
+        <a id="audio_btn"><img  class="music on" src="images/on.png"id="audio_player" /></a>
+    </div>
+    <div class="swiper-wrapper" >
+
+        <div class="swiper-slide " style="width:100%" id="test">
+
+            <div class="info height100">
+                <div class="product time1 animated bounceInDown" ></div>
+                <div class=" explain animated rotateIn time2">
+                    <img src="images/explain.png" />
+                    <div class=" explain-text " ></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="swiper-slide swiper-no-swiping" id="move">
+            <div class="info thr"></div>
+        </div>
+        <div class="swiper-slide "  style="width:100%">
+            <div class="info four height100">
+
+            </div>
+        </div>
+    </div>
+    <div class="zhezhao"><img src="images/zhezhao.png" height="100%" width="100%"></div>
+    <div class="arrow"></div><!--fadeInLeftBig-->
+    <!--下架提示框-->
+    <div class="tips">
+        <div class="closed"><img class="img1" src="images/ic-close.png" ></div>
+        <div class="car"><img class="img2" src="images/drop.png" ></div>
+        <div class="tips-tittle">该商品已下架</div>
+        <div class="tips-tittle2">去看看其他商品吧?</div>
+        <div class="goshop"><a href="http://shop.aigegou.com/agg/wap/index.html"">去逛逛</a></div>
+    </div>
+    <!--分享-->
+    <div id="share" class="animated bounceInDown">
+        <div id="share_top">
+            <ul>
+                <li class="share"><img src="../shareSale/images/share4.png" width="52px"/></li>
+                <li class="share"><img src="../shareSale/images/qq.png" width="52px"/></li>
+                <li class="share"><img src="../shareSale/images/friend.png" width="52px"/></li>
+                <li class="share"><img src="../shareSale/images/share1.png" width="52px"/></li>
+            </ul>
+        </div>
+        <div id="share_bottom ">取消</div>
+    </div>
+    <!--提示分销-->
+    <div id="prompt"></div>
+
+</div>
+<script type="text/template" id="first">
+    <div class="line"><img src="images/line.png" ><img src="images/line.png" ></div>
+    <img class=" product-image animated2 time2" src="{{=it.data.goods_image.split(',')[0]}}" />
+</script>
+
+<script type="text/template" id="sec">
+    <p class=" explain-tittle animated time3 fadeInUp">{{=it.data.goods_info.goods_name}}</p>
+    <p class=" explain-tittle2 animated time4 fadeInUp">{{=it.data.goods_info.goods_jingle}}</p>
+</script>
+
+<script type="text/template" id="thr">
+    {{ for(var i=0; i<it.data.goods_info.mobile_body_pre.length; i++){}}
+    {{ if(it.data.goods_info.mobile_body_pre[i].type =="image"){}}
+        <img class="info2 product-image2" src="{{=it.data.goods_info.mobile_body_pre[i].value}}" />
+    {{ }else{}}
+    <div class="explain2">
+        <p class="info3 explain-tittle3">
+            {{=it.data.goods_info.mobile_body_pre[i].value}}
+        </p>
+    </div>
+    {{ }}}
+
+    {{ }}}
+</script>
+
+<script type="text/template" id="four">
+    <div class="shop tops1 animated time0" id="t"><a id="buy">我要购买</a></div>
+    <div class="shop tops2 animated time1" id="shareFriend">分享好友</div>
+    <div class="shop2 tops3 animated time2">下载<span style="color:#ee7b00">爱个购app</span>,体验更多</div>
+    <div class="shop tops4 animated time3"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.hk.agg" >点击下载</a></div>
+
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="../../js/lib/doT.min.js"></script>
+<script src="../../js/lib/zepto.min.js"></script>
+<script src="../../js/config.js"></script>
+<script src="js/script.js"></script>
+<script src="js/swiper.min.js"></script>
+</body>
+</html>

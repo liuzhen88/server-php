@@ -1,0 +1,19 @@
+*{ margin:0; padding:0; font-family:"微软雅黑"; font-size:14px;}
+header{ width:100%; height:56px; background:#ff4946; text-align:center; line-height:56px; font-size:20px; color:#fff;}
+#se1{ width:100%; height:180px; background:#FFF;}
+#se1_box{ width:90%; height:280px; margin:0 auto;padding-top:25px;}
+#refuse_reason{ position:relative; width:100%; height:50px; background:#FFF; margin-top:10px;}
+#refuse_left{ position:absolute; width:70px; height:30px; line-height:30px; left:0; top:0;}
+#refuse_right{ position:absolute; width:auto; height:30px; left:80px; top:0; color:#666666; overflow:hidden; line-height:30px;}
+#refuseVoucher{ width:100%; height:100px; position:relative; display:none;}
+#voucher_left{ position:absolute; width:70px; height:30px; line-height:30px; left:0; top:0;}
+#voucher_right{ position:absolute; width:auto; height:70px; left:70px; top:0px;}
+#voucher_right ul{ list-style:none;}
+#voucher_right ul li{ float:left; width:70px; height:70px; margin-left:10px;}
+#btn{ width:100%; height:50px; position:relative; background:#FFF;}
+
+#btn_left{ position:absolute; width:45%; height:45px; line-height:45px; text-align:center; left:27%; top:0; border:solid #ff4946 1px; border-radius:4px; color:#ff4946;}
+/*#btn_right{ position:absolute; width:45%; height:45px; line-height:45px; text-align:center; right:0; top:0;border:solid #ff4946 1px; border-radius:4px; color:#ff4946;}*/
+#se2{ width:100%; height:auto; background:#FFF; margin-top:20px;}
+#se2_box{ width:90%; height:auto; margin:0 auto; padding-top:10px;}
+#se2_box p{ width:100%; height:auto; margin-top:10px; overflow:hidden; font-size:15px; color:#666666;}

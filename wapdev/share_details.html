@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_sharedetail.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/share.css">
+    <!-- endbuild -->
+
+    <style>
+        .dialog-sheet-cnt,.dialog-share-cnt{
+            bottom: 8px;
+        }
+    </style>
+    <title>详情</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="share.html" class="sh_back"></a>
+    <h2>详情</h2>
+</div>
+<div class="s_main">
+    <div class="share_list" style="padding:0;">
+        <div class="share_c" id="shareDetails">
+            
+        </div>
+    </div>
+</div>
+<div class="share-reply" id="bto">
+    <input class="reply-txt b-radius" type="text" placeholder="评论"/>
+    <span class="reply-btn red" id="replybt1" onclick="replysend(this);">发送</span>
+    <span class="reply-btn red" id="replybt2" onclick="replysend2(this);">发送</span>
+</div>
+<div class="dialog-weichat-share" style="display:none;position: fixed;top:0;right:0;width:100%;height:100%;z-index: 10000; background: url('images/shareweichat.png') no-repeat top right rgba(0,0,0,0.5)"></div>
+<div class="dialog-mask"></div>
+<div class="dialog-reply-cnt">
+    <button class="del-reply ios-more-btn" onclick="delreply(this);">删除</button>
+    <button class="cancel ios-more-btn">取消</button>
+</div>
+<div class="dialog-share-cnt">
+    <div class="dialog-share-icon">
+        <p>分享</p>
+        <ul class="share-icon-wrap">
+            <li class="icon-wechat"></li>
+            <li class="icon-timeline"></li>
+            <li class="icon-qq"></li>
+            <li class="icon-qzone"></li>
+        </ul>
+    </div>
+    <button class="cancel ios-more-btn">取消</button>
+</div>
+<div class="dialog-sheet-cnt">
+    <button class="inform ios-more-btn"><a href="share_report.html">举报</a></button>
+    <button class="delete ios-more-btn">删除</button>
+    <button class="cancel ios-more-btn">取消</button>
+</div>
+<script type="text/template" id="shareDetailstmpl">
+    <ul class="share_user">
+        <li class="su_img"><a href="share_personal.html?member_id={{=it.data.member_id }}"><img src="{{=it.data.member_avatar }}"></a></li>
+        <li class="su_info">
+            <p class="name">{{=it.data.member_name }}</p>
+
+            <p>{{=timeSpeak(it.data.theme_addtime) }}</p>
+        </li>
+        {{ if(it.data.member_id != user_id) { }}
+        <li class="su_attention" onclick="attention(this);" data-memberid="{{=it.data.member_id}}">
+            <div class="loading"></div>
+            {{ if(it.data.member_isfriend == 0) { }}
+                <span class="att0">关注</span>
+            {{ }else if(it.data.member_isfriend == 1){ }}
+                <span class="att1">已关注</span>
+            {{ }else if(it.data.member_isfriend == 2){ }}
+                <span class="att2">相互关注</span>
+            {{ } }}
+        </li>
+        {{ } }}
+    </ul>
+    {{ if(it.data.theme_content) { }}
+        <div class="share_txt">{{=it.data.theme_content }}</div>
+    {{ } }}
+    {{ if(it.data.store_name) { }}
+    <div class="share-store"><a class="more" href="store_detail.html?store_id={{=it.data.store_id}}">{{=it.data.store_name}}</a></div>
+    {{ } }}
+    <div class="share_img">
+        <a class="shareimg"><img src="{{=it.data.theme_pic }}" class="loading"/></a>
+
+        {{ for ( var j=0 ; j<it.data.tag.length;j++){   }}
+        
+        <div class="tag" style="left:{{=it.data.tag[j].tag_x*100 }}%;top:{{=it.data.tag[j].tag_y*100 }}%">
+                {{ if(it.data.tag[j].tag_type == 'normal'){ }}
+                <a href="tag_all.html?tag={{=it.data.tag[j].tag_content }}">
+                    <span class="dot"></span>
+                    <div class="tag_c">
+                        <span class=""></span>{{=it.data.tag[j].tag_content }}
+                    </div>
+                </a>
+                {{ }else if(it.data.tag[j].tag_type == 'product'){  }}
+                <a href="wap_product_details.html?goods_id={{=it.data.tag[j].link_id }}">
+                    <span class="dot"></span>
+                    <div class="tag_c">
+                        <span class="tag_cart"></span>{{=it.data.tag[j].tag_content }}
+                    </div>
+                </a>
+                {{ }else if(it.data.tag[j].tag_type == 'store'){  }}
+                <a href="store_detail.html?store_id={{=it.data.tag[j].link_id }}">
+                    <span class="dot"></span>
+                    <div class="tag_c">
+                        <span class="tag_addr"></span>{{=it.data.tag[j].tag_content }}
+                    </div>
+                </a>
+                {{ } }}
+
+            </div>
+        {{ } }}
+
+    </div>
+    <ul class="share_btn">
+        <li class="sb_zan{{=it.data.member_islike}}" onclick="zan(this);" data-themeid="{{=it.data.theme_id }}"><span class="icon"></span><span class="zanNum">{{=it.data.theme_likecount }}</span></li>
+        <li class="sb_comment"><span class="icon"></span><span class="replyNum">{{=it.data.theme_commentcount }}</span></li>
+        <li class="sb_more"><span class="icon" data-memberid="{{=it.data.member_id }}" data-themeid="{{=it.data.theme_id}}" data-content="{{=it.data.theme_content}}"></span></li>
+        <li class="sb_share">
+            <span class="icon" data-title="我在爱个购分享了一张美图给你，快来围观
+" data-link="{{=WapSiteUrl}}/share_details.html?theme_id={{=it.data.theme_id }}" data-imgUrl="{{=it.data.theme_pic }}" data-desc="{{=it.data.theme_content }}"></span>
+        </li>
+    </ul>
+    {{ if(it.data.like) { }}
+        {{ if(it.data.like.length>0) { }}
+        <div class="share_zan">
+            <span class="share-arr"></span>
+            <ul>
+                {{ if(it.data.like.length<8){ }}
+                    {{ for ( var k=0 ; k<it.data.like.length;k++){   }}
+                    <li><a href="share_personal.html?member_id={{=it.data.like[k].member_id }}"><img src="{{=it.data.like[k].avatar }}"/></a></li>
+                    {{ } }}
+                {{ }else{ }}
+                    {{ for ( var k=0 ; k<7;k++){   }}
+                    <li><a href="share_personal.html?member_id={{=it.data.like[k].member_id }}"><img src="{{=it.data.like[k].avatar }}"/></a></li>
+                    {{ } }}
+                    <li><a href="share_like.html?theme_id={{=it.data.theme_id}}"><span>{{=moreNum(it.data.theme_likecount)}}</span></a></li>
+                {{ } }}
+            </ul>
+        </div>
+        {{ } }}
+    {{ }else{ }}
+        {{ if(it.data.theme_like.length>0) { }}
+        <div class="share_zan">
+            <span class="share-arr"></span>
+            <ul>
+                {{ for ( var k=0 ; k<it.data.theme_like.length;k++){   }}
+                <li><a href="share_personal.html?member_id={{=it.data.like[k].member_id }}"><img src="{{=it.data.theme_like[k].avatar }}"/></a></li>
+                {{ } }}
+            </ul>
+        </div>
+        {{ } }}
+    {{ } }}
+    {{ if(it.data.theme_reply.length>0) { }}
+    <div id="shareReply">
+        {{ for ( var i=0 ; i<it.data.theme_reply.length;i++){   }}
+        {{ if(it.data.theme_reply[i].reply_replyid == null) { }}
+            <dl class="new_comment">
+                <dt>
+                    <a href="share_personal.html?member_id={{=it.data.theme_reply[i].member_id }}"><img src="{{=it.data.theme_reply[i].avatar }}"></a>
+                </dt>
+                <dd onclick="reply(this);" data-name="{{=it.data.theme_reply[i].member_name }}" data-replyid="{{=it.data.theme_reply[i].reply_id }}" data-userid="{{=it.data.theme_reply[i].member_id }}">
+                    <div class="user_name"><div class="name"><a href="share_personal.html?member_id={{=it.data.theme_reply[i].member_id }}">{{=it.data.theme_reply[i].member_name }}</a></div>{{=timeSpeak(it.data.theme_reply[i].reply_addtime) }}</div>
+                    <div class="com_txt">{{=it.data.theme_reply[i].reply_content }}</div>
+                </dd>
+            </dl>
+        {{ }else{ }}
+           <dl class="new_comment">
+                <dt>
+                    <a href="share_personal.html?member_id={{=it.data.theme_reply[i].member_id }}"><img src="{{=it.data.theme_reply[i].avatar }}"></a>
+                </dt>
+                <dd onclick="reply(this);" data-name="{{=it.data.theme_reply[i].member_name }}" data-replyid="{{=it.data.theme_reply[i].reply_id }}" data-userid="{{=it.data.theme_reply[i].member_id }}">
+                    <div class="user_name"><div class="name"><a href="javascript:;" class="replyname">{{=it.data.theme_reply[i].member_name }}</a> 回复
+                        <a href="javascript:;" class="replyname">{{=it.data.theme_reply[i].reply_replyname }}</a></div>{{=timeSpeak(it.data.theme_reply[i].reply_addtime) }}</div>
+                    <div class="com_txt">{{=it.data.theme_reply[i].reply_content }}</div>
+                </dd>
+            </dl>
+        {{ } }}
+        {{ } }}
+    </div>
+    {{ }else{ }}
+    <div id="shareReply" style="display:none;">
+        
+    </div>
+    {{ } }}
+</script>
+<script type="text/template" id="fanslistTmpl">
+    {{ if(it.data.like.length<8){ }}
+        {{ for ( var k=0 ; k<it.data.like.length;k++){   }}
+        <li><a href="share_personal.html?member_id={{=it.data.like[k].member_id }}"><img src="{{=it.data.like[k].avatar }}"/></a></li>
+        {{ } }}
+    {{ }else{ }}
+        {{ for ( var k=0 ; k<7;k++){   }}
+        <li><a href="share_personal.html?member_id={{=it.data.like[k].member_id }}"><img src="{{=it.data.like[k].avatar }}"/></a></li>
+        {{ } }}
+        <li><a href="share_like.html?theme_id={{=it.data.theme_id}}"><span>{{=moreNum(it.data.count)}}</span></a></li>
+    {{ } }}
+</script>
+<script type="text/template" id="fanslistTmpl2">
+    <div class="share_zan">
+        <span class="share-arr"></span>
+        <ul>
+            {{ for ( var i=0 ; i<it.data.like.length;i++){ }}
+            <li>
+                <a href="share_personal.html?member_id={{=it.data.like[i].member_id }}">
+                    <img src="{{=it.data.like[i].avatar}}">
+                </a>
+            </li>
+            {{ } }}
+        </ul>
+    </div>
+</script>
+<script type="text/template" id="shareReplytmpl">
+    <dl class="new_comment">
+        <dt>
+            <a href="share_personal.html?member_id={{=it.data.member_id }}"><img src="{{=it.data.member_avatar }}"></a>
+        </dt>
+        <dd onclick="reply(this);" data-name="{{=it.data.member_name }}" data-replyid="{{=it.data.reply_id }}" data-userid="{{=it.data.member_id }}">
+            <div class="user_name"><div class="name"><a href="share_personal.html?member_id={{=it.data.member_id }}">{{=it.data.member_name }}</a></div>{{=timeSpeak(it.data.reply_addtime) }}</div>
+            <div class="com_txt">{{=it.data.reply_content }}</div>
+        </dd>
+    </dl>
+</script>
+<script type="text/template" id="shareReplytmpl2">
+   <dl class="new_comment">
+        <dt>
+            <a href="share_personal.html?member_id={{=it.data.member_id }}"><img src="{{=it.data.member_avatar }}"></a>
+        </dt>
+        <dd onclick="reply(this);" data-name="{{=it.data.member_name }}" data-replyid="{{=it.data.reply_id }}" data-userid="{{=it.data.member_id }}">
+            <div class="user_name"><div class="name"><a href="share_personal.html?member_id={{=it.data.member_id }}" class="replyname">{{=it.data.member_name }}</a> 回复 <a href="javascript:;" class="replyname">{{=it.data.reply_replyname }}</a></div>{{=timeSpeak(it.data.reply_addtime) }}</div>
+            <div class="com_txt">{{=it.data.reply_content }}</div>
+        </dd>
+    </dl>
+</script>
+<script type="text/template" id="replyMoretmpl">
+{{ for ( var i=0 ; i<it.length;i++){   }}
+    {{ if(it[i].reply_replyid == null) { }}
+    <dl class="new_comment">
+        <dt>
+            <a href="share_personal.html?member_id={{=it[i].member_id }}"><img src="{{=it[i].avatar }}"></a>
+        </dt>
+        <dd onclick="reply(this);" data-name="{{=it[i].member_name }}" data-replyid="{{=it[i].reply_id }}" data-userid="{{=it[i].member_id }}">
+            <div class="user_name"><div class="name"><a href="share_personal.html?member_id={{=it[i].member_id }}">{{=it[i].member_name }}</a></div>{{=timeSpeak(it[i].reply_addtime) }}</div>
+            <div class="com_txt">{{=it[i].reply_content }}</div>
+        </dd>
+    </dl>
+    {{ }else{ }}
+    <dl class="new_comment">
+        <dt>
+            <a href="share_personal.html?member_id={{=it[i].member_id }}"><img src="{{=it[i].avatar }}"></a>
+        </dt>
+        <dd onclick="reply(this);" data-name="{{=it[i].member_name }}" data-replyid="{{=it[i].reply_id }}" data-userid="{{=it[i].member_id }}">
+            <div class="user_name"><div class="name"><a href="javascript:;" class="replyname">{{=it[i].member_name }}</a> 回复
+                <a href="javascript:;" class="replyname">{{=it[i].reply_replyname }}</a></div>{{=timeSpeak(it[i].reply_addtime) }}</div>
+            <div class="com_txt">{{=it[i].reply_content }}</div>
+        </dd>
+    </dl>
+    {{ } }}
+{{ } }}
+</script>
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_sharedetail.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/share_common.js"></script>
+<script type="text/javascript" src="js/module/share_social.js"></script>
+<script type="text/javascript" src="js/share_details.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

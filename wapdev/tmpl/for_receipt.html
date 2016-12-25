@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<title>订单详情</title>
+
+<link rel="stylesheet" type="text/css" href="../css/style_jl.css">
+<link type="text/css" rel="stylesheet" href="../css/for_receipt.css"/>
+<link rel="stylesheet" href="../css/foot.header.css"/>
+
+</head>
+
+<body>
+<header id="header"></header>
+<div class="main">
+<section class="font-color-666 border-top border-bottom order-sn-box">
+	<section>订单编号：<span id="order-sn"></span></section>
+	<section>下单时间：<span id="order-time"></span></section>
+</section>
+
+<section class="border-bottom receive-box">
+	<section class="receive-pt-box">
+		<span class="receive-people-box float-left">收件人：<span id="receive-people"></span></span>
+		<span class="float-right" id="receive-tel"></span>
+	</section>
+	<section class="clear-float receive-address-box">
+		收货地址：<span id="receive-address"></span>
+	</section>
+</section>
+<div id="head">
+
+</div>
+<section class="goods-list">
+	<ul id="content_ul">
+		
+	</ul>
+</section>
+
+<section class="border-bottom pick-box" id="foot">
+	<!--<span class="pick-num">共2件商品</span>
+	<span class="pick-price">合计：¥1198（含运费¥10.00）</span>-->
+</section>
+
+<section class="border-bottom border-top logist-header font-color-333" id="expressInfo">物流信息</section>
+
+<section class="logist-text border-bottom" id="expressList">
+	<section class="float-left logist-img-box"><img src="../images/logo_yuan-tong@2x.png" /></section>
+	<section class="float-left font-color-666 logist-line">
+		<section>物流状态:<span class="font-color-fd8900">运输中</span> </section>
+		<section>物流公司:<span class="express_name"></span> </section>
+		<section>物流编号:<span class="shipping_code"></span> </section>
+	</section>
+	<section class="clear-float"></section>
+</section>
+
+<section class="list-of-logist">
+	<ul id="list">
+		
+	</ul>
+</section>
+
+<section class="receipt-footer border-top">
+	<div id="state">
+	<!--<section class="float-right common" id="confirm-receive">确认收货</section>
+	<section class="float-right common" id="confirm-return">退货退款</section>-->
+	</div>
+	<section class="clear-float"></section>
+</section>
+
+<!--<div id="footer"></div>-->
+</div>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/tmpl/for_receipt.js"></script>
+
+</body>
+</html>

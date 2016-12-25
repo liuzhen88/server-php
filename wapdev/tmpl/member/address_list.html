@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>管理收货地址</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/style_jl.css">
+</head>
+<body class="bg_c">
+<header id="header"></header>
+<div class="main" id="main-container">  
+    <div class="jl-address-list">
+        <ul class="lmy">
+        </ul>
+    </div>
+    <div class="jl-address-add"><a href="../address_opera.html"></a></div>
+</div>
+<script src="../../js/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script>
+//获取url参数
+function request(paras)
+	    { 
+	        var url = location.href; 
+	        url=decodeURI(url);
+	        var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+	        var paraObj = {}; 
+	        for (var i=0; j=paraString[i]; i++){ 
+	        paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+	        } 
+	        var returnValue = paraObj[paras.toLowerCase()]; 
+	        if(typeof(returnValue)=="undefined"){ 
+	        return ""; 
+	        }else{ 
+	        return returnValue; 
+	        } 
+	    }
+$(document).ready(function(){
+	var key=request('key');
+	var type=request('client_type');
+	if(type!=''){
+		if(type.indexOf("#")<0){
+			addcookie('type',type);
+			type=getcookie('type');
+		}else{
+			type=type.substring(0,type.length-1);
+			addcookie('type',type);
+			type=getcookie('type');	
+		}
+		
+	}
+	
+	if(key==''){
+		if(request('client_type')=='ios'||request('client_type')=='android'||request('client_type')=='iOS'){
+			if(getcookie("key")!=''){
+			key=getcookie('key');
+			}else{
+					addcookie("key","");
+			}
+			 
+			
+		}else{
+			key=getcookie('key');
+		}
+	}else{
+		addcookie('key',key);
+		key=getcookie('key');	
+	}
+
+	
+	var add_true_name=[],mob_phone=[],address=[],area_info=[],address_id=[],area_id=[],city_id=[];
+	if(key==''){
+		window.location.href=WapSiteUrl+"/tmpl/member/login.html";
+	}else{
+/*获取用户地址*/
+	$.ajax({
+			url:ApiUrl+"/index.php?act=member_address&op=address_list&client_type=wap&key="+key,
+			type:"get",
+			dataType:"jsonp",
+			jsonp:"callback",
+			success: function(data){
+				if(data.code==200){
+					$(data.data.address_list).each(function(index,jp){
+						address_id[index]=jp.address_id;
+						add_true_name[index]=jp.true_name;
+						mob_phone[index]=jp.mob_phone;
+						address[index]=jp.address;
+						area_info[index]=jp.area_info;
+						area_id[index]=jp.area_id;
+						city_id[index]=jp.city_id;
+				var jpdiv="<li class=' b-radius box-shw'><a href='#'><div class='add_con'><div class='name'><span id='moren' class='default b-radius' style='display:none;'>默认</span><span class=' b-radius'></span><span class='lz_name'>"+add_true_name[index]+"</span><span class='lz_mob'>"+mob_phone[index]+"</span></div><div class='add' data-city='"+city_id[index]+"' data-area='"+area_id[index]+"'>"+area_info[index]+"&nbsp;<span class='pdd_id'>"+address[index]+"</span></div></div></a><span class='add_id' style='display:none;'>"+address_id[index]+"</span></li>";
+						$(".lmy").append(jpdiv);
+					});	
+					$(".lmy li").eq(0).addClass("default b-radius");
+					$(".lmy li").eq(0).find("#moren").show();
+					$(".b-radius").click(function(){
+						var name=$(this).find(".lz_name").html();
+						var phone=$(this).find(".lz_mob").html();
+						var area=$(this).find(".add").html();
+						var address=$(this).find(".pdd_id").html();
+						var addressId=$(this).find(".add_id").html();
+						var cityId = $(this).find(".add").attr('data-city');
+						var areaId = $(this).find(".add").attr('data-area');
+						window.location.href="modify_address.html?addressId="+addressId+"&name="+name+"&phone="+phone+"&area="+area+"&address="+address+"&cityId="+cityId+"&areaId="+areaId;
+					});
+				}
+			}	
+	});	
+	}
+});
+ if (getcookie('type') == '') {
+        var client_type = request("client_type");
+        if (client_type != '') {
+            //alert(client_type);
+            addcookie('type', client_type);
+        }
+    }
+
+var username=getcookie("username");
+	var password=getcookie("password");
+    $(function(){
+        $(".header-back").on("click", function () {
+            if (type == "iOS"||type == "ios") {
+                pop();
+            } else if (type == "android") {
+                app.pop();
+            } else {
+                history.back();
+            }
+        });
+    });
+</script>
+</body>
+</html>

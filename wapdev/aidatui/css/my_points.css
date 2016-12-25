@@ -1,0 +1,176 @@
+@charset "utf-8";
+header {
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:44px;
+	background:#ff4946;
+	z-index: 100;
+}
+header h2 {
+	font-size:18px;
+	color:#FFF;
+	text-align: center;
+	line-height: 44px;
+}
+header .head-back{
+	display: block;
+	position: absolute;
+	left: 0;
+	top:0;
+	width:44px;
+	height:44px;
+	background:url("../img/ic-back.png") center no-repeat;
+	background-size: auto 20px;
+}
+.my-main{
+	padding-top:44px;
+}
+
+.total-points {
+	height: 50px;
+	padding:15px;
+	background: #fff;
+	overflow:hidden;
+	border-bottom:#e5e5e5 solid 1px;
+}
+.total-points-left {
+	float: left;
+	width: 70%;
+	height: 25px;
+	font-size: 15px;
+	line-height: 24px;
+}
+
+.pointsNum {
+	height: 26px;
+	line-height: 26px;
+	font-size: 16px;
+	color: #f29820;
+}
+
+.pointsBtn {
+	display: block;
+	float: right;
+	width: 60px;
+	height: 29px;
+	margin-top: 10px;
+	line-height: 29px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	background: #ff4946;
+	border-radius: 4px;
+}
+.points-list {
+	background:#eeefef;
+}
+.date {
+	height: 26px;
+	padding:0 15px;
+	line-height: 26px;
+	font-size: 12px;
+}
+
+.points-details li{
+	height: 50px;
+	padding:5px 15px;
+	font-size: 14px;
+	line-height: 26px;
+	background: #fff;
+	border-bottom: solid #dcdcdc 1px;
+	position: relative;
+}
+
+.store-details {
+	margin-right: 20px;
+}
+.time {
+	color:#666;
+	font-size: 12px;
+	line-height: 20px;
+}
+.num {
+	position: absolute;
+	right: 15px;
+	top: 14px;
+	color: #f29820;
+}
+.zhezhao{
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	background: #000000;
+}
+#phone-tip{
+	height: 120px;
+	width: 270px;
+	display: none;
+	position: fixed;
+	top:50%;
+	left:50%;
+	z-index: 1000;
+	margin: -70px 0 0 -135px;
+	border: 1px solid #d6d6d6;
+	border-radius: 4px;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+.sure {
+	width: 100%;
+	padding:25px 0 23px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 27px;
+	color: #000000
+}
+
+.select {
+	height: 44px;
+	line-height: 44px;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	color: #000000;
+	border-top: 1px solid #d6d6d6
+}
+
+#phone-cancel {
+	display: inline-block;
+	width: 134px;
+	border-right: 1px solid #d6d6d6;
+	font-size: 16px;
+	color: #999999;
+	text-align: center
+}
+
+#phone-call {
+	display: inline-block;
+	width: 135px;
+	font-size: 16px;
+	color: #FF4946;
+	text-align: center
+}
+#message {
+	position:fixed;
+	bottom:-28px;
+	left:50%;
+	width: 140px;
+	height:28px;
+	margin-left:-70px;
+	font-size: 14px;
+	line-height: 28px;
+	color: #fff;
+	text-align: center;
+	background:rgba(0,0,0,.4);
+	border-radius: 4px;
+	-webkit-transition-property: all;
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-duration: .1s;
+}

@@ -1,0 +1,142 @@
+@charset "utf-8";
+.sheader{
+    background:none;
+}
+.spers-info-bg {
+    width:100%;
+    height:0;
+    padding-bottom:75%;
+    background:url("../images/share_personal_bg.jpg") no-repeat;
+    background-size: 100% auto;
+    position: relative;
+}
+.spers-info-mask {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.15);
+}
+.spers-info {
+    width:100%;
+    position:absolute;
+    height:132px;
+    top:50%;
+    left:0;
+    margin-top:-66px;
+}
+.spers-info .user-img{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    overflow:hidden;
+    border:rgba(255,255,255,.5) solid 1px;
+    margin: 0 auto;
+}
+.spers-info .user-img img{
+    width:100%;
+    height:100%;
+}
+.spers-info .user-name{
+    text-align: center;
+    font-size: 14px;
+    color:#fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) ;
+}
+.spers-info .user-name span{
+    display: inline-block;
+    line-height: 14px;
+    height:14px;
+    padding:8px 4px;
+    vertical-align: middle;
+}
+.spers-info .user-name span.female {
+    background: url(../images/share_f.png) center center no-repeat;
+    width:12px;
+    background-size: 12px;
+}
+.spers-info .user-name span.male {
+    background: url(../images/share_m.png) center center no-repeat;
+    width:12px;
+    background-size: 12px;
+}
+.spers-info .user-btn{
+    width:102px;
+    margin:12px auto 0;
+    height:30px;
+    font-size: 0;
+    border:rgba(255,255,255,.5) solid 1px;
+    border-radius: 4px;
+    overflow:hidden;
+    background:rgba(0,0,0,.5);
+}
+.spers-info .user-btn a{
+    width:102px;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    color:#fff;
+    line-height: 30px;
+}
+.spers-info .user-btn .loading{
+    color:#999;
+    width:102px;
+    height:30px;
+    background-size:auto 14px;
+    display:none;
+}
+.spers-info .user-btn .att span.att0{
+     background-image:url("../images/share_addw.png");
+ }
+.spers-info .user-btn .att span.att1{
+    background-image:url("../images/share_ok.png");
+}
+.spers-info .user-btn .att span.att2{
+    background-image:url("../images/share_att.png");
+}
+.spers-info .user-btn .chat span{
+    background-image:url("../images/share_chat.png");
+}
+.spers-info .user-btn span{
+    display: inline-block;
+    vertical-align: top;
+    padding-left:19px;
+    height:30px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 14px;
+}
+.spers-photo {
+    padding:2% 0;
+}
+.spers-photo ul {
+    font-size: 0;
+    padding:0 1%;
+}
+.spers-photo ul li{
+    margin:2% 2% 2% 3%;
+    width:28%;
+    height:0;
+    display: inline-block;
+    padding-bottom: 21%;
+    background:#0062B7;
+    overflow:hidden;
+    position: relative;
+}
+.spers-photo li a{
+    display: block;
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.spers-photo li a img{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.nomore {
+    padding:8px 14px;
+    text-align: center;
+    color:#999;
+}

@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+body{ background: #eee; min-width: 1015px;}
+
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.index-head-box{ min-width: 446px; position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 70px; background: url("../images/index-page.jpg") top no-repeat; background-size: 100% auto; box-shadow:#333 0 1px 20px;}
+.index-head{ font-size: 28px; color: #fff; font-weight: 600; padding: 20px 0px 0px 20px;}
+.index-head-two{font-size: 20px;color: #fff; margin-left: 10px;font-weight: 300;}
+
+.index-user-box{margin-top:16px; cursor: pointer;}
+.user-avator{width: 40px; height: 40px; border-radius: 40px; overflow: hidden;float: left;display: block; }
+.user-name{ color: #fff;vertical-align: top; display: block; float: left; margin: 10px 0px 0px 10px; max-width:170px; overflow: hidden;}
+.index-select{width:auto; height: 8px;vertical-align: top;float: left;display: block; margin: 16px 20px 0px 10px;}
+
+.select-lay-box{ display: none; position: fixed; top: 60px; right: 20px; z-index: 1001; background: #fff; border-radius: 4px; overflow: hidden;box-shadow:#ccc 0 1px 10px;}
+.select-lay-box ul{}
+.select-lay-box ul li{ cursor:pointer;height: 35px; line-height: 35px; width: 100px; text-align: center; border-bottom: #e6e6e6 solid 1px;}
+.select-lay-box ul li:hover{ font-weight: 600;}
+.rotate-revert{ -ms-transform:rotate(180deg); /* IE 9 */ -moz-transform:rotate(180deg); /* Firefox */ -webkit-transform:rotate(180deg); /* Safari and Chrome */ -o-transform:rotate(180deg); /* Opera */ transform:rotate(180deg);}
+
+.index-main{ padding: 90px 20px 20px; width: 80%; min-height: 700px; margin: 0px auto; background: #fff; box-shadow:#ccc 0 1px 10px;}
+
+.input-search-box{border-bottom: #ddd solid 1px; padding-bottom: 10px;}
+.input-box{ margin: 10px 0px;}
+.input-box input{ width: 100px; margin: 0px 10px; height: 25px; border-radius: 4px; overflow: hidden; border: #ccc solid 1px; text-align: center;}
+.input-box select{ width: 100px; margin: 0px 10px; height: 25px; border-radius: 4px; overflow: hidden; border: #ccc solid 1px; text-align: center;}
+
+.input-search{margin: 10px 0px 10px 5px; width:80px; height: 25px; line-height: 25px; background: #666; color: #fff; text-align: center;border-radius: 4px; overflow: hidden; cursor: pointer;}
+
+.evalute-list{}
+.evalute-list table{ width: 100%; text-align: center; border: 0px;}
+.evalute-list table tr{ line-height: 44px; border-bottom: #ddd solid 1px;}
+.evalute-list table tr td{ overflow: hidden; height: 44px;}
+.evalute-list table tr td span{ cursor: pointer; margin:5px 5px;width:80px; height: 25px; line-height: 25px; border-radius: 4px; overflow: hidden; background: #666; color: #fff; display: block; }
+.evalute-list table tr td span:hover{ font-weight: 600;}
+
+.table-head{ font-weight: 600;}
+
+.tb-goods-id{ width: 130px; overflow: hidden; height: 44px;}
+.tb-store-name{ overflow: hidden; height: 44px;}
+.tb-invite-code{width: 130px; overflow: hidden; height: 44px;}
+.tb-store-type{width: 130px; overflow: hidden; height: 44px;}
+.tb-ev-option{width:180px; overflow: hidden; height: 44px;}
+.tb-goods-score{width: 130px; overflow: hidden; height: 44px;}
+.tb-ev-con{ overflow: hidden; height: 44px;}
+
+.turn-page-box{width:170px; margin: 20px auto 0px;}
+.turn-pre,.turn-next{ width: 80px; height: 25px; line-height: 25px; text-align: center; color: #fff; background: #666; border-radius: 4px; overflow: hidden;}
+.turn-pre{}
+.turn-next{}
+
+.add-ev-box-lay{ display: none; width: 100%; height: 100%; position: fixed; top:0px; left: 0px; z-index: 1003; background: url("../images/lay.png") repeat;}
+.add-ev-box{width: 400px; height: 300px; border-radius: 10px; overflow: hidden; margin: 200px auto; background: #fff;}
+
+.ev-title{ margin: 30px 0px 10px 25px; line-height: 25px; font-weight: 600;}
+.text-area-box{}
+.text-area-box textarea{width: 345px; height: 100px; margin-left: 25px; max-width:345px; min-width: 345px; max-height:100px; min-height:100px;  padding: 5px; }
+
+.radio-box{ margin: 10px 0px 0px 25px;}
+.radio-box-title{font-weight: 600;}
+.radio-box input{ margin-left: 5px; margin-right: 5px; cursor: pointer;}
+
+.btn-lay{width:170px; margin: 20px auto 0px;}
+.btn-lay-cancel,.btn-lay-commit{ cursor:pointer;width:80px;height: 25px; line-height: 25px; text-align: center; background: #666; border-radius: 4px; overflow: hidden; color: #fff;}
+.btn-lay-cancel:hover{font-weight: 600;}
+.btn-lay-commit:hover{font-weight: 600;}
+
+.look-ev-main{ display: none; padding: 90px 20px 20px; width: 80%; min-height: 700px; margin: 0px auto; background: #fff; box-shadow:#ccc 0 1px 10px;}
+.look-ev-btn-back{ cursor: pointer; background: url("../images/btn-back.png") 10px center no-repeat; background-size: 22px auto; height: 40px; line-height: 40px; padding-left: 40px; border-bottom: #ddd solid 1px;}
+.look-ev-btn-back:hover{background-color:#eee;}
+
+.tb-limit-width,.tb-limit-width-e{ overflow: hidden; height: 44px; line-height: 44px; margin: 0px auto;}

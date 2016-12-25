@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<link rel="stylesheet" type="text/css" href="../../css/style_jl.css">
+
+<title>物流详情</title>
+<!--<link type="text/css" rel="stylesheet" href="css/logistDetail.css"/>
+-->
+<style>
+@charset "utf-8";
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#FFF;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+/*物流详情*/
+.wl_state{height:50px; line-height:50px; background-color:#fff; color:#333; text-align:left; padding:0px 20px;}
+.wl_state img{ height:18px; width:auto; vertical-align:middle; margin-right:16px;}
+.wl_state_red{ color:#e7393a;}
+
+.wl_det{ height:60px; text-align:left; padding-left:60px; font-size:12px; color:#999; background-color:#fff; line-height:20px; margin-bottom:8px;}
+
+.wl_list{}
+.wl_list ul{}
+.wl_list ul li{ height:91px; width:100%; background-color:#fff;}
+
+.wl_list_l{float:left;height:91px; background-color:#fff;}
+.wl_list_l img{ height:91px; width:auto; margin-right:16px; margin-left:20px;}
+.wl_list_r{ height:50px; padding-top:15px; padding-bottom:25px; border-bottom:#eee solid 1px;background-color:#fff; color:#333; text-align:left;}
+
+.wl_r_yqs_b{ line-height:30px; height:30px; overflow:hidden;}
+.wl_r_yqs_s{ font-size:12px; line-height:20px;}
+
+</style>
+<script src="../../js/lib/jquery-1.8.0.min.js"></script>
+<!--<script type="text/javascript" src="js/logistDetail.js"></script>-->
+</head>
+
+<body style="background:#eee;">
+<header id="header"></header>
+<div class="main" id="main-container">
+<section style="width:100%;">
+	<section class="wl_state">
+    	<img src="../../images/ic_car.png"/>物流状态：<span class="wl_state_red">签收成功</span>
+    </section>
+    <section class="wl_det">
+    	<p>运单号：<span id="order_num"></span></p>
+        <p>信息来源：<span id="info"></span></p>
+    </section>
+    
+    <section class="wl_list">
+    	<ul class="order_ul">
+        	<!--<li>
+            	<div class="wl_list_l"><img src="../../images/wl_1.jpg"/></div>
+                <div class="wl_list_r" style="color:#36cd88;" >
+                	<p class="wl_r_yqs_b">已签收，签收人是本人签收</p>
+                    <p class="wl_r_yqs_s">2015-07-30&nbsp;10:52:20</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>
+            <li>
+            	<div class="wl_list_l"><img src="../../images/wl_2.jpg"/></div>
+                <div class="wl_list_r">
+                	<p class="wl_r_yqs_b">[安徽合肥分公司]派件员刘菲菲正在派件中</p>
+                    <p class="wl_r_yqs_s">2015-07-30&nbsp;10:52:20</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>
+            <li>
+            	<div class="wl_list_l"><img src="../../images/wl_3.jpg"/></div>
+                <div class="wl_list_r">
+                	<p class="wl_r_yqs_b">[安徽合肥分公司]收入</p>
+                    <p class="wl_r_yqs_s">2015-07-30&nbsp;10:52:20</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>
+            <li>
+            	<div class="wl_list_l"><img src="../../images/wl_3.jpg"/></div>
+                <div class="wl_list_r">
+                	<p class="wl_r_yqs_b">[安徽合肥分公司]收入</p>
+                    <p class="wl_r_yqs_s">2015-07-30&nbsp;10:52:20</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>-->
+        </ul>
+    </section>
+</section>
+</div>
+<script src="../../js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/lib/template.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script>
+
+//获取url参数
+function request(paras)
+	    { 
+	        var url = location.href; 
+	        url=decodeURI(url);
+	        var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+	        var paraObj = {}; 
+	        for (var i=0; j=paraString[i]; i++){ 
+	        paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+	        } 
+	        var returnValue = paraObj[paras.toLowerCase()]; 
+	        if(typeof(returnValue)=="undefined"){ 
+	        return ""; 
+	        }else{ 
+	        return returnValue; 
+	        } 
+	    }
+
+$(window).load(function(e){
+	$(".wl_list_r").width($(window).width()-40-$(".wl_list_l img").width());
+});
+$(document).ready(function(){
+	var key = getcookie('key');
+	var orderIdd=request("orderIdd");
+	if(key==''){
+		window.location.href="login.html";
+	}else{
+		var order_id=request("order_id");
+		var order_info=new Array();
+		$.ajax({
+			url:ApiUrl+"/index.php?act=member_order&client_type=wap&op=search_deliver&key="+key+"&order_id="+orderIdd,
+			type:"get",
+			dataType:"jsonp",
+			jsonp:"callback",
+			success: function(data){
+				if(data.code==200){
+					$(data.data.deliver_info).each(function(k,v){
+						 order_info[k]=v;
+						var subdiv="<li><div class='wl_list_l'><img class='img'/></div><div class='wl_list_r' style='color:#36cd88;' ><p class='wl_r_yqs_b'>"+order_info[k].split(" ")[2]+"</p><p class='wl_r_yqs_s'>"+order_info[k].split(" ")[0]+"&nbsp;"+order_info[k].split(" ")[1]+"</p></div><div class='clear_float'></div></li>";
+						$(".order_ul").append(subdiv);
+					});
+					$(".img").attr("src","../../images/wl_3.jpg");
+					$(".img").eq(0).attr("src","../../images/wl_1.jpg");
+					$(".img").eq(1).attr("src","../../images/wl_2.jpg");
+					$("#order_num").html(data.data.shipping_code);
+					$("#info").html(data.data.express_name);
+				}
+			}	
+		});
+	}
+});
+</script>
+</body>
+</html>

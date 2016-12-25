@@ -1,0 +1,18 @@
+*{margin: 0;padding: 0;font-size: 14px;}
+body{background: #F7F3F2;}
+header{width: 100%;height: 44px; background: #ff4946; text-align: center;line-height: 44px;color: #fff;}
+.shopper-info{width: 100%;height: 50px;background: #FFF9E5;display:none;}
+.shopper-info-container{width: 90%;height: 50px;line-height: 50px; margin: 0 auto;color: #9C9C9B;}
+.shopper-info-container span{color: red;}
+.shop-evaluate{width: 100%;height: 200px;background: #fff;}
+.evaluate-box{width: 100%;height: 66px;position: relative;}
+.shop-evaluate-container{width: 90%;height: 200px;margin: 0 auto;}
+.goods-quality{width: auto;height: 66px;line-height: 66px;color: #666666;}
+.goods-star{position: absolute;left: 90px;top: 0;margin-right: 60px;font-size: 0;}
+.goods-degree{position: absolute;right: 0;top: 0;width:auto;height: 66px;line-height: 66px; }
+.goods-star img{margin: 22px 3px 0;}
+.user-evaluate{width: 100%;height: 150px;background: #fff;margin-top: 15px;}
+#user-info{width: 90%;height: 130px;margin-top: 20px; margin-left: 5%;border: none;overflow: hidden;}
+#submit{width: 90%;height: 44px;line-height: 44px;text-align: center;color: #fff;margin-left: 5%;margin-top: 20px;background: #FF4946;border-radius: 4px;margin-bottom: 50px;}
+header .head-back{display: block;position: absolute;left: 0;top:0;width:44px;height:44px;background:url("../img/ic-back.png") center no-repeat; background-size: auto 20px;}
+textarea{-webkit-touch-callout:default;-webkit-user-select:text; -webkit-appearance: none;}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>申请退款</title>
+
+
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/foot.header.css"/>
+    <link rel="stylesheet" href="css/local_finished.css"/>
+
+
+</head>
+<body>
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+    <h2>订单详情</h2>
+</div>
+<div class="content">
+    <div class="clear line"></div>
+    <div class="order border">
+    </div>
+    <div class="clear line"></div>
+    <div class="refund border">
+
+    </div>
+    <div class="refund-tips">退还金额将直接退还到积分中，可在我的积分中提现</div>
+    <div class="clear line"></div>
+    <div class="submit"><a id="submit">提交</a></div>
+    <div></div>
+</div>
+<footer></footer>
+
+<script type="text/template" id="order">
+    <div class="order-info">订单信息</div>
+    <table class="table">
+        <tr>
+            <td class="table-name">订单号</td>
+            <td class="table-value">{{=it.order.order_sn}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">下单时间</td>
+            <td class="table-value">{{=it.order.payment_time}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">总价</td>
+            <td class="table-value">{{=it.order.order_amount}}元</td>
+        </tr>
+        <tr>
+            <td class="table-name">数量</td>
+            <td class="table-value">{{=it.order.goods_num}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">完成后获得积分</td>
+            <td class="table-value">{{=it.order.rebate}}</td>
+        </tr>
+        <tr>
+            <td class="table-name">有效期至</td>
+            {{ if(it.order.validate_time==0){ }}
+            <td class="table-value">无限制</td>
+            {{ }else{ }}
+            <td class="table-value">{{=get_time(it.order.validate_time)}}</td>
+            {{ } }}
+        </tr>
+    </table>
+</script>
+<script type="text/template" id="refund">
+    <div class="refund-money">退款金额</div>
+    <div class="refund-price">{{=it.order.order_amount}}元</div>
+</script>
+
+<script type="text/javascript" src="../js/config.js"></script>
+
+
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="js/applyRefund.js"></script>
+
+
+</body>
+</html>

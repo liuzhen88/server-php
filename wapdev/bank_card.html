@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>银行卡</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/bank_card.css"/>
+    </head>
+
+    <body>
+        <div class="sheader">
+            <a href="javascript:history.back();" class="sh_back"></a>
+            <h2>银行卡</h2>
+            <a class="btn_gl">管理</a>
+            <a class="btn_success">完成</a>
+        </div>
+
+        <div class="s_main">
+            <section class="card-list">
+                <ul>
+
+                </ul>
+            </section>
+
+            <section class="add-bank-card">添加银行卡</section>
+        </div>
+
+        <div class="bank-list-lay">
+            <div class="bank-lay-box">
+                <div class="bank-lay-op">
+                    <div class="bank-lay-delete">删除</div>
+                    <div  class="bank-lay-set-default">设为默认</div>
+                </div>
+                <div class="bank-lay-cancel">取消</div>
+            </div>
+        </div>
+
+        <script type="text/template" id="card-list-tmpl">
+            {{ for ( var i=0 ; i<it.length;i++){ }}
+            <section class="per-bank-box">
+                <section class="bank-jian">
+                </section>
+                <li>
+                    <section class="fleft bank-img-box">
+                        <img src="{{=it[i].icon}}"/>
+                    </section>
+                    <section class="fleft bank-text-box">
+                        <section class="bank-name">{{=it[i].pdc_bank_name}}</section>
+                        <section class="bank-type">{{=it[i].cardtype}}</section>
+                        <section class="bank-number">**** **** **** *** {{=subBankNoStr(it[i].pdc_bank_no)}}</section>
+                    </section>
+                    {{ if(it[i].is_default==1){ }}
+                    <section class="bank-def-flag bank-def-style1" bank-default-flag="{{=it[i].is_default}}">默认</section>
+                    {{ }else{ }}
+                    <section class="bank-def-flag bank-def-style2" bank-default-flag="{{=it[i].is_default}}">默认</section>
+                    {{ } }}
+                    <section class="clear-float"></section>
+                </li>
+            </section>
+            {{ } }}
+        </script>
+
+        <!-- build:inlinejs -->
+        <script type="text/javascript" src="js/config.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/tmpl/common-top.js"></script>
+        <script type="text/javascript" src="js/bank_card.js"></script>
+    </body>
+</html>

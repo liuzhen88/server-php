@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>本单详情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<script src="js/lib/jquery-2.1.4.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/getUrlParameter.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var good_id = request("good_id");
+        var key = request("key");
+        var lat = request("lat");
+        var lng = request("lng");
+        $.ajax({
+            url: ApiUrl + "/index.php?act=unlimited_invitation&op=good_detail&client_type=android&good_id=" + good_id + "&key=" + key + "&lat=" + lat + "&lng=" + lng,
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data) {
+                if (data.code == 200) {
+                    var subdiv = "<div>" + data.data.good_info.detail_simple + "</div>";
+                    $("body").append(subdiv);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+*{ margin:0; padding:0; font-family:"微软雅黑"; font-size:14px;}
+#online_list{ display:block;}
+#list_sec{ width:100%; height:50px; background:#FFF;}
+#list{ width:80%; height:50px; margin:0 auto;}
+#list_left{ float:left; width:50%; height:50px; text-align:center; line-height:50px;color:#999999;}
+#list_right{ float:right; width:50%; height:50px; text-align:center; line-height:50px;color:#EE534F; border-bottom: #EE534F solid 2px; position:relative;  }
+.unreceived{ width:100%; background:#FFF; position:relative;}
+#unreceived_header{ width:90%; height:50px; margin:0 auto; margin-top:15px; position:relative;}
+#store_name{ position:absolute; left:0; top:0; width:auto; height:50px; line-height:50px; color:#333333;}
+#store_state{ position:absolute; right:0; top:0; width:auto; height:50px; line-height:50px; color:#FF4946;}
+.unreceived_list{ position:relative; width:100%; height:100px;border-top:#E6E6E6 solid 1px;}
+.goods_list{ position:relative; width:90%; height:100px; margin:0 auto;}
+.unreceived_list_pic{ position:absolute; left:0px; top:15px; width:65px; height:65px;}
+.unreceived_list_info{ position:absolute; left:75px; top:15px; width:auto; height:100px; margin-right:50px;}
+.goods{ color:#999999; position:absolute; bottom:35px; left:0;}
+.price{ position:absolute; width:auto; right:0; top:15px; height:20px; color:#333333;}
+.num{ position:absolute; width:auto; right:0; top:35px; height:20px; color:#999999;}
+.state{ position: absolute; width:auto; right:0; bottom:20px; height:20px;}
+.box{ width:100%; height:40px;border-top:#E6E6E6 solid 1px;border-bottom:#E6E6E6 solid 1px;}
+.total{ width:90%; height:40px; line-height:40px; text-align:right; margin:0 auto;}
+.select{ width:100%; height:50px; border-bottom:#E6E6E6 solid 1px;}
+.select ul{ list-style:none; width:90%; height:50px; margin:0 auto;}
+.select ul li{ float:left; width:22%; height:30px; margin-left:3%;  line-height:30px; margin-top:10px; border-radius:4px; text-align:center;}
+#local_list{ width:100%; background:#FFF; display:none; margin-top:15px;}
+.local_box{ width:100%; background:#FFF; position:relative;}
+.local{ width:90%; height:100px; position:relative; margin:0 auto;}
+.local_pic{ position:absolute; left:0; top:17px; width:80px; height:65px;}
+.local_info{ position:absolute; height:100px; left:90px; top:10px; margin-right:10px;}
+.shop_info{height:20px; color:#333333; overflow:hidden;}
+.order_num{ color:#999999; margin-top:9px; height:20px;}
+.order_time{ color:#999999; margin-top:7px; height:20px;}
+.local_state{ position:absolute; right:0px; bottom:12px; width:60px; height:25px; background:#F29820; color:#FFF; line-height:25px; text-align:center; border-radius:4px;}
+.local_state_over{ position:absolute; right:0px; bottom:12px; width:60px; height:25px;color:#999999; line-height:25px; text-align:center;}
+.jianxi{ background:#F6F3F3; width:100%; height:15px;}
+.del{ position:absolute; width:0px; height:100px; background:#F44133; color:#FFFFFF; top:0px; right:-60px; text-align:center; line-height:100px; overflow:hidden;} 
+#head{ width:100%; height:55px; background:#FF4946; text-align:center; line-height:55px; color:#fff; font-size:20px; position:relative;}
+#head ul{ width:250px; height:auto; list-style:none; background:url(../images/bg_down.png) no-repeat;}
+#select{ position:absolute; right:-20px; top:5px; width:20px; height:20px;}
+#listUl{ position:absolute; right:0; top:50px; width:150px; height:auto; list-style:none; display:none; z-index:99;}
+#listUl li{ width:150px; height:30px; background:#4B4B4B; color:#FFF; line-height:30px; border-top:solid #FFF 1px;}
+.refundList{ width:100%; height:130px; background:#FFF; margin-top:15px;}
+.refundList-top{ width:100%; height:40px; line-height:40px; color:#666666;border-top:#e6e6e6 solid 1px; text-indent:5%;border-bottom:#e6e6e6 solid 1px;}
+.refundList-content{ width:90%; margin:0 auto; height:90px; position:relative;}
+.refundList-img{ width:65px; height:65px; position:absolute; left:0; top:10px;}
+.bg{ width:100%; background:#E7E7E7; height:15px; border-top:#e6e6e6 solid 1px; border-bottom:#e6e6e6 solid 1px;}
+.refundList-info{ height:44px; margin-right:60px; position:absolute; left:75px; top:5px; overflow:hidden; line-height:22px;}
+.refundList-money{ position:absolute; right:0; top:10px; height:20px; color:#333333;}
+.refundList-num{ position:absolute; right:0; top:32px; height:20px; color:#999999;}
+.refundList-state{ position:absolute; right:0; bottom:0px; height:30px; color:#999999;}
+.local-order-sn{display: none;}
+.local-pay-sn{display: none;}
+.unevaluated-order-sn{display: none;}
+.unevaluated-pay-sn{display: none;}
+.unConsumption-order-sn{display: none;}
+.unConsumption-pay-sn{display: none;}
+.goods_type{display: none;}
+#local_select{position:absolute; right:15px; top:5px; width:20px; height:20px;display: none;}
+#local_listUl{ position:absolute; right:0; top:50px; width:150px; height:auto; list-style:none; display:none; z-index:99;}
+#local_listUl li{ width:150px; height:30px; background:#4B4B4B; color:#FFF; line-height:30px; border-top:solid #FFF 1px;}
+.local-del{width: 16px;height:30px; position: absolute;right: 0px;top: 10px;}
+.local-del img{width: 16px;}
+.consume_code{display: none;}

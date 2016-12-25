@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_evaluate_list.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-photo-preview.min.css">
+    <link rel="stylesheet" type="text/css" href="css/evaluate_list.css">
+    <!-- endbuild -->
+    <title>评价</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>评价</h2>
+</div>
+<div class="s_main" style="padding-bottom:0">
+    <div class="evaluate-star" id="goodsEvaluate"></div>
+    <div class="evaluate-list" id="evaluateList"></div>
+</div>
+
+<script type="text/template" id="evaluatetmpl">
+        <div class="evaluate-l starTitle">商品评价</div>
+        <div class="eva-star-li evaluate-l"><span style="width:{{=evaluateNum(it.data.goods_info.evaluation_good_star)}}%"></span></div>
+        <span class="evaluate-l" id="evaSatisfy">{{=parseFloat(it.data.goods_info.evaluation_good_star).toFixed(1)}}</span>
+</script>
+<script type="text/template" id="evaluateListtmpl">
+    {{ if(  it.data.evaluate_list.length != 0) { }}
+        {{ for ( var i=0 ; i <  it.data.evaluate_list.length ; i++){ }}
+        <div class="eva-li">
+            <div class="eva-user-img"><img src="{{=it.data.evaluate_list[i].geval_frommemberavara}}"></div>
+            <div class="eva-title">
+                {{ if( it.data.evaluate_list[i].geval_isanonymous == 0) { }}
+                <p class="evaluate-l eva-user-name"><span>{{=it.data.evaluate_list[i].geval_frommembername}}</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+                {{ }else{ }}
+                <p class="evaluate-l eva-user-name"><span>匿名</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+                {{ } }}
+                <p class="evaluate-r eva-star-list"><span style="width:{{=evaluateNum(it.data.evaluate_list[i].geval_scores)}}%"></span></p>
+            </div>
+            <div class="eva-li-con">{{=it.data.evaluate_list[i].geval_content}}</div>
+            {{ if( it.data.evaluate_list[i].images.length != 0) { }}
+            <div class="preview-list previevList{{=it.curpage}}">
+                {{ if( it.data.evaluate_list[i].images.length < 4) { }}
+                    {{ for ( var j=0 ; j <  it.data.evaluate_list[i].images.length ; j++){ }}
+                    <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                    {{ } }}
+                {{ }else{ }}
+                    {{ for ( var j=0 ; j < 3 ; j++){ }}
+                    <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                    {{ } }}
+                    {{ for ( var j=3 ; j < it.data.evaluate_list[i].images.length ; j++){ }}
+                    <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview" style="display:none;"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+                    {{ } }}
+                    <div class="evaPicNum">共{{=it.data.evaluate_list[i].images.length}}张</div>
+                {{ } }}
+            </div>
+            {{ } }}
+        </div>
+        {{ } }}
+    {{ }else{ }}
+    <div class="eva-li no-more">没有更多了...</div>
+    {{ } }}
+</script>
+
+
+
+
+<script type="text/template" id="evaluatetmpl2">
+    <div class="evaluate-l starTitle">店铺评价</div>
+    <div class="eva-star-li evaluate-l"><span style="width:{{=evaluateNum(it.data.evaluate_info.evaluation_store_star)}}%"></span></div>
+    <span class="evaluate-l" id="evaSatisfy">{{=parseFloat(it.data.evaluate_info.evaluation_store_star).toFixed(1)}}</span>
+</script>
+<script type="text/template" id="evaluateListtmpl2">
+    {{ if(  it.data.evaluate_list.length != 0) { }}
+    {{ for ( var i=0 ; i <  it.data.evaluate_list.length ; i++){ }}
+    <div class="eva-li">
+        <div class="eva-user-img"><img src="{{=it.data.evaluate_list[i].geval_frommemberavara}}"></div>
+        <div class="eva-title">
+            {{ if( it.data.evaluate_list[i].geval_isanonymous == 0) { }}
+            <p class="evaluate-l eva-user-name"><span>{{=it.data.evaluate_list[i].geval_frommembername}}</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+            {{ }else{ }}
+            <p class="evaluate-l eva-user-name"><span>匿名</span>{{=it.data.evaluate_list[i].geval_addtime}}</p>
+            {{ } }}
+            <p class="evaluate-r eva-star-list"><span style="width:{{=evaluateNum(it.data.evaluate_list[i].geval_scores)}}%"></span></p>
+        </div>
+        <div class="eva-li-con">{{=it.data.evaluate_list[i].geval_content}}</div>
+        {{ if( it.data.evaluate_list[i].images.length != 0) { }}
+        <div class="preview-list previevList{{=it.curpage}}">
+            {{ if( it.data.evaluate_list[i].images.length < 4) { }}
+            {{ for ( var j=0 ; j <  it.data.evaluate_list[i].images.length ; j++){ }}
+            <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+            {{ } }}
+            {{ }else{ }}
+            {{ for ( var j=0 ; j < 3 ; j++){ }}
+            <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+            {{ } }}
+            {{ for ( var j=3 ; j < it.data.evaluate_list[i].images.length ; j++){ }}
+            <a href="{{=it.data.evaluate_list[i].images[j]}}" class="preview" style="display:none;"><img src="{{=it.data.evaluate_list[i].images[j]}}"></a>
+            {{ } }}
+            <div class="evaPicNum">共{{=it.data.evaluate_list[i].images.length}}张</div>
+            {{ } }}
+        </div>
+        {{ } }}
+    </div>
+    {{ } }}
+    {{ }else{ }}
+    <div class="eva-li no-more">没有更多了...</div>
+    {{ } }}
+</script>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_evaluate_list.min.js -->
+<script type="text/javascript" src="js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="js/lib/doT.min.js"></script>
+<script type="text/javascript" src="js/lib/dialog.min.js"></script>
+<script type="text/javascript" src="js/lib/mobile-photo-preview.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/evaluate_list.js"></script>
+<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,84 @@
+@charset "utf-8";
+header {
+    position: fixed;
+    width:100%;
+    height:88px;
+    background:#ff4946;
+}
+header h2 {
+    font-size:36px;
+    color:#FFF;
+    text-align: center;
+    line-height: 88px;
+}
+header .head-back{
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0;
+    width:88px;
+    height:88px;
+    background:url("../img/ic-back.png") center no-repeat;
+    background-size: auto 40px;
+}
+.my-main{
+    padding-top:88px;
+}
+.my-list {
+    margin-top:20px;
+    padding:24px 30px;
+    background:#fff;
+    border-top:#ddd solid 1px;
+    border-bottom:#ddd solid 1px;
+}
+.my-list p {
+    display: block;
+    font-size: 28px;
+    line-height: 48px;
+    color:#999;
+}
+.my-list .order{
+    color:#666;
+}
+.my-list .price{
+    color:#ff4946;
+}
+.pay-way {
+    margin-top:20px;
+    background:#fff;
+    border-top:#ddd solid 1px;
+}
+.pay-way li {
+    position: relative;
+    height:72px;
+    padding:24px 30px;
+    border-bottom:#ddd solid 1px;
+}
+.pay-way .weixin{
+    height:72px;
+    font-size: 28px;
+    color:#666;
+    line-height: 72px;
+    padding-left:88px;
+    background: url("../img/ic-weixin.png") left center no-repeat;
+}
+.pay-way span{
+    position: absolute;
+    top:35px;
+    right:30px;
+    width:48px;
+    height:48px;
+    background: url("../img/ic-radio2.png") no-repeat;
+}
+.payBtn {
+    display: block;
+    width:90%;
+    height:88px;
+    margin: 30px auto 0;
+    text-align: center;
+    color:#fff;
+    font-size: 32px;
+    line-height: 88px;
+    background: #ff4946;
+    border-radius: 8px;
+}

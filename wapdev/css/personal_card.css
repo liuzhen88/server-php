@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+body{background: rgba(0,0,0,0.3);font-size: 14px;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.sh_btn_share{background:url('../images/new-ic-share@3x.png') center no-repeat;background-size:auto 18px;width:44px;height:44px;position:absolute;right:0;top:0;}
+
+.s_main{ }
+.bg-2d-code{width:270px; height:349px; padding-top: 46px; background:url('../images/2d-code@3x.png') center center no-repeat; background-size:270px 395px; margin: 0px auto;}
+.avator-box{ width:202px; height: 44px; margin: 0px auto 24px;}
+
+.avator-img-box{width:44px;height: 44px;}
+.avator-img-box img{width: 100%; height: 100%; overflow: hidden; border-radius: 4px;}
+.user-text-box{width:150px; height: 44px; margin-left: 8px;}
+.user-text{ font-size: 16px; color: #333; line-height: 24px; height: 24px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.invite-text{font-size: 12px;color: #999; line-height: 20px; height: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+.code-image-box{ width: 200px; height: 200px; margin: 0px auto 8px;}
+.code-image-main{width: 200px; height: 200px;}
+.code-image-main img{width: 50px; height: 50px; margin: 75px 0px 0px 75px;}
+
+.title-code{ color: #666; text-align: center; font-size: 14px;}
+
+.code-lay{
+    width: 100%;
+    height: 100%;
+    background: url(../images/lay.png);
+    position: fixed;
+    z-index: 900;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+#share {
+    width: 100%;
+    height: 132px;
+    background: #FFF;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+
+#share_top {
+    width: 100%;
+    height: 92px;
+    border-top: solid #e5e5e5 1px;
+}
+
+#share_top ul {
+    list-style: none;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+#share_top ul li {
+    float: left;
+    width: 25%;
+    height: 92px;
+    text-align: center;
+}
+
+.share img {
+    margin-top: 20px;
+}
+
+#share_bottom {
+    border-top: solid #e5e5e5 1px;
+    color: #999999;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.code-lay-jiantou{ display: none; width: 100%; height: 100%;position: fixed;left: 0; top: 0; z-index: 950; background: url(../images/code-img-jiantou.png)  center 60px no-repeat; background-size: auto 60%;}

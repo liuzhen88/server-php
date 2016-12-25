@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_jl.css">
+
+    <style>
+        .car_btn a {
+            cursor: pointer;
+        }
+        .my_productBox {
+            width: 100%;
+            height: 6.4rem;
+            overflow: hidden;
+        }
+        .my_productBox ul {
+            /*width: 10000px;*/
+            height: 100%;
+        }
+        .my_productBox ul li {
+            float: left;
+            width: 100%;
+            height: 100%;
+        }
+        .my_productBox ul li img {
+            width: 100%;
+            height: 100%;
+        }
+        #pic_details {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        #pic_details img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .my_productBox {
+            background: url("../images/loading.gif") no-repeat center center;
+        }
+
+        a.react:active, a.react.react-active, label.react:active {
+            background: rgba(0, 0, 0, .1)
+        }
+
+        #share {
+            width: 100%;
+            height: 132px;
+            background: #FFF;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            bottom: 50px;
+            display: none;
+        }
+
+        #share_top {
+            width: 100%;
+            height: 92px;
+            border-top: solid #e5e5e5 1px;
+        }
+
+        #share_top ul {
+            list-style: none;
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+        #share_top ul li {
+            float: left;
+            width: 25%;
+            height: 92px;
+            text-align: center;
+        }
+
+        .share img {
+            margin-top: 20px;
+        }
+
+        #share_bottom {
+            border-top: solid #e5e5e5 1px;
+            color: #999999;
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        #prompt {
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            display: none;
+            background: url(shareSale/images/weixin.png) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .goods .content {
+            font-size: 0;
+            margin: 0;
+            padding: 0 0 16px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="p_header"></div>
+
+<div class="main">
+    <div class="my_productBox">
+        <ul class="my_ul clearfix">
+            <!--添加首屏产品图片轮播-->
+        </ul>
+    </div>
+
+    <div class="jl-details">
+        <div class="g-info">
+            <div class="g-name">
+
+                <p class="my_p"></p>
+
+                <div class="g-price"><span id="lss"></span><span id="mark_price" style="text-decoration:line-through"></span></div>
+            </div>
+            <div class="g-sales">销量<span id="sale_num"></span></div>
+        </div>
+        <div class="g-merit">
+            <span class="safe">正品保障</span>
+            <span class="seven">七天退换</span>
+        </div>
+        <ul class="g-other">
+            <li class="g-data-title">
+                <a href="javascript:;" id='select_color' class="react">
+                    <span class="g-num"></span>
+                    <span class="g-data"></span>选择规格
+                </a>
+
+                <div class="data-more">
+                    <span class="arrow"></span>
+                </div>
+            </li>
+            <li class="g-other-title">
+                <a href="javascript:;" id="store_detailsUrl" class='arrow react'>
+                    <span class="g-shop"></span>店铺详情
+                </a>
+            </li>
+            <li class="g-other-title">
+                <a href="javascript:;" id="evaluate_Url" class='arrow react'>
+                    <span class="g-evaluate"></span>累计评价<span style="color:#F00;" id="g_evaluate_span"></span>
+                </a>
+            </li>
+            <div id="pic_details"></div>
+
+        </ul>
+    </div>
+    <div class="index_block goods jl-details-g">
+        <div class="title">热门商品推荐<!--<a href="#"></a>--></div>
+        <div class="content">
+            <!--添加热门商品列表-->
+        </div>
+    </div>
+    <div class="jl-goods-f">
+        <div class="collect"><a href="javascript:;">收藏</a></div>
+        <div class="shareSale_btn"><a>分销</a></div>
+        <div class="car_btn"><a>加入购物车</a></div>
+        <div class="pay_btn"><a id="buy">立即购买</a></div>
+    </div>
+</div>
+<!--分享-->
+<div id="share">
+    <div id="share_top">
+        <ul>
+            
+            <li class="share" style="display:none;"><img src="shareSale/images/qq.png" width="52px" class="share_img"/></li>
+            <li class="share"><img src="shareSale/images/share4.png" width="52px" class="share_img"/></li>
+            <li class="share"><img src="shareSale/images/friend.png" width="52px" class="share_img"/></li>
+            <li class="share" style="display:none;"><img src="shareSale/images/share1.png" width="52px" class="share_img"/></li>
+        </ul>
+    </div>
+    <div id="share_bottom">取消</div>
+</div>
+<!--提示分销-->
+<div id="prompt"></div>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="../js/config.js"></script>
+<!-- endbuild -->
+
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/product_detail.js"></script>
+<script>
+    AGG.optimize.autoChange(640,100);
+</script>
+</body>
+</html>

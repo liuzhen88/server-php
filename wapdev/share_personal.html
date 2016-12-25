@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_sharepersonal.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/sharepersonal.css">
+    <!-- endbuild -->
+
+    <title>发现</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+</div>
+<div class="spers-info-bg">
+    <div class="spers-info-mask"></div>
+    <div class="spers-info" id="spersInfo"></div>
+</div>
+<div class="spers-photo" id="spersPhoto"></div>
+
+
+<script type="text/template" id="spersInfoTmpl">
+    <div class="user-img"><img src="{{=it.data.member_avatar }}"></div>
+    <div class="user-name"><span>{{=it.data.member_truename }}</span><span class="{{=memberSex(it.data.member_sex) }}"></span></div>
+    {{ if(member_id != user_id) { }}
+    <div class="user-btn">
+        <a onclick="attention(this);" class="att" data-memberid="{{=member_id}}"><div class="loading"></div><span class="att{{=it.data.friend_followstate}}"></span></a>
+    </div>
+    {{ } }}
+</script>
+
+<script type="text/template" id="spersPhotoTmpl">
+    {{ if(it.data.length == 0) { }}
+        <div class="nomore">暂无数据</div>
+    {{ }else{ }}
+    <ul>
+        {{ for ( var i=0 ; i<it.data.length;i++){   }}
+        <li class="b-radius"><a href="share_details.html?theme_id={{=it.data[i].theme_id}}"><img src="{{=it.data[i].theme_pic}}"></a></li>
+        {{ } }}
+    </ul>
+    {{ } }}
+</script>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_sharepersonal.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/share_common.js"></script>
+<script type="text/javascript" src="js/share_personal.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

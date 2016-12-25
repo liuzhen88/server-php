@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+body{background: #fff;font-size: 14px;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.s_main{ }
+
+.tip-info{background:#fffdee; color: #ff4946; line-height: 40px; border:#efefef solid 1px; text-align: center;}
+.tip-info span{ margin-left: 5px;color: #333; letter-spacing: 1px;}
+.tip-info img{ width: 18px; height: 18px;line-height: 40px; vertical-align: top; margin:11px 5px 0px 10px; }
+.input-line{ height: 50px; line-height: 50px; padding: 0px 10px; border-bottom:#efefef solid 1px;position: relative; top:0; left:0;}
+.input-left{ float: left; width:30%; text-align: right;}
+.input-right{float: right;width:68%;}
+.input-right input{width:100%; border: 0px;}
+
+.btn-commit{ height: 44px; line-height: 44px; font-size: 16px; letter-spacing: 2px; cursor: pointer; margin: 10px 15px; background: #ff4946; border-radius: 4px; text-align: center; color: #fff;}
+.messageTips {color: #ff4946;line-height: 20px;margin: 10px auto 0px;text-align: center; width: 80%;  }
+
+.forget-pwd{ width: 80px; height:46px; color: #ff4946; line-height: 46px; text-align: left; position: absolute; top:0; right:0; cursor: pointer;}
+#now-trans-pwd{width:65%;}
+

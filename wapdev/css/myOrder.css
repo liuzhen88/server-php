@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#FFF;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+/*我的订单*/
+.myOrder_header{width:100%; overflow:auto; background:#fff;}
+.myOrder_header ul{}
+.myOrder_header ul li{ cursor:pointer; float:left; height:50px; line-height:50px; color:#333; padding:0px 15px; border-bottom:#fff solid 3px; background-color:#FFF;}
+
+.myOrder_box{ margin:8px auto;}
+
+.orderBox_header{height:50px; line-height:50px; text-align:left; color:#333; border-bottom:#eee solid 1px; background-color:#fff; padding-left:20px; padding-right:20px;}
+.orderBox_header a{float:left; line-height:50px; display:block; height:50px; color:#333; font-size:16px;}
+.orderBox_header span{ color:#e53935; float:right; display:block; height:50px; }
+
+.order_list{ padding-left:20px; padding-right:20px; text-align:left; background-color:#fff;}
+.order_list ul{}
+.order_list ul li{ padding:10px 0px; height:85px;}
+
+.o_list_img{width:85px; height:85px; overflow:hidden; border-radius:5px; float:left; margin-right:10px;}
+.o_list_img img{width:85px; height:85px;}
+
+.o_list_cs{text-align:left; margin-left:10px; color:#333;/* background-color:#9F6;*/}
+
+.order_gName{ line-height:25px; max-height:50px; overflow:hidden;}
+.order_money{ line-height:40px; font-size:16px;}
+.order_money span{ letter-spacing:2px; margin-left:10px; color:#999;}
+
+
+.order_js{ letter-spacing:2px; height:45px; font-size:15px; line-height:32px; color:#999;  background-color:#fff; padding-left:20px; padding-right:20px;}
+
+.ord_delete{ display:block; float:right; padding-left:15px; padding-right:15px; height:32px; background-color:#eee; margin-right:10px; border-radius:4px;}
+.ord_pay{ display:block;float:right; padding-left:15px; padding-right:15px; height:32px; background-color:#f44336; border-radius:4px;}
+
+.myO_total{ text-align:right; color:#999; width:100%; height:50px; line-height:50px; background:#FFF;border-top:#eee solid 1px; clear:both;}
+.myO_t_red{ color:#f44336; }
+.myO_t_black{ color:#333; padding-right:20px;}
+.shop_name {max-width:70%;overflow:hidden;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+/*物流详情*/
+.wl_state{height:50px; line-height:50px; background-color:#fff; color:#333; text-align:left; padding:0px 20px;}
+.wl_state img{ height:18px; width:auto; vertical-align:middle; margin-right:16px;}
+.wl_state_red{ color:#e7393a;}
+
+.wl_det{ height:60px; text-align:left; padding-left:60px; font-size:12px; color:#999; background-color:#fff; line-height:20px; margin-bottom:8px;}
+
+.wl_list{}
+.wl_list ul{}
+.wl_list ul li{ height:91px; width:100%; background-color:#fff;}
+
+.wl_list_l{float:left;height:91px; background-color:#fff;}
+.wl_list_l img{ height:91px; width:auto; margin-right:16px; margin-left:20px;}
+.wl_list_r{ float:left; height:50px; padding-top:15px; padding-bottom:25px; border-bottom:#eee solid 1px;background-color:#fff; color:#333; text-align:left;}
+
+.wl_r_yqs_b{ line-height:30px; height:30px; overflow:hidden;}
+.wl_r_yqs_s{ font-size:12px; line-height:20px;}

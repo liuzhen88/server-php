@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- build:css css/build_member.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/foot.header.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mymember.css"/>
+    <!-- endbuild -->
+
+</head>
+<body class="bg_c">
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+
+    <h2>个人中心</h2>
+</div>
+<div class="myinfo">
+    <div class="info-wrap">
+        <div class="info-image"></div>
+        <div class="info-name">
+            <div class="info-name-text"></div>
+            <div class="info-name-code">邀请码：<span></span></div>
+        </div>
+        <div class="info-arrows"></div>
+    </div>
+    <div class="myshare clearfix">
+        <a href="share_att.html" class="follow">
+            <p>10</p>
+
+            <p>关注</p>
+        </a>
+        <a href="share_fans.html" class="fans">
+            <p>90</p>
+
+            <p>粉丝</p>
+        </a>
+        <a href="share_personal.html" class="shares">
+            <p>122</p>
+
+            <p>我的发现</p>
+        </a>
+    </div>
+</div>
+<div class="main" id="main-container">
+    <div class="jl-member">
+        <!--<div class="member-top">
+            <div class="mamber-img box-shw"><img id="img"/></div>
+            <div class="mamber-name"></div>
+        </div>-->
+        <ul class="member-list">
+            <li>
+                <a id="order"><span class="order"></span>我的订单</a>
+            </li>
+            <li>
+                <a id="collect"><span class="collect"></span>我的收藏</a>
+            </li>
+            <li>
+                <a id="follow"><span class="follow"></span>我的关注</a>
+            </li>
+        </ul>
+        <ul class="member-list">
+            <li>
+                <a id="points"><span class="points"></span>我的积分</a>
+            </li>
+            <li>
+                <a id="people"><span class="people"></span>我的人脉</a>
+            </li>
+            <!-- <li>
+                 <a id="history"><span class="history"></span>浏览历史</a>
+             </li>-->
+        </ul>
+        <ul class="member-list">
+            <li class="member-list-tel">
+                <a href="tel:400-627-7745"><span class="tel"></span>客服电话<span class="tel-text">400-627-7745</span></a>
+            </li>
+            <li>
+                <a id="more"><span class="more"></span>更多</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mem_exit"><a class="b-radius">注销</a></div>
+</div>
+<div class="footer" id="footer"></div>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_member.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/member.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+*{font-size: 14px;}
+.bank-info{width: 100%; height: 60px; background: #fff;}
+.bank-container{height: 60px; margin: 0 15px;}
+.bank-card-name{float: left;width: auto;height: 60px;}
+.bank-card-name p{height: 25px;line-height: 25px;}
+#bankName{font-size: 16px; margin-top: 6px;}
+.bank-card-wh{ font-size: 12px;}
+#last-card-number,#bank-card-type{ font-size: 12px;}
+
+.change-bank{float: right;width: auto;height: 60px;line-height: 60px;}
+.word-style{color: #999999;}
+
+.jx{width: 100%;height: 10px; border-top: solid #dcdcdc 1px;border-bottom: solid #dcdcdc 1px;}
+
+.cash-number{width: 100%;height: 44px; background: #fff;border-bottom: solid #dcdcdc 1px;}
+.cash-number-container{margin: 0 15px;height: 44px;}
+label{height: 44px;line-height: 44px; margin-right: 8px;}
+.cash-money{ border: none;width: 70%;}
+.current-total-points{width: 100%;height: 44px;}
+.current-total-points-container{height: 44px;line-height: 44px;margin: 0 15px;}
+.red{color: red;}
+.submit{ margin: 0px 15px 20px; letter-spacing: 1px; height: 44px; line-height: 44px; text-align: center;background: #ff4946;color: #fff;border-radius: 4px;font-size: 16px;}

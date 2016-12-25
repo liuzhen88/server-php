@@ -1,0 +1,16 @@
+*{ margin:0; padding:0; font-family:"微软雅黑";}
+section{ width:100%;}
+.order_price{ width:94%; height:30px; margin:0 auto; margin-top:20px; font-size:14px;}
+#get_order{ width:70px; height:30px; line-height:30px; text-align:center; background:#ff4946; color:#FFF; display:inline-block; border-radius:5px;}
+.order_price input{ width:140px; height:25px; background:#F0F0F0; border:solid #CCC 1px; border-radius:5px;}
+.pay_time{width:94%; height:30px; margin:0 auto; margin-top:20px; font-size:14px;}
+.order_number{width:94%; height:30px; margin:0 auto; margin-top:10px; font-size:14px;}
+
+#se2{ height:200px; background:#999; position:relative;}
+
+#weixin{display:block;position:absolute; top:10px; width:180px; height:180px;}
+#confirm{ width:70px; height:30px; line-height:30px; text-align:center; background:#ff4946; color:#FFF; display:inline-block; border-radius:5px;}
+.comfirm_order{width:94%; height:30px; margin:0 auto; margin-top:20px; font-size:14px;}
+.comfirm_order input{width:140px; height:25px; padding-left:10px;background:#F0F0F0;border:solid #CCC 1px; border-radius:5px;}
+#se4{ width:100%; border-top:dashed #CCCCCC 1px; font-size:14px; margin-top:10px;}
+#se4 p{ margin:10px; color:#666;}

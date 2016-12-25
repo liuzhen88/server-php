@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/local_commit_order.css">
+
+    <title>提交订单</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>提交订单</h2>
+</div>
+
+<div class="s_main">
+
+    <div class="proConBox">
+        <ul>
+            <li>
+                <div class="h-r-imgbox fleft">
+                    <img src=""/>
+                </div>
+                <div class="h-r-text fleft">
+                    <div class="h-r-text-k">
+                        <div class="h-r-productName"></div>
+                        <div class="h-r-storeName"></div>
+                    </div>
+                    <div class="h-r-priceBox">
+                        <span class="h-r-priceNow fleft"></span>
+                        <span class="h-r-priceOld fleft"></span>
+                        <span class="h-r-sale fright">已售：</span>
+                        <span class="clear-float"></span>
+                    </div>
+                </div>
+                <div class="clear-float"></div>
+            </li>
+        </ul>
+    </div>
+    <section class="num-box">
+        <section style="width:37%; float: left; padding-left: 15px;">
+            <section class="float-left">库存：</section>
+            <section class="float-right goods_storage_ajax"></section>
+            <section class="clear-float"></section>
+        </section>
+        <section style="width:55%; float: right; border-left: #e6e6e6 solid 1px;">
+            <section class="num-head float-left">数量：</section>
+            <section class="num-right float-right"><img src="images/jia@3x.png"/> </section>
+            <section class="num-center float-right">1</section>
+            <section class="num-left float-right"><img src="images/jian@3x.png"/></section>
+        </section>
+    </section>
+
+    <section class="pay-money-box">
+        <section class="pay-money-l float-left">支付金额</section>
+        <section class="pay-money-r2 float-right"></section>
+    </section>
+
+    <section class="jifen-box">
+        <section class="float-left">
+            <div>积分抵扣</div>
+        </section>
+        <section class="text-box float-left">
+            余额：<span></span>
+        </section>
+        <section class="float-right">
+            <section class="jifen-circle"></section>
+        </section>
+    </section>
+
+    <section class="order-list-header">订单结算</section>
+    <section class="order-list-box">
+        <section class="order-money">
+            <section class="float-left">订单金额：</section>
+            <section class="pay-money-r float-right"></section>
+            <section class="clear-float"></section>
+        </section>
+        <section class="order-jifen">
+            <section class="float-left">积分抵扣：</section>
+            <section class="float-right">¥0.00</section>
+            <section class="clear-float"></section>
+        </section>
+
+        <section class="commit-order-box"></section>
+    </section>
+
+    <section class="need-pay-box">
+        <section class="float-left">实际需支付</section>
+        <section class="need-pay-right"></section>
+        <section class="btn-commit float-right">提交订单</section>
+    </section>
+</div>
+
+<script type="text/template" id="commit-order-tmpl">
+    {{ if(it.datas.length>0){ }}
+    <section class="order-discount">
+        <section class="float-left order-discount-name">优惠折扣：</section>
+        <section class="order-discount-list float-right">
+            <ul>
+                {{ for(var i=0;i<it.datas.length;i++){ }}
+                <li>
+                    <section class="order-privilege-name float-left">{{=it.datas[i].name}}</section>
+                    <section class="order-privilege-con float-right">-¥{{=it.datas[i].money}}</section>
+                    <section class="clear-float"></section>
+                </li>
+                {{ } }}
+            </ul>
+        </section>
+        <section class="clear-float"></section>
+    </section>
+    {{ } }}
+</script>
+
+<script type="text/javascript" src="../js/config.js"></script>
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="js/local_commit_order.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我的订单</title>
+    <!-- build:css css/build_confirm.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/confirm_order.css">
+    <!-- endbuild -->
+</head>
+<body>
+<header>
+    <h2>订单确认</h2>
+    <a href="javascript:history.back();" class="head-back"></a>
+</header>
+<div class="my-main">
+    <div class="my-list" id="addrInfo">
+    </div>
+    <div class="my-list">
+        <div class="time">
+            <span>收货时间</span>
+            <div id="time">及时送达1小时</div>
+            <!--<div id="time">-->
+            <!--<select class="sel1">-->
+            <!--<option value="0">今天</option>-->
+            <!--<option value="1">明天</option>-->
+            <!--<option value="2">后天</option>-->
+            <!--</select>-->
+            <!--<select class="sel2"></select>-->
+            <!--</div>-->
+        </div>
+        <div class="message">
+            <label>备注</label>
+            <input id="message" type="text" placeholder="您还有其他要求吗？(100字以内)"/>
+        </div>
+    </div>
+    <ul class="order-info" id="orderInfo">
+    </ul>
+    <ul class="total" id="totalList">
+    </ul>
+</div>
+<div class="order-btn">
+    <p>合计：<span id="total">￥</span></p>
+    <a href="javascript:" id="orderBtn">去付款</a>
+</div>
+<script type="text/template" id="addrTmpl">
+    {{ if ( it.has_address == 0 ) { }}
+    <a href="add_address1.html?order=yes" class="add">新建地址</a>
+    {{ }else{ }}
+    {{ if ( it.address_info.address_id == undefined ) { }}
+    <a href="address1.html?order=yes" class="add">选择地址</a>
+    {{ }else{ }}
+    <a href="address1.html?order=yes" class="link">
+        <p class="user"><span>{{=it.address_info.true_name}}</span>{{=it.address_info.mob_phone}}</p>
+        <p class="area">{{=it.address_info.address}}{{=it.address_info.door_number}}</p>
+    </a>
+    {{ } }}
+    {{ } }}
+</script>
+<script type="text/template" id="orderTmpl">
+    {{ for(var i=0;i< it.cart_info.cart_list.length;i++){ }}
+    <li>
+        <div class="goods-img"><img src="{{=it.cart_info.cart_list[i].goods_image}}"></div>
+        <div class="goods-info">
+            <p class="goods-name">{{=it.cart_info.cart_list[i].goods_name}}</p>
+            <p>
+                {{ if ( it.cart_info.cart_list[i].buyalbe == 0 ) { }}
+                <span class="null">缺货</span>
+                {{ }else{ }}
+                <span class="price">￥{{=it.cart_info.cart_list[i].goods_price}}</span>
+                {{ if ( it.cart_info.cart_list[i].goods_size != '' ) { }}
+                <span class="spec">{{=it.cart_info.cart_list[i].goods_size}}</span>
+                {{ } }}
+                {{ } }}
+            </p>
+        </div>
+        <div class="select" data-id="{{=it.cart_info.cart_list[i].goods_id}}" data-money="{{=it.cart_info.cart_list[i].goods_price}}">
+            {{ if ( it.cart_info.cart_list[i].buyalbe == 0 ) { }}
+            <a class="goodsDel">删除</a>
+            {{ }else{ }}
+            <a class="numDel"></a>
+            <a class="num">{{=it.cart_info.cart_list[i].goods_num}}</a>
+            <a class="numAdd"></a>
+            {{ } }}
+        </div>
+    </li>
+    {{ } }}
+</script>
+<script type="text/template" id="totalTmpl">
+    <li>
+        <p class="total-left">商品总计：<span id="goodsMoney">￥{{=it.cart_info.money_goods}}</span></p>
+        <p class="total-right">配送费：<span id="carriage">￥{{=it.cart_info.adt_carriage_this}}</span></p>
+    </li>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../js/lib/fastclick.min.js"></script>
+<script type="text/javascript" src="../js/lib/doT.min.js"></script>
+<script type="text/javascript" src="js/common/jsfloat.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/share_wx.js"></script>
+<!-- build:js2  js/build_confirm.min.js -->
+<script type="text/javascript" src="js/confirm_order.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

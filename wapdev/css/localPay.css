@@ -1,0 +1,28 @@
+*{ margin:0 ; padding:0; font-family:"微软雅黑";}
+header{ width:100%; height:46px; line-height:46px; background:#EB4142; color:#FFF; font-size:18px; text-align:center; position:fixed; top:0px; left:0px;}
+#pay_num{ width:100%; height:44px; background:#FFF; margin-top:15px; position:relative;border-top:#efefef solid 1px;border-bottom:#efefef solid 1px;}
+#pay_left{ position:absolute; left:15px; top:0px; color:#323232; line-height:44px;}
+#pay_right{ position:absolute; right:20px; top:0px; color:#979797; line-height:44px; letter-spacing:1px;}
+
+.payBoxBorder{ border-top:#efefef solid 1px; margin-top:15px; background-color:#fff;}
+.payBox{height:70px; border-bottom:#efefef solid 1px; cursor:pointer;}
+.floatLeft{ float:left;}
+.floatRight{ float:right;}
+.clearFloat{ clear:both;}
+
+.payFont{margin-left:10px;}
+.payFont1{ color:#333; font-size:16px; line-height:25px; margin-top:10px;}
+.payFont2{color:#999; font-size:14px; line-height:25px;}
+
+.payIcon{ width:46px; height:46px; border-radius:46px; overflow:hidden; margin-top:12px; margin-left:15px;}
+.payIcon img{ width:100%; height:100%;}
+
+.checkPay{ margin-right:15px; width:25px; height:70px; background:url(../images/pay_check.png) center center no-repeat;}
+.checkenPay{ background:url(../images/pay_checkon.png) center center no-repeat;}
+
+.tipBox{ margin-top:15px;}
+.tipFont{width:140px; height:20px; line-height:20px; text-align:center;color:#999; font-size:14px;}
+.tipLine{ height:1px; background-color:#999;margin-top:10px;}
+
+.confirmBtn{cursor:pointer; width:90%; height:44px; line-height:44px; text-align:center; color:#fff; background-color:#ff4946; border-radius:5px; overflow:hidden; margin:15px auto;}
+.by-cash-pay{display: none;}

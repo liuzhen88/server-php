@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_evaluate_ok.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/evaluate.css">
+    <!-- endbuild -->
+
+    <title>我要评价</title>
+</head>
+<body>
+<div class="sheader">
+    <h2>评价成功</h2>
+    <a class="sh_r" id="evaSendBtn">完成</a>
+</div>
+<div class="s_main">
+    <div class="evaluate-ok">感谢您的评价<br/>您的评价会帮助到很多人</div>
+</div>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_evaluate_ok.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!-- endbuild -->
+
+<script>
+var lat=localStorage.getItem("latitude");
+var lng=localStorage.getItem("longitude");
+var thisGoodID=request("goods_id");
+var thisStoreID=request("store_id");
+$('#evaSendBtn').on('click',function(){
+    if(thisStoreID!="" && thisGoodID!=""){
+        window.location.href=WapSiteUrl+"/store_detail.html?store_id="+thisStoreID;
+    }else if(thisStoreID=="" && thisGoodID!=""){
+        window.location.href=WapSiteUrl+"/wap_product_details.html?goods_id="+thisGoodID;
+    }else{
+        window.location.href=WapSiteUrl+"/index_o2o.html";
+    }
+})
+</script>
+</body>
+</html>

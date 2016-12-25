@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#FFF;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+/*购物车列表*/
+.my_perShop{ margin-top:10px;}
+
+.my_sc_head{ text-align:left; height:50px; background-color:#fff; border-bottom:#eee solid 1px; border-top:#eee solid 1px; font-size:16px; line-height:50px; color:#333;}
+.my_sc_head img{cursor:pointer; width:24px; height:24px; vertical-align:middle;line-height:50px; margin-left:10px; margin-right:10px;}
+
+.my_perGoods{}
+.my_perGoods ul{}
+.my_perGoods ul li{ border-bottom:#eee solid 1px; background-color:#fff; height:80px; padding:10px;}
+
+.my_perGoods_l{ float:left; margin-left:10px; margin-right:10px; margin-top:25px; cursor:pointer;}
+.my_perGoods_l img{width:24px; height:24px;}
+
+.my_perGoods_m{ float:left; overflow:hidden; border-radius:5px; margin-right:10px;}
+.my_perGoods_m img{width:80px; height:80px; }
+
+.my_perGoods_r{ text-align:left; color:#333;}
+
+.my_cartGoodsName{ height:40px; overflow:hidden; line-height:20px;}
+
+.my_cartGoodsMoney{ color:#e53631;}
+.my_cgNumL{float:left;  width:20px; height:20px;  border:#666 solid 1px;text-align:center; line-height:20px; font-size:20px; cursor:pointer; border-radius:0;}
+.my_cgNumL img{ width:100%; height:100%;}
+.my_cgNumM{float:left;  width:30px; height:20px;border-top:#666 solid 1px;border-bottom:#666 solid 1px; text-align:center; line-height:20px;}
+.my_cgNumR{float:left;  width:20px; height:20px;  border:#666 solid 1px;text-align:center; line-height:20px;font-size:20px; cursor:pointer;border-radius:0;}
+.my_cgNumR img{ width:100%; height:100%;}
+.my_cgDelete{float:right;  width:26px; height:26px; background:url(../images/gcDelete.png) center center no-repeat; cursor:pointer;}
+
+.my_goodsCartQJS{ font-size:16px; position:fixed; bottom:0; left:0; width:100%; height:50px; line-height:50px; background:#fff; border-top:#eee solid 1px; text-align:left;}
+
+.my_QJS_QX{ float:left; }
+.my_QJS_QX img{cursor:pointer; width:24px; height:24px; vertical-align:middle;line-height:50px; margin-left:10px; margin-right:10px;}
+
+.my_QJS_HJ{float:right; margin-right:15px;}
+.my_QJS_HJ span{color:#e53631;}
+
+
+.my_QJS{ display:block; cursor:pointer; float:right; width:120px; height:50px; background-color:#e53631; text-align:center; color:#fff;}

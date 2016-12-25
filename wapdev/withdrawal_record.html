@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>提现记录</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/withdrawal_record.css"/>
+    </head>
+
+    <body>
+        <div class="sheader">
+            <a href="javascript:history.back();" class="sh_back"></a>
+            <h2>提现记录</h2>
+        </div>
+
+        <div class="s_main">
+            <div id="goodsMain"></div>
+            <section class="add-data-class">数据加载中~</section>
+            <section class="no-data-class">没有相关数据~</section>
+        </div>
+
+        <script type="text/template" id="orderDetails">
+
+            {{ for(var i=0;i<it.length;i++){ }}
+            <section class="points-details">
+                <section class="hidden-data">
+                    <section class="pdc_payment_state">{{=it[i].pdc_payment_state}}</section>
+                    <section class="pdc_amount">{{=it[i].pdc_amount}}</section>
+                    <section class="pdc_add_time">{{=it[i].pdc_add_time}}</section>
+                    <section class="pdc_deal_time">{{=it[i].pdc_deal_time}}</section>
+                    <section class="pdc_payment_time">{{=it[i].pdc_payment_time}}</section>
+                    <section class="pdc_message">{{=it[i].pdc_message}}</section>
+                    <section class="icon">{{=it[i].icon}}</section>
+                    <section class="cardtype">{{=it[i].cardtype}}</section>
+                    <section class="pdc_bank_name">{{=it[i].pdc_bank_name}}</section>
+                    <section class="pdc_bank_no">{{=splitBankNum(it[i].pdc_bank_no)}}</section>
+                </section>
+                <section class="store-details">
+                    提现
+                    {{ if(it[i].pdc_payment_state==0){ }}
+                    <span class="tx-status color-status-1">申请成功</span>
+                    {{ }else if(it[i].pdc_payment_state==1){ }}
+                    <span class="tx-status color-status-1">提现成功</span>
+                    {{ }else if(it[i].pdc_payment_state==2){ }}
+                    <span class="tx-status color-status-3">处理中</span>
+                    {{ }else if(it[i].pdc_payment_state==3){ }}
+                    <span class="tx-status color-status-2">提现失败</span>
+                    {{ } }}
+                </section>
+
+                <section class="points-date">{{=get_time(it[i].pdc_add_time)}}</section>
+
+                {{ if(it[i].pdc_amount>=0){ }}
+                <section class="points-add">{{=it[i].pdc_amount}}</section>
+                {{ }else{ }}
+                <section class="points-not-add">{{=it[i].pdc_amount}}</section>
+                {{ } }}
+
+            </section>
+            {{ } }}
+
+        </script>
+
+
+        <!-- build:inlinejs -->
+        <script type="text/javascript" src="js/config.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/tmpl/common-top.js"></script>
+        <script type="text/javascript" src="js/withdrawal_record.js"></script>
+
+    </body>
+</html>

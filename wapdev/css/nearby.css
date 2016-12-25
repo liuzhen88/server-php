@@ -1,0 +1,279 @@
+@charset "utf-8";
+/*附近*/
+body{
+    background-color: #fff;
+}
+.header-wrap{
+    position: fixed;
+    height:44px;
+    background: #ef5350;
+}
+.header-wrap h2{
+    font-size:18px;
+    height:44px;
+    line-height: 44px;
+}
+.header-back {
+    position: absolute;
+    top:0;
+    width: 44px;
+    height: 44px;
+}
+.header-back span {
+    width: 44px;
+    height: 44px;
+    text-indent: -9999px;
+    background: url(../images/back.png) center center no-repeat;
+    background-size: auto 26px;
+    display: block;
+}
+.nearby_header {
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+    background: #fff;
+    border-bottom: #ddd solid 1px;
+    position: fixed;
+    top: 44px;
+    left: 0px;
+    z-index: 100;
+}
+
+.nearby_header ul {
+    height: 44px;
+    width: 100%;
+    color: #666;
+}
+
+.nearby_header ul li {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    width: 33%;
+    margin: 12px 0px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nearby_header ul li img {
+    height: 10px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 9px;
+}
+
+.nearby-header-select {
+    color: #ff4946;
+}
+.nearby-header-select img{
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+.nearby_lay {
+    width: 100%;
+    height: auto;
+    background-color: #FFF;
+    border-bottom: #dedede solid 1px;
+    text-align: left;
+    position: fixed;
+    top: 89px;
+    left: 0px;
+    z-index: 100;
+}
+
+.allClassLay {
+    display: none;
+    overflow: hidden;
+    padding-left: 25%;
+    width: 75%;
+}
+
+.allClassLayL {
+    width: 25%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: scroll;
+    height: 250px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.allClassLayL li {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: #f4f4f4 solid 1px;
+    text-align: center;
+    cursor: pointer;
+}
+.allClassLayL li.select {
+    background-color: #f4f4f4;
+    border-bottom: #f4f4f4 solid 1px;
+}
+
+.allClassLayR {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 250px;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f4f4f4;
+}
+
+.allClassLayR ul li {
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    border-bottom: #eee solid 1px;
+    cursor: pointer;
+}
+
+.nearLay, .sortLay {
+    display: none;
+}
+
+.nearLay ul li, .sortLay ul li {
+    height: 40px;
+    padding-left: 16px;
+    line-height: 40px;
+    border-bottom: #eee solid 1px;
+    cursor: pointer;
+}
+
+.listOfNear {
+    padding-top: 88px;
+    background: #fff;
+}
+
+ul.perStoreBox {
+    padding:0 15px 5px;
+    min-height: 120px;
+}
+
+.per_nearby {
+    overflow: hidden;
+    height: 70px;
+    padding: 15px 0;
+    border-bottom: #e2e2e2 solid 1px;
+}
+.per_nearby a{
+    display: block;
+    position: relative;
+    padding-left:88px;
+}
+
+.per_nearby:last-child {
+    border-bottom: none;
+}
+
+.per_pic_box {
+    width: 80px;
+    height: 70px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    position: absolute;
+}
+
+.per_pic_box img {
+    width: 100%;
+    height: 100%;
+}
+
+.per_contant {
+    width: 100%;
+}
+
+.per_contant_name {
+    padding-top: 2px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.per_contant span {
+    display: inline-block;
+}
+
+.per_contant_name span.perName {
+    max-width: 78%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.per_contant_name span.sale {
+    color: #ffa524;
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 2px;
+    border: #ffa524 solid 1px;
+    padding: 0 5px;
+    margin-left: 2px;
+    vertical-align: top;
+}
+
+.perContantPrice {
+    padding: 5px 0 4px;
+    overflow:hidden;
+}
+
+.perContantPrice img {
+    width: 16px;
+    height: 16px;
+}
+
+.perContantPrice .perPrice {
+    float: right;
+    color: #666;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.perClass {
+    position: relative;
+    padding-right: 65px;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.perClass .perDistance {
+    position: absolute;
+    right:0;
+}
+
+.per_contant_con {
+    height: 45px;
+    line-height: 22px;
+    color: #999;
+    overflow: hidden;
+}
+
+.perContantPrice {
+    color: #e23b35;
+    font-size: 16px;
+}
+
+.perContantSale {
+    float: right;
+}
+.network-error{
+    display: none;
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+}
+.nearby-loading{
+    height:100px;
+    margin-bottom:44px;
+}
+.eva-star-li {float:left;width:108px;height:18px;background:url(../images/star-grayli@3x.png) 0 0  no-repeat;background-size: auto 18px;}
+.eva-star-li span{width:100%;height:18px;display: block;background:url(../images/star-oli@3x.png) 0  0  no-repeat;background-size: auto 18px;}

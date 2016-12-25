@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<title>退货退款</title>
+<link rel="stylesheet" type="text/css" href="../../css/style_jl.css"/>
+<link href="css/complete.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+ 
+<header id="header"></header>
+<div class="main" id="main-container">
+<section id="se1">
+	<section class="se1_contain">
+        <p class="y-text">退款类型</p>
+    </section>
+    <section class="se1_person2" >
+       <div class="a1"><a><img src="images/ic_choosen@2x.png" class="has">&nbsp;&nbsp;退款</a></div>
+       	 <div class="a2"><a><img src="images/ic_unchoosen@2x.png" class="has">&nbsp;&nbsp;退货退款</a></div>
+    </section>
+</section>
+
+<section id="se1">
+	<section class="se1_contain ">
+    	
+        <div class="y-text ">
+        	<div class="fl"><span>*</span>退货数量：</div>
+        	<img src="images/ic_reduce_can-not-press@2x.png" id="reduce">
+            <div class="y-shuliang fl y-width20" id="num">1</div>   
+            <img src="images/ic_plus_press_green@2x.png" id="add">
+        </div>
+    </section>
+    <section class="se1_person2" >
+       <div class="y-text ">
+        	<div class="fl"><span>*</span>退款金额：</div>
+        	<div class="fl "><span>￥<span id="money"></span></span></div>   
+        </div>
+    </section>
+</section>
+
+
+
+<section id="se1">
+	<section class="se1_contain ">
+    	
+        <div class="y-text ">
+        	<div class="fl"><span>*</span>退货原因：</div>
+        	 
+                <select name="cars" class="y-shuliang fl y-width90 " id="select">
+                	<option selected>请选择退款原因</option>
+                </select>
+            
+           
+            
+        </div>
+    </section>
+    <section class="se1_person2"  style="height:220px;">
+       <div class=" y-text">
+        	<div class="fl">&nbsp;退款说明：</div>
+            <textarea id="message" name="message" cols="42" rows="7" class="y-shuliang fl y-width90 rounded" placeholder="&nbsp;&nbsp;请输入，不多于200字"></textarea>
+        </div>
+    </section>
+</section>
+
+<section id="se1">
+	
+    <section class="se1_person2"  style="height:190px;">
+       <div class=" y-text">
+        	<div class="">&nbsp;上传凭证：</div>
+            <ul class="y-pin">
+            	 <li style="position:relative" id="sendimgLi">
+                 	<input id="send_img" type="file" style="position:absolute; z-index:10; opacity:0;">
+                 	<div id="input_img"><img src="images/ic_upload_pic@2x.png"></div>
+					<div id="top_div"></div>
+                 </li>
+                 
+            </ul>
+            <p class="y-ps">&nbsp;最多上传3张，每张不超过5M，支持IPG,BMP,PNG</p>
+        </div>
+    </section>
+</section>
+
+
+
+<footer style="margin:20px auto;" id="sub">
+ 
+ <a>提交</a>
+</footer>
+<div id="screen"></div>
+
+</div>
+<div id="tishi">申请提交中,请耐心等待...</div>
+
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/lib/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/template.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="js/getUrlParameter.js"></script>
+<script type="text/javascript" src="js/complete.js"></script>
+<script type="text/javascript" src="js/exif.js"></script>
+<script type="text/javascript" src="js/lrz.js"></script>
+<script type="text/javascript" src="js/index1.js"></script>
+</body>
+</html>

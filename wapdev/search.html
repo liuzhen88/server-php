@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+
+
+<title>附近</title>
+<link href="css/index_o2o.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="css/nearby.css"/>
+</head>
+
+<body style="background:#eee; padding-top:50px;">
+<header id="head_top" class="sch">
+    <div class="head_bg"></div>
+    <div class="head">
+        <!-- <div class="search b-radius"><a href="#"><span></span>让我一次爱个购</a></div> -->
+        <div class="search b-radius">
+            <input type="text" placeholder="让我一次爱个购"/>
+            <span class="btn">搜索</span>
+        </div>
+    </div>
+</header>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/get_location.js"></script>
+<script type="text/javascript">
+$(".search .btn").click(function(){
+    var store_name=$(".search input").val();
+    window.location.href = WapSiteUrl+'/nearby.html?store_name='+store_name;
+});
+</script>
+</body>
+</html>

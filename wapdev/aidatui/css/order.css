@@ -1,0 +1,98 @@
+@charset "utf-8";
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:44px;
+    background:#ff4946;
+    z-index: 100;
+}
+header h2 {
+    font-size:18px;
+    color:#FFF;
+    text-align: center;
+    line-height: 44px;
+}
+header .head-back{
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0;
+    width:44px;
+    height:44px;
+    background:url("../img/ic-back.png") center no-repeat;
+    background-size: auto 20px;
+}
+.my-main{
+    padding-top:44px;
+}
+.order-list {
+    width: 100%;
+    overflow:hidden;
+}
+.order-list li {
+    margin-bottom:10px;
+    background: #fff;
+    border-top:#e6e6e6 solid 1px;
+    border-bottom:#e6e6e6 solid 1px;
+}
+.title {
+    position: relative;
+    height: 40px;
+    padding:0 15px;
+    overflow:hidden;
+    color:#666;
+    font-size: 14px;
+    line-height: 40px;
+    border-bottom:#e6e6e6 solid 1px;
+}
+.name strong{
+    padding-right: 20px;
+}
+.name span{
+    color:#ff4946;
+}
+.status {
+    position: absolute;
+    right: 15px;
+    top:6px;
+    width:64px;
+    height:28px;
+    text-align: right;
+    color:#999;
+    line-height: 28px;
+}
+.status a{
+    display: block;
+    height:28px;
+    background: #ff9e05;
+    color:#fff;
+    text-align: center;
+    border-radius: 4px;
+}
+.goods-img {
+    display: block;
+    padding:0 15px;
+}
+.goods-img a{
+    display: block;
+    height:50px;
+    padding:10px 0;
+    overflow:hidden;
+    background: url("../img/right-arrow.png") right center no-repeat;
+    background-size:auto 10px;
+}
+.goods-img img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right:8px;
+}
+span.more {
+    display: inline-block;
+    width: 32px;
+    height: 50px;
+    background: url("../img/more.png") center no-repeat;
+    background-size: 22px auto;
+}

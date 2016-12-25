@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>爱个购</title>
+
+    <!-- build:css css/build_index_o2o.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/swiper3.1.0.min.css"/>
+    <link rel="stylesheet" href="css/foot.header.css"/>
+    <link rel="stylesheet" href="css/index_o2o.css"/>
+    <!-- endbuild -->
+
+
+</head>
+<body>
+<header id="head_top">
+    <div class="head_bg"></div>
+    <div class="head">
+        <div class="address">
+            <a href="citylist.html">
+                <span id="get_area" class="get-area"></span>
+                <span class="arrow"></span>
+            </a>
+        </div>
+        <div class="search b-radius"><a href="search.html"><span></span>让我一次爱个购</a></div>
+        <div class="code"><a class="face_pay" href="fast_order.html"></a></div>
+    </div>
+</header>
+<div class="swiper-container loading">
+    <div class="swiper-wrapper">
+    </div>
+</div>
+<div class="content">
+    <div class="type p_box">
+        <ul>
+        </ul>
+    </div>
+    <!--<div class="merchant p_box">
+        <a class="more" href="#">商家入口</a>
+    </div>-->
+    <div class="share-module">
+        <a class="" href="share.html">
+            <div class="share-module-icon">发现</div>
+            <div class="share-module-text">晒图新乐趣</div>
+        </a>
+    </div>
+    <!--<div class="paotuib-module">-->
+        <!--<a class="" href="aidatui/index.html"><span>送货上门妥妥哒</span>跑腿邦</a>-->
+    <!--</div>-->
+
+    <div class="hot p_box">
+        <div class="title">今日推荐</div>
+        <ul class="list loading" id="todayList">
+
+        </ul>
+    </div>
+    <div class="topics p_box">
+        <div class="title">专题推荐</div>
+        <ul class="list loading" id="lz_ul">
+
+        </ul>
+    </div>
+    <div class="like p_box">
+        <div class="title">猜你喜欢</div>
+        <ul class="loading">
+
+        </ul>
+        <div class="all-nearby"><a href="nearby.html?bottom_bar=no">查看全部商品</a></div>
+    </div>
+</div>
+<div class="footer" id="footer">
+
+</div>
+<div class="get-location">
+    <div class="get-location-cnt">
+        <div class="loading get-location-loading"></div>
+        <div class="get-location-text">定位中...</div>
+    </div>
+</div>
+
+<script type="text/template" id="typePBox-tmpl">
+    {{ for (var i=0;i<it.datas.length;i++) { }}
+    <li>
+        <a href="nearby.html?class_id={{=it.datas[i].gc_id}}&title={{=it.datas[i].gc_name}}" class="react">
+            <span><img src="{{=it.datas[i].pic_path}}"></span>
+
+            <p>{{=it.datas[i].gc_name}}</p>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<script type="text/template" id="swiper-tmpl">
+    {{ for (var i=0;i
+    <it.length;i++) { }}
+    <div class='swiper-slide'>
+        {{ if(it[i].data!=""){ }}
+        <a href="{{=it[i].data}}">
+            <img src="{{=it[i].image}}" alt="{{=it[i].title}}"/>
+        </a>
+        {{ }else{ }}
+            <img src="{{=it[i].image}}" alt="{{=it[i].title}}"/>
+        {{ } }}
+    </div>
+    {{ } }}
+</script>
+
+<script type="text/template" id="today-tmpl">
+    {{ for (var i=0;i<3;i++) { }}
+    <li>
+        <a href="wap_product_details.html?goods_id={{=it.data[i].id}}&latitude={{=it.latitude}}&longitude={{=it.longitude}}" class="react">
+            <div class="goods_img b-radius" style="background-image: url('{{=it.data[i].goods_image}}')"></div>
+            <!--<div class="goods_name">{{=it.data[i].goods_name}}</div>-->
+            <div class="goods_price">
+                <p class="goods-price">
+                    {{ if( parseFloat(it.data[i].goods_price) > 0 ) { }}
+                    <span class="new-price">￥{{=it.data[i].goods_price}}</span>
+                    {{ }else{ }}
+                    <span class="new-price">面议</span>
+                    {{ } }}
+
+                    {{ if( parseFloat(it.data[i].goods_marketprice)>0 ) { }}
+                    <span class="old-price">￥{{=it.data[i].goods_marketprice}}</span>
+                    {{ } }}
+                </p>
+                <!--<span class="goods-marketprice">￥{{=it.data[i].goods_marketprice}}</span>-->
+            </div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<script type="text/template" id="special-tmpl">
+    {{ for (var i=0;i<it.length;i++) { }}
+    <li>
+        <a href="nearby.html?class_id={{=it[i].data}}&title={{=it[i].title}}" class="react">
+            <div class="goods_text b-radius">
+                <p class="tit">{{=it[i].title}}</p>
+
+                <p class="des">{{=it[i].describe}}</p>
+            </div>
+            <div class="goods_img b-radius">
+                <img src="{{=it[i].image}}">
+            </div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+<script type="text/template" id="like-tmpl">
+    {{ for (var i=0;i<it.data.length;i++) { }}
+    <li>
+        <a href="wap_product_details.html?goods_id={{=it.data[i].goods_id}}&amp;latitude={{=it.latitude}}&amp;longitude={{=it.longitude}}" class="react">
+            <div class="goods_img b-radius">
+                <img src="{{=it.data[i].goods_image}}">
+            </div>
+            <p class="info">
+                <span class="goods_name">{{=it.data[i].store_name}}</span>
+                {{ if(it.data[i].distance<500){ }}
+                <span class="jl">&lt;500m</span>
+                {{ } else if(it.data[i].distance<1000) { }}
+                <span class="jl">&lt;1km</span>
+                {{ } else if(it.data[i].distance<10000) { }}
+                <span class="jl">&lt;10km</span>
+                {{ } else{ }}
+                <span class="jl">&gt;10km</span>
+                {{ } }}
+            </p>
+
+            <p class="des">{{=it.data[i].goods_name}}</p>
+
+            <p>
+
+                {{ if( (parseFloat(it.data[i].goods_price)>0) && (parseFloat(it.data[i].goods_marketprice)>0) ){ }}
+                <strong class="goods_price clr-e53">￥{{=it.data[i].goods_price}}<span>￥{{=it.data[i].goods_marketprice}}</span></strong>
+                {{ }else if( (parseFloat(it.data[i].goods_price)>0) && (parseFloat(it.data[i].goods_marketprice)==0) ){ }}
+                <strong class="goods_price clr-e53">￥{{=it.data[i].goods_price}}<span></span></strong>
+                {{ }else if( (parseFloat(it.data[i].goods_price)==0) && (parseFloat(it.data[i].goods_marketprice)>0) ){ }}
+                <strong class="goods_price clr-e53">面议<span>￥{{=it.data[i].goods_marketprice}}</span></strong>
+                {{ }else if( (parseFloat(it.data[i].goods_price)==0) && (parseFloat(it.data[i].goods_marketprice)==0) ){ }}
+                <strong class="goods_price clr-e53">面议<span></span></strong>
+                {{ } }}
+                <span class="num">已售{{=it.data[i].goods_salenum}}</span>
+            </p>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_index_o2o.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/lib/swipe.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/get_location.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/module/weichat_share.js"></script>
+<script type="text/javascript" src="js/index_o2o.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

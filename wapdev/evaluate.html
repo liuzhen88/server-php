@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- build:css css/build_evaluate.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/evaluate.css">
+    <!-- endbuild -->
+
+    <title>我要评价</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>我要评价</h2>
+    <a class="sh_r" id="evaSendBtn">发布</a>
+</div>
+<div class="s_main">
+    <div class="evaluate">
+        <div class="evaluate-star">
+            <ul class="evaluate-l">
+                <li class="eva-star1"></li>
+                <li class="eva-star1"></li>
+                <li class="eva-star1"></li>
+                <li class="eva-star1"></li>
+                <li class="eva-star1"></li>
+            </ul>
+            <span class="evaluate-r" id="evaSatisfy"></span>
+        </div>
+        <div class="evaluate-con">
+            <div class="eva-padding">
+                <div class="evalute-title">
+                    <div class="evaluate-l">评价</div>
+                    <div class="evaluate-r" id="evaChk"><span id="eva-chk"></span>匿名评价</div>
+                </div>
+                <textarea id="evaluteText" placeholder="写下你对商品的感受吧，对他人的帮助很大哦~"></textarea>
+            </div>
+            <ul class="evalutePto">
+                <li id="evaluteFile"><input id="evaFilebtn" accept="image/*;capture=camera" type="file"></li>
+            </ul>
+            <div class="imgzip"></div>
+            <p class="eva-ps">最多添加<span>9</span>张图片</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_evaluate.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/exif.js"></script>
+<script type="text/javascript" src="js/lrz.js"></script>
+<script type="text/javascript" src="js/evaluate.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

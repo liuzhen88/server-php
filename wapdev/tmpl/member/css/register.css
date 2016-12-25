@@ -1,0 +1,33 @@
+@charset "utf-8";
+body{ text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#FFF;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+.clear{ clear:both;}
+::-webkit-input-placeholder { color:#999; }
+::-moz-placeholder { color:#999; } 
+:-ms-input-placeholder { color:#999; } 
+input:-moz-placeholder { color:#999; }
+/*用户注册*/
+.header-wrap{position:relative;background:#ef5350;z-index: 8888;height:56px;width:100%;}
+.header-back{position: absolute;top: 8px;left:8px;width: 40px;height: 40px;}
+.header-back span{width:40px;height: 40px;text-indent:-9999px;background:url(../../../images/back.png) center center no-repeat;background-size:auto 26px;display:block;}
+.header-wrap h2{height: 56px;line-height: 56px;font-size: 20px;color:#fff;text-align: center;font-weight:normal}
+.jl_Regbox{border-top:#dcdcdc solid 1px; border-bottom:#dcdcdc solid 1px; background:#fff; text-align:left;padding-left:16px;margin-bottom:6px;}
+.jl_Regbox li{height:50px;border-bottom:#dcdcdc solid 1px;position:relative;}
+.jl_Regbox li:last-child{border-bottom:none;}
+.jl_Regbox li span{display:inline-block;width:20px;height:100%;vertical-align:top;margin-right:6px;}
+.jl_Regbox li span.code{background:url(../images/code@2x.png) center center no-repeat;background-size:20px;}
+.jl_Regbox li span.phone{background:url(../images/phone@2x.png) center center no-repeat;background-size:20px;}
+.jl_Regbox li span.yzm{background:url(../images/yzm@2x.png) center center no-repeat;background-size:20px;}
+.jl_Regbox li span.name{background:url(../images/nick@2x.png) center center no-repeat;background-size:20px;}
+.jl_Regbox li span.pw{background:url(../images/lock@2x.png) center center no-repeat;background-size:20px;}
+.jl_Regbox li input{border:none; height:50px; width:80%; font-size:14px;line-height:50px;color:#333;font-family:"微软雅黑"; outline:none;}
+.jl_Regbox li a{display:inline-block;position:absolute;right:16px;top:10px;height:30px;padding:0 8px;background:#ccc;border-radius:4px;line-height:30px;color:#fff; width:70px; text-align:center;}
+.jl_regtxt {padding:0 16px;color:#999;font-size:12px;line-height:20px;text-align:left;}
+.jl_btnRegister{display:block;height:50px; padding:0 16px; margin:8px auto 0;line-height:50px;  }
+.jl_btnRegister input{width:100%;height:50px;border:none;background:url(../images/red_bg@3x.png) center no-repeat; background-size: auto 50px; color:#fff;letter-spacing:2px; font-size:20px;font-family:"微软雅黑";}
+
+.messageTips{ /*height:30px;*/ width:80%; text-align:center; margin:0px auto; line-height:30px; color:#d9434e;}

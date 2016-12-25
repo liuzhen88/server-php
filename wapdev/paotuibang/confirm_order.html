@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>我的订单</title>
+
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/confirm_order.css">
+
+</head>
+<body>
+<header>
+    <h2>订单确认</h2>
+    <a href="javascript:history.back();" class="head-back"></a>
+</header>
+<div class="my-main">
+    <div class="my-list" id="addrInfo">
+    </div>
+    <div class="my-list">
+        <div class="time">
+            <span>收货时间</span>
+            <div>及时送达1小时</div>
+            <!--<select class="sel1">-->
+                <!--<option value="0">今天</option>-->
+                <!--<option value="1">明天</option>-->
+                <!--<option value="2">后天</option>-->
+            <!--</select>-->
+            <!--<select class="sel2"></select>-->
+        </div>
+        <div class="message">
+            <label>备注</label>
+            <input id="message" type="text" placeholder="您还有其他要求吗？(100字以内)"/>
+        </div>
+    </div>
+    <div class="order-details" id="orderInfo">
+    </div>
+</div>
+<div class="order-btn">
+    <p class="total">应付金额 <span>￥</span></p>
+    <a href="javascript:" id="orderBtn">去下单</a>
+</div>
+<script type="text/template" id="addrTmpl">
+    {{ if ( it.has_address == 0 ) { }}
+        <a href="add_address.html?order=yes" class="add">新建地址</a>
+    {{ }else{ }}
+        {{ if ( it.address_info.address_id == undefined ) { }}
+        <a href="address.html?order=yes" class="add">选择地址</a>
+        {{ }else{ }}
+        <a href="address.html?order=yes" class="link">
+            <p class="user"><span>{{=it.address_info.true_name}}</span>{{=it.address_info.mob_phone}}</p>
+            <p class="area">{{=it.address_info.address}}{{=it.address_info.door_number}}</p>
+        </a>
+        {{ } }}
+    {{ } }}
+</script>
+<script type="text/template" id="orderTmpl">
+    {{ if ( it.store_info != "" ) { }}
+    <div class="title">{{=it.store_info.store_name}}</div>
+    {{ } }}
+    <ul class="order-info">
+        {{ for(var i=0;i< it.cart_info.cart_list.length;i++){ }}
+        <li>
+            <span class="goods">
+                {{ if ( it.cart_info.cart_list[i].buyalbe == 0 ) { }}
+                <strong>缺货</strong>
+                {{ } }}
+                {{=it.cart_info.cart_list[i].goods_name}}</span>
+            <span class="num">X{{=it.cart_info.cart_list[i].goods_num}}</span>
+            <span class="price">￥{{=it.cart_info.cart_list[i].goods_price}}</span>
+        </li>
+        {{ } }}
+        {{ if ( it.carriage == 1 ) { }}
+        <li>
+            <span class="goods">运费</span>
+            <span class="num"></span>
+            <span class="price" id="carriage"></span>
+        </li>
+        {{ } }}
+    </ul>
+    <p class="total">合计：<span>￥{{=it.total}}</span></p>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../js/lib/fastclick.min.js"></script>
+<script type="text/javascript" src="../js/lib/doT.min.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="js/confirm_order.js"></script>
+
+</body>
+</html>

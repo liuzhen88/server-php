@@ -1,0 +1,36 @@
+@charset "utf-8";
+body{background:#fff;}
+.jl_evalist_nav {height:48px;background:#ef5350;position:fixed;top:56px;width:100%;left:0;}
+.jl_evalist_nav ul{font-size: 0;width:100%;height:48px;}
+.jl_evalist_nav li{width:25%;display:inline-block;font-size:16px;text-align:center;line-height:46px;height:48px;}
+.jl_evalist_nav li{height:46px;color:rgba(255,255,255,.87); cursor:pointer;}
+.jl_evalist_nav li.on{border-bottom:#ebf0b6 solid 2px;color:#fff;}
+.jl_evalist{padding:0px 16px 0px;}
+.jl_evalist li{padding:8px 0;border-bottom:#ededed solid 1px;}
+.jl_evalist .eva_txt {line-height:20px;font-size:14px;color:rgba(0,0,0,.87); padding-left:60px;}
+.jl_evalist .eva_img {height:auto; overflow:hidden;margin:8px 0px 0px 0px;font-size:0; padding-left:60px;}
+.jl_evalist .eva_img span{display:inline-block;width:87px;height:87px; background:#fff;overflow:hidden;margin-right:16px;}/*图片规格*/
+.jl_evalist .eva_img img{width:100%;height:100%;}
+.jl_evalist .eva_data {color:rgba(0,0,0,.54);font-size:12px;line-height:20px;}
+.jl_evalist .eva_data span{padding-right:16px;}
+.jl_evalist .eva_user {height:20px;padding:8px 0 0;font-size:12px;color:rgba(0,0,0,.54);text-align:right;line-height:20px;overflow:hidden;}
+.jl_evalist .eva_user span{float:left;font-weight:normal;}
+
+.list_showTips{ width:100%; height:30px; display:none; line-height:30px; font-size:12px; text-align:center; color:#999;}
+
+.eListHead{width:100%; height:50px; margin:5px 0px;}
+.eAvatorBox{ width:50px; height:50px; border-radius:50px; overflow:hidden; float:left; margin-right:10px; background: #fab4b4; }
+.eAvatorBox img{ width:100%; height:100%;}
+
+.eNameBox{float:left; }
+.eNameBoxSpan1{ font-size:16px; color:#333; line-height:30px; height:30px; overflow:hidden;}
+.eNameBoxSpan2{ font-size:14px; color:#bfbfbf; line-height:20px;height:20px; overflow:hidden;}
+
+.eStarBox{ margin-top:10px; float:right;}
+.eStarBox img{ width:18px; height:18px; margin-left:5px;}
+
+.eShowTotal{ width:120px; font-size:14px; height:44px; line-height:44px; background:#eee; border-radius:44px; text-align:center; margin:10px auto 0px; cursor:pointer;}
+.eShowTotal img{ width:15px; height:auto; margin-left:5px;}
+
+.img-lay{ display: none; text-align: center; overflow: hidden; width:100%; height: 100%; position:fixed; top: 0; left: 0; z-index: 999999; background: url("../../../images/layImg.png") repeat;}
+.img-lay img{ width:100%; height: auto; vertical-align: middle;}

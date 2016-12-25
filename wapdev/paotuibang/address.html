@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>收货地址</title>
+
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/address.css">
+
+</head>
+<body>
+<header>
+    <h2>收货地址</h2>
+    <a href="javascript:history.back();" class="head-back"></a>
+</header>
+<div class="my-main">
+    <div class="my-list">
+        <a href="add_address.html" class="add" id="addLink">新增地址</a>
+    </div>
+    <ul class="address-list" id="addressList">
+    </ul>
+</div>
+<script type="text/template" id="addrListDefaultTmpl">
+    {{ for(var i=0;i< it.address_list.length;i++){ }}
+    {{ if(it.address_list[i].is_default==1){ }}
+    <li class="default">
+        {{ if(it.order=='yes'){ }}
+        <a class="addr-info" href="confirm_order.html?address_id={{=it.address_list[i].address_id}}">
+            <p class="user"><span>{{=it.address_list[i].true_name}}</span>{{=it.address_list[i].mob_phone}}</p>
+            <p class="area">{{=it.address_list[i].address}}{{=it.address_list[i].door_number}}</p>
+        </a>
+        {{ }else{ }}
+        <a class="addr-info">
+            <p class="user"><span>{{=it.address_list[i].true_name}}</span>{{=it.address_list[i].mob_phone}}</p>
+            <p class="area">{{=it.address_list[i].address}}{{=it.address_list[i].door_number}}</p>
+        </a>
+        {{ } }}
+        <div class="addr-btn">
+            <a class="del" data-addrId="{{=it.address_list[i].address_id}}">删除</a>
+            <a class="edit" href="edit_address.html?address_id={{=it.address_list[i].address_id}}&order={{=it.order}}">编辑</a>
+        </div>
+    </li>
+    {{ } }}
+    {{ } }}
+</script>
+<script type="text/template" id="addrListTmpl">
+    {{ for(var i=0;i< it.address_list.length;i++){ }}
+        {{ if(it.address_list[i].is_default==0){ }}
+        <li>
+            {{ if(it.order=='yes'){ }}
+            <a class="addr-info" href="confirm_order.html?address_id={{=it.address_list[i].address_id}}">
+                <p class="user"><span>{{=it.address_list[i].true_name}}</span>{{=it.address_list[i].mob_phone}}</p>
+                <p class="area">{{=it.address_list[i].address}}{{=it.address_list[i].door_number}}</p>
+            </a>
+            {{ }else{ }}
+            <a class="addr-info">
+                <p class="user"><span>{{=it.address_list[i].true_name}}</span>{{=it.address_list[i].mob_phone}}</p>
+                <p class="area">{{=it.address_list[i].address}}{{=it.address_list[i].door_number}}</p>
+            </a>
+            {{ } }}
+            <div class="addr-btn">
+                <a class="del" data-addrId="{{=it.address_list[i].address_id}}">删除</a>
+                <a class="edit" href="edit_address.html?address_id={{=it.address_list[i].address_id}}&order={{=it.order}}">编辑</a>
+            </div>
+        </li>
+        {{ } }}
+    {{ } }}
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="js/address.js"></script>
+</body>
+</html>

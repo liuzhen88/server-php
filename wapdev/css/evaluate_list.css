@@ -1,0 +1,29 @@
+@charset "utf-8";
+.evaluate-l{float:left;}
+.evaluate-r{float:right;}
+.evaluate-star{border-bottom:#e6e5e5 solid 1px;height:24px;background:#fff;overflow:hidden;padding:18px 14px;}
+.starTitle {font-size:15px;color:#333;line-height:24px;padding-right:3px;}
+.evaluate-star ul{font-size:0;}
+.evaluate-star li{display:inline-block;width:24px;height:24px;padding:0 3px 0 7px;}
+.eva-star-li {width:152px;height:24px;background:url(../images/star-grayli@3x.png) 4px 0  no-repeat;background-size: auto 24px;}
+.eva-star-li span{width:100%;height:24px;display: block;background:url(../images/star-oli@3x.png) 4px 0  no-repeat;background-size: auto 24px;}
+.eva-star1 {background:url(../images/star-gray@3x.png) center no-repeat;background-size:24px;}
+.eva-star2 {background:url(../images/star-orange@3x.png) center no-repeat;background-size:24px;}
+#evaSatisfy{font-size:15px;line-height:24px;color:#ff6624;padding-left:5px;}
+.evaluate-list {background:#fff;}
+.eva-li {border-bottom:#e5e5e5 solid 1px;padding:12px 14px 12px 59px;position:relative;}
+.eva-title {height:35px;overflow:hidden;}
+.eva-title .evaluate-l {font-size:12px;color:#999;line-height:18px;}
+.eva-user-img{  position: absolute;width:35px;height:35px;left:14px;top:12px;border-radius:50%;overflow: hidden;background:#cccccc;}
+.eva-user-img img{width: 100%;height:100%;}
+.eva-user-name {width:64%;}
+.eva-user-name span{width:100%;overflow:hidden;font-size:15px;height:20px;color:#333;display:block;line-height:20px;text-overflow: ellipsis;white-space: nowrap;}
+.eva-title .evaluate-r{line-height:20px;}
+.eva-star-list {width:86px;height:14px;background:url(../images/star-grayli@3x.png) 2px 0  no-repeat;background-size: auto 14px;}
+.eva-star-list span{width:100%;height:14px;display: block;background:url(../images/star-oli@3x.png) 2px 0  no-repeat;background-size: auto 14px;}
+.eva-li-con {font-size:15px;color:#333;line-height:20px;padding-top:8px;}
+.preview-list {width:100%;overflow:hidden;font-size:0;margin:8px -2% 0;position:relative;}
+.preview-list a {width:29%;height:0;padding-bottom:29%;display:inline-block;margin:2%;position:relative;overflow:hidden;border-radius:2px;}
+.preview-list img {width:100%;height:100%;position:absolute;left:0;top:0;}
+.evaPicNum {position:absolute;right:3%;bottom:4px;color:#000;font-size: 12px;padding:4px;background:rgba(255,255,255,0.6);}
+.no-more {padding-right:59px;display: block;color:#999;text-align: center;font-size:14px;}

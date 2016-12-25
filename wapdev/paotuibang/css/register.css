@@ -1,0 +1,194 @@
+@charset "utf-8";
+body {
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+	font-family: "微软雅黑";
+	background:url(../img/login_bg.png) center bottom #fff repeat-x;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: none;
+	vertical-align: bottom;
+}
+
+p, ul, ol, li, form {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+	border: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.clear {
+	clear: both;
+}
+
+::-webkit-input-placeholder {
+	color: #999;
+}
+
+::-moz-placeholder {
+	color: #999;
+}
+
+:-ms-input-placeholder {
+	color: #999;
+}
+
+input:-moz-placeholder {
+	color: #999;
+}
+
+/*用户注册*/
+header {
+	position: relative;
+	width: 100%;
+	height: 44px;
+	background: #ff4946;
+}
+
+header h2 {
+	font-size: 18px;
+	color: #FFF;
+	text-align: center;
+	line-height: 44px;
+}
+
+header .head-back {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 44px;
+	height: 44px;
+	background: url("../img/ic-back.png") center no-repeat;
+	background-size: auto 20px;
+}
+
+.Regbox {
+	border-top: #dcdcdc solid 1px;
+	border-bottom: #dcdcdc solid 1px;
+	background: #fff;
+	text-align: left;
+	padding-left: 16px;
+	margin-bottom: 14px;
+}
+
+.Regbox li {
+	height: 50px;
+	border-bottom: #dcdcdc solid 1px;
+	position: relative;
+}
+
+.Regbox li:last-child {
+	border-bottom: none;
+}
+
+.Regbox li span {
+	display: inline-block;
+	width: 20px;
+	height: 100%;
+	vertical-align: top;
+	margin-right: 6px;
+}
+
+.Regbox li span.code {
+	background: url(../img/code@2x.png) center center no-repeat;
+	background-size: 20px;
+}
+
+.Regbox li span.phone {
+	background: url(../img/phone@2x.png) center center no-repeat;
+	background-size: 20px;
+}
+
+.Regbox li span.yzm {
+	background: url(../img/yzm@2x.png) center center no-repeat;
+	background-size: 20px;
+}
+
+.Regbox li span.name {
+	background: url(../img/nick@2x.png) center center no-repeat;
+	background-size: 20px;
+}
+
+.Regbox li span.pw {
+	background: url(../img/lock@2x.png) center center no-repeat;
+	background-size: 20px;
+}
+
+.Regbox li input {
+	border: none;
+	height: 50px;
+	width: 86%;
+	font-size: 14px;
+	line-height: 50px;
+	color: #333;
+	font-family: "微软雅黑";
+	outline: none;
+}
+
+.Regbox li a {
+	display: inline-block;
+	position: absolute;
+	right: 16px;
+	top: 10px;
+	height: 30px;
+	padding: 0 8px;
+	background: #ccc;
+	border-radius: 4px;
+	line-height: 30px;
+	color: #fff;
+	width: 70px;
+	text-align: center;
+}
+
+.jl_regtxt {
+	padding: 0 16px;
+	color: #999;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: left;
+}
+
+.btnRegister {
+	display: block;
+	height: 44px;
+	padding: 10px 12px;
+	margin:0 auto;
+}
+
+.btnRegister input {
+	width: 100%;
+	height: 44px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 44px;
+	color:#df0012;
+	border:#df0012 solid 1px;
+	border-radius: 3px;
+	background: #fff;
+	-webkit-appearance:none;
+}
+
+.messageTips {
+	width: 80%;
+	text-align: center;
+	margin: 0 auto;
+	line-height: 30px;
+	color: #d9434e;
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>手动定位</title>
+    <!-- build:css css/build_map_positions.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/map.css">
+    <!-- endbuild -->
+</head>
+<body>
+<header>
+    <a href="javascript:history.back();" class="head-back"></a>
+    <div class="head-search">
+        <input type="text" placeholder="如果定位失败 可输入查询" id="searchBtn"/>
+        <a href="javascript:" class="headR">取消</a>
+    </div>
+</header>
+<div class="baiduMap">
+    <div id="allmap"></div>
+    <div class="icon"></div>
+    <div class="mapBtn"></div>
+</div>
+<div class="my-main">
+    <ul class="addrList">
+        <li>
+            <p><span>加载中...</span></p>
+        </li>
+    </ul>
+</div>
+<script type="text/template" id="addrListTmpl">
+    {{ for(var i=0;i< it.pois.length;i++){ }}
+    <li>
+        <a href="index1.html?set_location={{=it.pois[i].name}}&lat={{=it.pois[i].point.y}}&lng={{=it.pois[i].point.x}}">
+            <p><span>{{=it.pois[i].name}}</span></p>
+            <p>{{=it.pois[i].addr}}</p>
+        </a>
+    </li>
+    {{ } }}
+</script>
+<script type="text/template" id="searchListTmpl">
+    {{ for(var i=0;i< it.result.length;i++){ }}
+        {{ if(it.result[i].location != undefined){ }}
+        <li>
+            <a href="index1.html?set_location={{=it.result[i].name}}&lat={{=it.result[i].location.lat}}&lng={{=it.result[i].location.lng}}">
+                <p><span>{{=it.result[i].name}}</span></p>
+                <p>{{=it.result[i].city}}{{=it.result[i].district}}</p>
+            </a>
+        </li>
+        {{ } }}
+    {{ } }}
+</script>
+
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+<!--<script type="text/javascript" src="js/share_wx.js"></script>-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=btsVVWf0TM1zUBEbzFz6QqWF"></script>
+<!-- build:js2  js/build_map_positions.min.js -->
+<script type="text/javascript" src="js/map_position.js"></script>
+<!-- endbuild -->
+</body>
+</html>

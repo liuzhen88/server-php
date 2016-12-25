@@ -1,0 +1,18 @@
+
+.bind-prompt{width: 100%; height: 40px; background: #f6f3f3; border-bottom: #e6e6e6 solid 1px;}
+.bind-prompt-container{height: 40px; line-height: 40px; color: #999; padding: 0px 15px; font-size: 14px;}
+
+.list{width:100%; height: 44px; background: #fff;border-bottom:solid #e6e6e6 1px; color: #666;}
+.list-container{ height: 44px;padding: 0px 15px;position: relative; top: 0; left: 0px;}
+.list-container-title{ position: absolute; top: 0; left: 15px;height: 44px; line-height: 44px; width: 70px;color: #666;}
+.bank-card-number{font-size:14px;width:215px; height: 44px; border: none; margin-left: 75px;color: #666;}
+
+.submit{ height: 45px; line-height: 45px; margin:20px 15px 0px; text-align: center;background: #ddd;color: #fff;border-radius: 4px;}
+
+#id-card,#bank-card{ display: none;}
+.bank-kh{display: none;}
+
+.add-bank-card-success{ display: none; text-align: center; width: 100%; height: 120px; line-height: 120px; background: #fff; font-size: 24px; color: #43bfa4;}
+.add-bank-card-success img{width: 30px; height: 30px; vertical-align: middle; margin-right: 8px;}
+
+.btn_success{display:none;width:44px;height:44px;position:absolute;right:15px;top:0; text-align:right;line-height: 44px; letter-spacing: 1px; font-size: 15px; color: #fff;}

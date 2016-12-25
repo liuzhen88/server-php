@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>请选择城市</title>
+
+    <!-- build:css css/build_citylist.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/citylist.css"/>
+    <!-- endbuild -->
+
+
+</head>
+<body>
+<header class="header">
+    <div class="head-text">当前城市-<span id="nowSetCity">---</span></div>
+</header>
+<div class="now-city">
+    <span class="city-title">当前定位城市</span>
+    <span class="city-name" data-city="">---</span>
+</div>
+<div class="hot-city">
+    <span class="city-title">热门城市</span>
+</div>
+<div class="hot-city-cnt clearfix">
+    <div class="city-box" data-city="广州市">广州市</div>
+    <div class="city-box" data-city="北京市">北京市</div>
+    <div class="city-box" data-city="天津市">天津市</div>
+    <div class="city-box" data-city="西安市">西安市</div>
+    <div class="city-box" data-city="重庆市">重庆市</div>
+    <div class="city-box" data-city="沈阳市">沈阳市</div>
+    <div class="city-box" data-city="青岛市">青岛市</div>
+    <div class="city-box" data-city="济南市">济南市</div>
+    <div class="city-box" data-city="深圳市">深圳市</div>
+    <div class="city-box" data-city="长沙市">长沙市</div>
+    <div class="city-box" data-city="无锡市">无锡市</div>
+    <div class="city-box" data-city="苏州市">苏州市</div>
+    <div class="city-box" data-city="南通市">南通市</div>
+    <div class="city-box" data-city="合肥市">合肥市</div>
+</div>
+
+<div class="all-city">
+    <div class="city-title">全部城市</div>
+    <ul class="select-box clearfix">
+    </ul>
+</div>
+
+<div class="all-city-cnt" id="cityBox"></div>
+
+<script type="text/template" id="select-tmpl">
+    {{ for ( var i=0 ; i<it.data.length;i++){   }}
+    <li><a href="#{{= it.data[i].classify}}" name="{{= it.data[i].classify}}">{{= it.data[i].classify}}</a></li>
+    {{ } }}
+</script>
+
+<script type="text/template" id="citybox-tmpl">
+
+    {{ for ( var i=0 ; i<it.data.length;i++){   }}
+    <div class="all-city-box">
+        <div class="all-city-box-title" name="{{= it.data[i].classify }}" id="{{= it.data[i].classify }}">{{= it.data[i].classify }}</div>
+        <ul>
+
+            {{ for( var k=0; k<it.data[i].name.length; k++ ){ }}
+            {{ if(k<it.data[i].name.length-1) { }}
+            <li data-city="{{= it.data[i].name[k] }}">{{= it.data[i].name[k] }}</li>
+            {{ }else{ }}
+            <li class="noborder" data-city="{{= it.data[i].name[k] }}">{{= it.data[i].name[k] }}</li>
+            {{ } }}
+            {{ } }}
+        </ul>
+    </div>
+    {{ } }}
+
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_citylist.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/module/get_location.js"></script>
+<script type="text/javascript" src="js/data/citylist.data.js"></script>
+<script type="text/javascript" src="js/citylist.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

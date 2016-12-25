@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑收货地址</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="../../css/style_jl.css">
+</head>
+<body class="bg_c">
+<header id="header"></header>
+<div class="main" id="main-container">
+	<div class="jl-address">
+		<ul>
+			<li class="b-radius">
+				<label>收货人</label>
+				<input type="text" placeholder="请输入收货人姓名" id="name"/>
+			</li>
+			<li class="b-radius">
+				<label>手机号</label>
+				<input type="text" placeholder="请输入收货人手机号码" id="mob"/>
+			</li>
+			<li class="b-radius">
+				<label>所在省份</label>
+				<div class="showCityPicker">
+					<select class="sel1">
+						<option selected="selected" id="Provinces">请选择省份</option>
+					</select>
+				</div>
+			</li>
+			<li class="b-radius">
+				<label>所在市</label>
+				<div class="showCityPicker">
+					<select class="sel2">
+						<option selected="selected" id="city">请选择市</option>
+					</select>
+				</div>
+			</li>
+			<li class="b-radius">
+				<label>所在区县</label>
+				<div class="showCityPicker">
+					<select class="sel3">
+						<option selected="selected" id="area">请选择区县</option>
+					</select>
+				</div>
+			</li>
+			<li class="b-radius">
+				<label>详细地址</label>
+				<input id="details" placeholder="请输入收货人的详细地址"/>
+			</li>
+		</ul>
+	</div>
+	<div class="jl-address-other"><a class="ok"></a><a class="del"></a></div>
+</div>
+<div class="message"></div>
+<script type="text/javascript" src="../../js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript">
+	function isPhone() {
+		phone = $('#mob').val();
+		var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+		if(phone===''){
+			$('.message').text("请输入收货人手机号码~");
+			return false;
+		}else if (!reg.test(phone)) {
+			$('.message').text("请输入正确的手机号码~");
+			return false;
+		}else  {
+			$('.message').text("");
+			return true;
+		};
+	}
+
+	function isName(){
+		name=$('#name').val();
+		if(name===''){
+			$('.message').text("收货人姓名不能为空~");
+			return false;
+		}else{
+			$('.message').text("");
+			return true;
+		};
+	}
+
+	function isAddress(){
+		address=$('#details').val();
+		if(address===''){
+			$('.message').text("请输入详细地址~");
+			return false;
+		}else{
+			$('.message').text("");
+			return true;
+		};
+	}
+
+	$(document).ready(function () {
+		var name = request("name");
+		var phone = request("phone");
+		var area_info = request("area");
+		var address = request("address");
+		var addressId = request("addressId");
+		var key = getcookie("key");
+		var provincesName; // 省
+		var provincesId;
+		var cityName;            // 市
+		var cityId = request('cityId');
+		var areaName;           // 区
+		var areaId = request('areaId');
+		var get_area=[];
+		var get_area_id = [];
+
+		provincesName = area_info.split(" ")[0];
+		cityName = area_info.split(" ")[1];
+		areaName = area_info.split(" ")[2];
+		$("#Provinces").text(provincesName);
+		$("#city").text(cityName)
+		$("#area").text(areaName);
+		$("#name").val(name).blur(function(){isName()});
+		$("#mob").val(phone).blur(function(){isPhone()});
+		$("#details").val(address).blur(function(){isAddress()});
+
+		function getAreaId(sel,area_id){
+			$.ajax({
+				url: ApiUrl + "/index.php?act=member_address&op=area_list&key=" + key + "&client_type=wap&area_id=" + area_id,
+				type: "get",
+				dataType: "jsonp",
+				jsonp: "callback",
+				success: function (data) {
+					if(data.code == 200){
+						if(sel ==1){
+							$(data.data.area_list).each(function (index, list) {
+								get_area[index] = list.area_name;
+								get_area_id[index] = list.area_id;
+								var objdiv = "<option value='" + get_area_id[index] + "'>" + get_area[index] + "</option>";
+								$(".sel1").append(objdiv);
+							});
+							provincesId = $(".sel1").val();
+						}else if(sel ==2){
+							$(data.data.area_list).each(function (index, list) {
+								get_area[index] = list.area_name;
+								get_area_id[index] = list.area_id;
+								var objdiv = "<option value='" + get_area_id[index] + "'>" + get_area[index] + "</option>";
+								$(".sel2").append(objdiv);
+							});
+							cityId = $(".sel2").val();
+							cityName =$(".sel2").find("option:selected").text();
+							getAreaId(3,cityId);
+						}else if(sel == 3){
+							$(data.data.area_list).each(function (index, list) {
+								get_area[index] = list.area_name;
+								get_area_id[index] = list.area_id;
+								var objdiv = "<option value='" + get_area_id[index] + "'>" + get_area[index] + "</option>";
+								$(".sel3").append(objdiv);
+							});
+							areaId = $(".sel3").val();
+							areaName =$(".sel3").find("option:selected").text();
+						}
+					}
+				}
+			});
+		}
+
+		if (key == '') {
+			window.location.href = WapSiteUrl + "/tmpl/member/login.html";
+		} else {
+			getAreaId(1,0);
+			$(".sel1").change(function () {
+				provincesId = $(".sel1").val();
+				provincesName =$(".sel1").find("option:selected").text();
+				$(".sel2 option").remove();
+				$(".sel3 option").remove();
+				getAreaId(2,provincesId);
+
+			});
+			$(".sel2").change(function () {
+				$(".sel3 option").remove();
+				cityId = $(".sel2").val();
+				cityName =$(".sel2").find("option:selected").text();
+				getAreaId(3,cityId);
+			});
+			$(".sel3").change(function () {
+				areaId = $(".sel3").val();
+				areaName =$(".sel3").find("option:selected").text();
+			});
+			//确认收货地址
+			$(".ok").click(function () {
+				name = $("#name").val();
+				phone = $("#mob").val();
+				address = $("#details").val();
+				area_info = provincesName + " " + cityName +" "+areaName;
+				if(isPhone()&&isName()&&isAddress()){
+					$.ajax({
+						url: ApiUrl + "/index.php?act=member_address&client_type=wap&op=address_edit&key=" + key + "&true_name=" + name + "&mob_phone=" + phone + "&tel_phone=" + phone + "&address=" + address + "&area_info=" + area_info + "&address_id=" + addressId + "&city_id=" + cityId + "&area_id=" + areaId+ "&is_default=" + 1,
+						type: "get",
+						dataType: "jsonp",
+						jsonp: "callback",
+						success: function (data) {
+							if (data.code == 200) {
+								window.location.href = WapSiteUrl + "/tmpl/member/address_list.html";
+							} else {
+								alert(data.message);
+							}
+						}
+					});
+				}else{
+					if(!isPhone()){
+						isPhone();
+					}else if(!isName()){
+						isName();
+					}else if(!isAddress()){
+						isAddress();
+					}
+				}
+
+			});
+			//删除地址
+			$(".del").click(function () {
+				$.ajax({
+					url: ApiUrl + "/index.php?act=member_address&op=address_del&key=" + key + "&address_id=" + addressId,
+					type: "get",
+					dataType: "jsonp",
+					jsonp: "callback",
+					success: function (data) {
+						if (data.code == 200) {
+							alert("删除成功");
+							window.location.href = WapSiteUrl + "/tmpl/member/address_list.html";
+						} else {
+							alert("删除失败");
+						}
+					}
+				});
+			});
+		}
+	});
+</script>
+</body>
+</html>

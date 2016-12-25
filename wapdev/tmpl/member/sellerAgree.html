@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<title>卖家同意</title>
+<link rel="stylesheet" type="text/css" href="../../css/style_jl.css"/>
+<link href="css/sellerAgree.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header id="header"></header>
+<div class="main" id="main-container">
+<section class="all">
+	<div style="color:#333; font-weight:700; margin-top:25px; font-size:18px;">等待商家确认</div>
+    <p>如果商家同意，退款(退货)申请将达成并退款至您的积分账号</p>
+    <p>如果商家拒绝，您将需要修改退款(退货)申请</p>
+    <p id="time"></p>
+</section>
+<div class="jianxi"></div>
+<section class="all" id="expressState">
+	<div style="color:#5d5d5d; margin-top:25px;">您已退货</div>
+    <div class="order_company">物流公司:<span style="margin-left:10px;" id="express_name"></span></div>
+    <div class="order_num">运单编号:<span style="margin-left:10px;" id="incNum"></span></div>
+    <div class="getInfo">查看物流信息</div>
+</section>
+<section class="footer">
+	<!--<p style="margin-left:5%;">您还可以</p>
+    <div class="btn">申请爱个购客服介入</div>-->
+    <section class="border-bottom border-top logist-header font-color-333">物流信息</section>
+
+<section class="logist-text border-bottom">
+	<section class="float-left logist-img-box"><img src="../images/logo_yuan-tong@2x.png" /></section>
+	<section class="float-left font-color-666 logist-line">
+		<!--<section>物流状态:<span class="font-color-fd8900">运输中</span> </section>-->
+		<section>物流公司:<span class="express_name"></span> </section>
+		<section>物流编号:<span class="shipping_code"></span> </section>
+	</section>
+	<section class="clear-float"></section>
+</section>
+
+<section class="list-of-logist">
+	<ul id="list">
+		
+	</ul>
+</section>
+</section>
+</div>
+<script src="../../js/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="../../js/config.js" type="text/javascript"></script>
+<script src="../../js/common.js" type="text/javascript"></script>
+<script src="../../js/tmpl/common-top.js" type="text/javascript"></script>
+
+<script src="js/sellerAgree.js" type="text/javascript"></script>
+</body>
+</html>

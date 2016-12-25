@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/search.css">
+</head>
+<body>
+
+<div class="header-wrap" style="background-color:#FF4946; height:56px;">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+
+    <div class="jl-search">
+        <div class="jl-search-con">
+            <input id="search_content" class="jl-sch-txt" type="text" placeholder="请输入关键字搜索"/>
+            <input id="search" class="jl-sch-btn" type="button" value="&nbsp;"/>
+        </div>
+    </div>
+</div>
+<div class="main" style="padding-top:56px;">
+    <div class="jl-search-rank box-shw">
+        <ul class="bar">
+            <li>
+                <a class="react" href="javascript:;">新品</a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">销量</a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">人气</a>
+            </li>
+            <li>
+                <a class="arrow react" href="javascript:;" id="lz_price">价格<span class="on"><i class="arrow1"></i><i class="arrow2"></i></span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="jl-goods-list jl-sch-box">
+        <ul id="searchBox" class="search-box">
+
+        </ul>
+    </div>
+</div>
+
+<script type="text/template" id="search-item-tmpl">
+    {{ for( var i=0;i
+    <it.length;i++){ }}
+    <li>
+        <a href="productdetail.html?goods_id={{=it[i].goods_id}}" class="react clearfix">
+            <div class="jl-goods-img">
+                <img src="{{=it[i].goods_image_url}}">
+            </div>
+            <div class="jl-goods-info">
+                <div class="jl-goods-name">{{=it[i].goods_name}}</div>
+                <div class="jl-goods-price clr-e53">¥{{=it[i].goods_price}}</div>
+
+            </div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+<!--<div class="jl-goods-evaluate">-->
+    <!--<span>好评{{=it[i].evaluation_good_star}}</span>-->
+    <!--<span>{{=it[i].evaluation_count}}人评论</span>-->
+<!--</div>-->
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="../js/config.js"></script>
+<!-- endbuild -->
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/search.js"></script>
+
+</body>
+</html>

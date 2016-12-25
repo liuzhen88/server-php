@@ -1,0 +1,218 @@
+#header{ height:auto;}
+.header-wrap{position:fixed;/*background:#ef5350;*/z-index: 8888;height:44px;width:100%; left:0; top:0;}
+.header-back{position: absolute;bottom:8px;left:8px;width: 30px;height: 30px; border-radius:30px; overflow:hidden;background:url(../images/layHead2.png) center center no-repeat; background-size:30px auto;}
+.header-back2{background:url(../images/layHead3.png) center center no-repeat; background-size:30px auto;}
+.header-back3{background:#EF5350 center center no-repeat;}
+
+.header-back span{width:30px;height: 30px;text-indent:-9999px;/*background:url(../images/back.png) center center no-repeat;*/background-size:auto 26px;display:block;}
+.header-wrap h2{height: 44px;line-height: 44px;font-size: 18px;color:#fff;text-align: center;}
+.header-nav {width:30px;height:30px;display:block;position:absolute;bottom:8px;right:8px;background:url(../images/headNav3.png) center center no-repeat; background-size:30px auto;border-radius:30px; overflow:hidden;}
+
+.header-nav2 {background:url(../images/headNav1.png) center center no-repeat;background-size:30px auto;}
+/*.header-search {width:40px;height:40px;display:block;position:absolute;top:8px;right:8px;background:url(../images/search1.png) center center no-repeat;background-size:auto 26px;}*/
+.header-off {width:40px;height:40px;display:block;position:absolute;top:8px;left:56px;background:url(../images/ic_close1.png) center center no-repeat;background-size:auto 26px;}
+.header-wrap .top_nav {position:absolute;right:8px;top:46px;background:#fff;width:24%;padding:8px;display:none;}
+.header-wrap .top_nav a{display:block;color:rgba(0,0,0,.87);font-size:16px;line-height:36px;text-align:left;}
+.sheader {text-align:center; background:#ff4946;padding:8px 0;height:28px;width:100%;position:fixed; top:0px;left:0px;z-index: 9999;}
+.sheader h2{padding:0 30px;text-align:center;color:#fff;font-size:17px;height: 28px;line-height:28px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sheader .sh_l,.sheader .sh_r{position:absolute; width:60px; height:28px; text-align:center;font-size:17px;color:rgba(255,255,255,.8); line-height:28px;top:8px;}
+.sheader .sh_l{left:0; }
+.sheader .sh_r{ right:0;  }
+.sheader .sh_back{background:url('../images/share_back.png') center no-repeat;background-size:auto 18px;width:44px;height:44px;position:absolute;left:0;top:0;}
+.s_main {padding-top:44px;padding-bottom:45px;}
+header.sch .head_bg {
+    opacity: 1;
+}
+
+header.sch .head {
+    height: 30px;
+    padding: 7px 16px 7px;
+    position: relative;
+}
+
+header {
+    height: 40px;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+header .head_bg {
+    width: 100%;
+    height: 44px;
+    background: rgba(239, 83, 80, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.3;
+    /*-webkit-transition-property: opacity;*/
+    /*-webkit-transition-timing-function: ease-out;*/
+    /*-webkit-animation-duration: 1s;*/
+}
+
+header .head {
+    height: 30px;
+    padding: 7px 52px 7px 96px;
+    position: relative;
+}
+
+.head .address {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 7px;
+    padding: 0 0 0 16px;
+    height: 30px;
+    color: #fff;
+    text-align: left;
+    width: 88px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.head .address span {
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.head .address span.arrow {
+    background: url(../images/o2o/o2o_arr.png) center right no-repeat;
+    background-size: 12px;
+    width: 12px;
+    margin-left: 2px;
+}
+
+.head .search {
+    display: block;
+    background: rgba(255, 255, 255, .7);
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .12);
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.head .search a {
+    color: rgba(0, 0, 0, 0.3);
+    display: block;
+    height: 30px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.head .search a span {
+    background: url(../images/o2o/o2o_search.png) left top no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    background-size: 16px;
+    padding: 0 8px 2px 0;
+}
+
+.head .code {
+    width: 20px;
+    height: 20px;
+    background-size: 18px;
+    position: absolute;
+    right: 16px;
+    top: 12px;
+}
+
+#footer {
+    position: fixed;
+    z-index: 99999;
+    background: rgba(255, 255, 255, .98);
+
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: #ddd solid 1px;
+}
+
+.jl-fnav {
+    display: table;
+    width: 100%;
+}
+
+.jl-fnav .quarter {
+    width: 20%;
+    padding: 6px 0px 0;
+    display: table-cell;
+    font-size: 12px;
+    text-align: center;
+}
+
+.jl-fnav .quarter span {
+    width: 22px;
+    height: 22px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 22px auto;
+    margin: 0 auto;
+}
+
+.jl-fnav .quarter .i-home {
+    background-image: url(../images/o2o/footer_index.png);
+}
+
+.jl-fnav .quarter .i-type {
+    background-image: url(../images/o2o/footer_business.png);
+}
+
+.jl-fnav .quarter .i-cart {
+    background-image: url(../images/o2o/footer_shop.png);
+}
+
+.jl-fnav .quarter .i-mine {
+    background-image: url(../images/o2o/footer_my.png);
+}
+
+.jl-fnav .quarter .i-share {
+    background-image: url(../images/o2o/o2o_shareicon0.png);
+}
+
+.jl-fnav .current .i-home {
+    background-image: url(../images/o2o/footer_index_on.png);
+}
+
+.jl-fnav .current .i-type {
+    background-image: url(../images/o2o/footer_business_on.png);
+}
+
+.jl-fnav .current .i-cart {
+    background-image: url(../images/o2o/footer_shop_on.png);
+}
+
+.jl-fnav .current .i-mine {
+    background-image: url(../images/o2o/footer_my_on.png);
+}
+.share-box.current{
+    background-color: #ff4946;
+}
+.jl-fnav .current .i-share {
+    margin-bottom: 6px;
+    color: #fff;
+    background-image: url(../images/o2o/o2o_shareicon.png);
+}
+.jl-fnav .current.share-box p {
+    display: none;
+}
+
+.jl-fnav .quarter p {
+    color: #929292;
+    font-size: 10px;
+    line-height: 16px
+}
+
+.jl-fnav .quarter.current p {
+    color: #D9434E;
+}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>我的订单</title>
+
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/order_info.css">
+
+</head>
+<body>
+<header>
+    <ul class="nav-header">
+        <li class="on" id="orderStatus">订单状态</li>
+        <li id="orderDetails">订单详情</li>
+    </ul>
+    <a href="order.html" class="head-back"></a>
+    <a class="refresh">刷新</a>
+</header>
+
+<div class="my-main">
+    <!--xueqiang-->
+    <div class="steps" id="status">
+        <div class="yuanquan top1 choose"><div class="dian dian-choose"></div></div>
+        <div class="line1"></div>
+        <div class="yuanquan top2"><div class="dian"></div></div>
+        <div class="line2"></div>
+        <div class="yuanquan top3"><div class="dian"></div></div>
+        <div class="line3"></div>
+        <div class="yuanquan top4"><div class="dian"></div></div>
+        <div class="step step6" id="step6">
+            <div class="title success" >
+                <p class="tt">订单完成</p>
+                <div class="time" id="time6"></div>
+            </div>
+
+        </div>
+        <div class="step step5" id="step5">
+            <div class="title" >
+                <p class="tt">商家已发货</p>
+                <div class="time" id="time5"></div>
+            </div>
+            <div class="cont">
+                <p>
+                    商品已发货，您收到商品清点无误后，请将收货码提供给扫货员扫码；若您还未收到商品，请不要提供收货码
+                </p>
+                <div class="erweima"><img  id="getImage"></div>
+                <p class="shouhuoma">
+                    收货码：<span></span>
+                </p>
+            </div>
+        </div>
+        <div class="step step4" id="step4">
+            <div class="title">
+                <p class="tt">已取消</p>
+                <div class="time" id="time4"></div>
+            </div>
+            <div class="cont" style="border: 0">
+                <p style="padding-right: 10px;" id="cancel-tip">
+                    订单已取消
+                </p>
+            </div>
+        </div>
+        <div class="step step3" id="step3">
+            <div class="title">
+                <p class="tt">已接单</p>
+                <div class="time" id="time3"></div>
+            </div>
+            <div class="cont">
+                <p style="padding-right: 10px;">
+                    请耐心等待配送
+                </p>
+            </div>
+        </div>
+        <div class="step step2" id="step2">
+            <div class="title">
+                <p class="tt">订单已提交</p>
+                <div class="time" id="time2"></div>
+            </div>
+            <div class="cont" style="border: 0">
+                <p style="padding-right: 10px;">
+                    请耐心等待商家接单
+                </p>
+            </div>
+        </div>
+        <div class="step step1" id="step1">
+            <div class="title">
+                <p class="tt">待支付</p>
+                <div class="time" id="time1"></div>
+            </div>
+            <div class="cont" style="border: 0;">
+                <p style="padding-right: 10px;">
+                    超过12小时未支付订单将自动取消
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--footer yinxueqiang-->
+    <div class="foot1">
+        <span class="go buy">去支付</span>
+        <div class="fengexian"></div>
+        <span class="go cancel2">取消订单</span>
+    </div>
+    <div class="foot2">
+        <div class="foot-time">
+            <img src="img/ic-time@2x.png">
+            <p><span>等待接单</span> <span class="song-time" id="song-time"></span></p>
+        </div>
+        <div class="foot-cancel">取消订单</div>
+    </div>
+    <div class="foot3">
+        <div class="foot-time">
+            <img src="img/ic-time@2x.png">
+            <p><span>预计送达</span> <span class="song-time"id="expected"></span></p>
+        </div>
+        <span class="go call">催单</span>
+        <div class="fengexian"></div>
+        <span class="go foot-sure">确认收货</span>
+    </div>
+    <!--遮罩-->
+    <div class="zhezhao"></div>
+    <div class="phone-tip" id="phone-tip">
+        <div class="sure">确定</div>
+        <div class="phone"></div>
+        <div class="select">
+            <div class="phone-cancel" id="phone-cancel">取消</div>
+            <div class="phone-call" id="phone-call" ><a id="phone">呼叫</a></div>
+        </div>
+    </div>
+    <div class="phone-tip" id="to-cancel">
+        <div class="sure">确定取消订单？</div>
+        <div class="select">
+            <div class="phone-cancel" id="cancel">取消</div>
+            <div class="phone-call" id="sure">确定</div>
+        </div>
+    </div>
+    <!--xueqiang-->
+    <!--jingli-->
+    <div class="order-details">
+        <div class="order-details-box" id="orderInfo">
+        </div>
+        <div class="order-details-box">
+            <div class="jl-title">订单详情</div>
+            <ul class="details" id="details">
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/template" id="orderInfoTmpl">
+    <ul class="order-info">
+        {{ for(var i=0;i < it.extend_order_goods.length;i++){ }}
+        <li>
+            <span class="goods">{{=it.extend_order_goods[i].goods_name}}</span>
+            <span class="num">X{{=it.extend_order_goods[i].goods_num}}</span>
+            <span class="price">￥{{=it.extend_order_goods[i].goods_price}}</span>
+        </li>
+        {{ } }}
+        {{ if(parseFloat(it.order.shipping_fee) != 0){ }}
+        <li>
+            <span class="goods">运费</span>
+            <span class="num"></span>
+            <span class="price">￥{{=it.order.shipping_fee}}</span>
+        </li>
+        {{ } }}
+    </ul>
+    <p class="total">合计：<span>￥{{=it.order.order_amount}}</span></p>
+</script>
+<script type="text/template" id="orderDetailsTmpl">
+    <li>订单号码：<span>{{=it.order_sn}}</span></li>
+    <li>订单时间：<span>{{=it.add_time}}</span></li>
+    <li>收获姓名：<span>{{=it.buyer_name}}</span></li>
+    <li>手机号码：<span>{{=it.buyer_mobile}}</span></li>
+    <li>收货地址：<span>{{=it.buyer_address}}</span></li>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="js/order_info.js"></script>
+
+</body>
+</html>

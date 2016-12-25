@@ -1,0 +1,604 @@
+body {
+    font-size: 1em;
+    font-family: 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
+    color: #6d6d6d;
+    background-color: #f6f3f3;
+}
+
+body, input, textarea, select, button, table {
+    line-height: 1.25em;
+}
+
+body {
+    min-width: 320px;
+}
+
+.clr-e53 {
+    color: #ef5350;
+}
+
+.box-shw {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.box-shw1 {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .12);
+}
+
+.box-shw-2 {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12), 0 1px 6px 0 rgba(0, 0, 0, .12);
+}
+
+.b-radius {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, .54);
+}
+
+::-moz-placeholder {
+    color: rgba(0, 0, 0, .54);
+}
+
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, .54);
+}
+
+input:-moz-placeholder {
+    color: rgba(0, 0, 0, .54);
+}
+
+header {
+    height: 40px;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+header .head_bg {
+    width: 100%;
+    height: 44px;
+    background: rgba(239, 83, 80, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.3;
+    /*-webkit-transition-property: opacity;*/
+    /*-webkit-transition-timing-function: ease-out;*/
+    /*-webkit-animation-duration: 1s;*/
+}
+
+header .head {
+    height: 30px;
+    padding: 7px 22px 7px 96px;
+    position: relative;
+}
+
+.head .address {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 7px;
+    padding: 0 0 0 16px;
+    height: 30px;
+    color: #fff;
+    text-align: left;
+    width: 88px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.head .address span {
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.head .address span.arrow {
+    background: url(../images/o2o/o2o_arr.png) center right no-repeat;
+    background-size: 12px;
+    width: 12px;
+    margin-left: 2px;
+    margin-top: 3px;
+}
+
+.head .search {
+    display: block;
+    background: rgba(255, 255, 255, .7);
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .12);
+    border-radius: 15px;
+    vertical-align: middle;
+}
+
+.head .search a {
+    padding-left: 10px;
+    color: rgba(0, 0, 0, 0.3);
+    display: block;
+    height: 30px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.head .search a span {
+    background: url(../images/o2o/o2o_search.png) left top no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    background-size: 16px;
+    padding: 0 8px 2px 0;
+}
+.head .search input {
+    border:none;
+    float:left;
+    width:78%;
+    height:30px;
+    line-height:30px;
+    color:#000;
+    padding:0 2%;
+    background:none;
+}
+.head .search span.btn{
+    background:url(../images/o2o/o2o_search.png) center no-repeat;
+    display:block;
+    height:30px;
+    width:18%;
+    float:right;
+    background-size:16px;
+    text-indent:-9999px;
+}
+.head .code {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 11px;
+    top: 7px;
+	display:none;
+}
+
+.head .code .face_pay {
+    background: url(../images/o2o/mai_dan@2x.png) center center no-repeat;
+    background-size: 30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+	display:none;
+}
+
+.footer {
+    position: fixed;
+    z-index: 99999;
+    background: rgba(255, 255, 255, .98);
+    height: 44px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: #ddd solid 1px;
+}
+
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+    min-height: 150px;
+}
+
+.swiper-container img {
+    width: 100%;
+    display: block;
+}
+
+.content {
+    padding-bottom: 45px;
+}
+
+.p_box {
+    background: #fff;
+    border-bottom: #dddddd solid 1px;
+    border-top: #dddddd solid 1px;
+    margin-bottom: 16px;
+}
+
+.type {
+    width: 100%;
+    border-top: 0;
+}
+
+.type ul {
+    width: 100%;
+    font-size: 0;
+}
+
+.type li {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    padding: 16px 0;
+}
+
+.type li a {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.type li span {
+    display: block;
+    height: 50px;
+}
+
+.type li span img {
+    width: 38px;
+    display: block;
+    margin: 0 auto;
+}
+
+.merchant {
+    height: 48px;
+    padding: 0 16px;
+    background: url(../images/o2o/o2o_shop.png) 16px center #fff no-repeat;
+    background-size: 28px;
+}
+
+.p_box a.more {
+    background: url(../images/o2o/o2o_more.png) right center no-repeat;
+    background-size: 12px;
+    display: block;
+    height: 48px;
+    font-size: 16px;
+    color: #000;
+    padding-left: 44px;
+    line-height: 48px;
+}
+
+.p_box .title {
+    line-height: 48px;
+    height: 48px;
+    font-size: 16px;
+    color: #000;
+    padding: 0 16px;
+    border-bottom: #ededed solid 1px;
+}
+
+.p_box .title a.more {
+    padding: 0;
+}
+
+.p_box ul.list {
+    font-size: 0;
+    padding: 16px 8px 0;
+    text-align: center;
+    overflow: hidden;
+    min-height: 88px;
+}
+
+.topics ul.list li {
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    padding-bottom: 16px;
+    text-align: left;
+    float: left;
+}
+.hot ul.list li{
+    display: inline-block;
+    width: 33.3%;
+    height: 112px;
+    overflow: hidden;
+    float: left;
+}
+.hot ul.list li a{
+    display: block;
+}
+.hot .goods_img {
+    width: 90%;
+    height:77px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:cover;
+}
+
+.hot .goods_img img {
+    display: inline-block;
+    width: 90%;
+}
+
+.hot .goods_name {
+    font-size: 14px;
+    line-height: 14px;
+    padding-bottom: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 14px;
+    color: #000;
+}
+
+.hot .goods_price {
+    font-size: 16px;
+    line-height: 16px;
+    height: 16px;
+}
+.hot .goods_price span{
+    font-size: 14px;
+}
+.hot .goods_price .goods-marketprice{
+    font-size: 12px;
+}
+.topics li a {
+    position: relative;
+    display: block;
+    height: 66px;
+    padding:0 75px 0 10px;
+    overflow: hidden;
+}
+
+.topics .goods_img {
+    width: 65px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.topics .goods_text{
+    width: 100%;
+}
+
+.topics .goods_img img {
+    width: 100%;
+    display: block;
+}
+
+.topics p {
+    color: #999;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 4px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.topics p.tit {
+    color: #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 18px;
+}
+
+.like li {
+    padding: 15px;
+    border-bottom: #dddddd solid 1px;
+}
+
+
+.like li a {
+    display: block;
+    position: relative;
+    padding-left: 102px;
+    height:92px;
+}
+
+.like li .goods_img {
+    float: left;
+    width: 92px;
+    height:92px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.like li .goods_img img {
+    width: 100%;
+    display: block;
+	height:100%;
+}
+
+.like p {
+    padding: 6px 0 0 0;
+    color: #999;
+    line-height: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+.like .des{
+    padding:0;
+    margin: 2px 0;
+    font-size: 12px;
+    line-height: 42px;
+    height:42px;
+}
+.like p .jl, .like p .num {
+    float: right;
+    text-align: right;
+    width: 30%;
+    font-size: 12px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.like p .goods_name, .like p .goods_price {
+    float: left;
+    text-align: left;
+    width: 70%;
+    display: block;
+    overflow: hidden;
+    height: 16px;
+}
+
+.like p .goods_name {
+    color: #000;;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.like .goods_price {
+    font-size: 18px;
+}
+
+.like .goods_price span {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #999;
+    padding-left: 8px;
+}
+
+.con {
+    padding: 44px 0 45px;
+}
+
+header.sch .head_bg {
+    opacity: 1;
+}
+
+header.sch .head {
+    height: 30px;
+    padding: 7px 16px 7px;
+    position: relative;
+}
+
+a {
+    color: inherit;
+}
+
+.get-area {
+    max-width: 56px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.get-location {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10000;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.get-location-cnt {
+    margin-top: 45%;
+}
+
+.get-location-text {
+    height: 50px;
+    line-height: 50px;
+    color: #000;
+}
+
+.get-location-loading {
+    height: 80px;
+}
+
+.today-list li {
+    width: 33.3%;
+}
+.goods-price{
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #999;
+}
+.hot .goods-price .old-price{
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #999;
+}
+.hot .goods-price .new-price{
+    color: #ef5350;
+}
+.all-nearby a{
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    color: #ff4946;
+}
+.all-nearby{
+    text-align: center;
+}
+.share-module{
+    display: block;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: #dddddd solid 1px;
+    background-color: #fff;
+}
+.share-module a{
+    display: block;
+    position: relative;
+    height:44px;
+}
+
+.share-module-icon{
+    position: absolute;
+    left:15px;
+    padding-left: 30px;
+    color:#ff4946;
+    line-height: 44px;
+    background: url('../images/share_index_new.png') no-repeat center left;
+    background-size: 24px 24px;
+}
+
+.share-module-text{
+    position: absolute;
+    right:15px;
+    line-height: 44px;
+    color: #999;
+    font-size: 14px;
+    padding-right: 14px;
+    background: url('../images/ic-more@3x.png') no-repeat center right;
+    background-size: auto 14px;
+}
+.paotuib-module{
+    display: block;
+    overflow: hidden;
+    margin-bottom: 16px;
+    padding:0 15px 0 45px;
+    line-height: 44px;
+    color:#ff4946;
+    border-top: #dddddd solid 1px;
+    border-bottom: #dddddd solid 1px;
+    background: url('../images/paotuib.png') #fff no-repeat 15px center;
+    background-size: 24px 24px;
+}
+.paotuib-module a{
+    display: block;
+    height:44px;
+    padding-right:14px;
+    background: url('../images/ic-more@3x.png') no-repeat center right;
+    background-size: auto 14px;
+}
+.paotuib-module span{
+    float: right;
+    font-size: 14px;
+    color:#999;
+}
+.p_box a{
+    display: block;
+}

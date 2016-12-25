@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<title>专题</title>
+
+<!-- build:css css/build_special_list.min.css -->
+<link type="text/css" rel="stylesheet" href="css/reset.css"/>
+<link type="text/css" rel="stylesheet" href="css/foot.header.css"/>
+<link type="text/css" rel="stylesheet" href="css/special_list.css"/>
+<!-- endbuild -->
+
+</head>
+
+<body>
+<header id="header"></header>
+
+<div class="main" id="main-container">
+    <ul class="topic-nav">
+        <li id="topicAct"><span class="on">活动专题</span></li>
+        <li id="topicClass"><span>分类专题</span></li>
+    </ul>
+    <div class="topic-box">
+        <div class="topic-act">
+            <div class="choice">
+                <a href="choice_topic.html?specialType=1">精选专题<span class="more"></span></a>
+            </div>
+            <ul class="topic-list"></ul>
+            <div class="dataNull">更多专题敬请期待……</div>
+        </div>
+        <div class="topic-class">
+            <div class="choice">
+                <a href="choice_topic.html?specialType=3">精选专题<span class="more"></span></a>
+            </div>
+            <ul class="topic-list"></ul>
+            <div class="dataNull">更多专题敬请期待……</div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="footer" class="footer"></div>-->
+
+<script type="text/template" id="topicTmpl">
+    {{ for(var i =0;i <it.length;i++){ }}
+    <li>
+        <img data-echo="{{=it[i].special_image}}" class="lazyLoad"/>
+        <a href="special_details.html?special_id={{=it[i].special_id}}">
+            <h4>{{=it[i].special_desc}}</h4>
+            <p>{{=it[i].special_explain}}</p>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_special_list.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/special_list.js"></script>
+<!-- endbuild -->
+<script>
+    AGG.optimize.autoChange(750,100);
+</script>
+</body>
+</html>

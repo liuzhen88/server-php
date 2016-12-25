@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>账单详情</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/withdrawal_details.css"/>
+    </head>
+
+    <body>
+        <div class="sheader">
+            <a href="javascript:history.go(-1);" class="sh_back"></a>
+            <h2>账单详情</h2>
+        </div>
+
+        <div class="s_main">
+            <section class="tx-details">
+            </section>
+        </div>
+
+        <script type="text/template" id="tx-details-tmpl">
+            <section class="box-style money-box">
+                {{ if(it.pdc_payment_state==0){ }}
+                <section class="money-status-head tx-head-1">申请成功</section>
+                <section class="money-status"><span class="tx-money-1">¥{{=splitFirst(it.pdc_amount)}}</span></section>
+                {{ }else if(it.pdc_payment_state==1){ }}
+                <section class="money-status-head tx-head-2">提现成功</section>
+                <section class="money-status"><span class="tx-money-2">¥{{=splitFirst(it.pdc_amount)}}</span></section>
+                {{ }else if(it.pdc_payment_state==2){ }}
+                <section class="money-status-head tx-head-1">处理中</section>
+                <section class="money-status"><span class="tx-money-1">¥{{=splitFirst(it.pdc_amount)}}</span></section>
+                {{ }else if(it.pdc_payment_state==3){ }}
+                <section class="money-status-head tx-head-3">提现失败</section>
+                <section class="money-status"><span class="tx-money-3">¥{{=splitFirst(it.pdc_amount)}}</span></section>
+                {{ } }}
+            </section>
+
+            <section class="box-style step-box">
+                {{ if(it.pdc_payment_state==0){ }}
+                <ul>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-2"></section>
+                        </section>
+                        <section class="step-text">申请成功</section>
+                        {{ if(it.pdc_add_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_add_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_add_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-2"></section>
+                            <section class="img-dot-box tx-dot-gray"></section>
+                            <section class="img-border-right border-color-2"></section>
+                        </section>
+                        <section class="step-text font-color-ccc">处理中</section>
+                        {{ if(it.pdc_deal_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_deal_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_deal_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-2"></section>
+                            <section class="img-dot-box tx-dot-1"></section>
+                        </section>
+                        <section class="step-text font-color-ccc">提现成功</section>
+                        {{ if(it.pdc_payment_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_payment_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_payment_time)}}</section>
+                        {{ } }}
+                    </li>
+                </ul>
+                {{ }else if(it.pdc_payment_state==1){ }}
+                <ul>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-1"></section>
+                        </section>
+                        <section class="step-text">申请成功</section>
+                        {{ if(it.pdc_add_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_add_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_add_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-1"></section>
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-1"></section>
+                        </section>
+                        <section class="step-text">处理中</section>
+                        {{ if(it.pdc_deal_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_deal_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_deal_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-1"></section>
+                            <section class="img-dot-box tx-dot-2"></section>
+                        </section>
+                        <section class="step-text">提现成功</section>
+                        {{ if(it.pdc_payment_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_payment_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_payment_time)}}</section>
+                        {{ } }}
+                    </li>
+                </ul>
+                {{ }else if(it.pdc_payment_state==2){ }}
+                <ul>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-1"></section>
+                        </section>
+                        <section class="step-text">申请成功</section>
+                        {{ if(it.pdc_add_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_add_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_add_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-1"></section>
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-2"></section>
+                        </section>
+                        <section class="step-text">处理中</section>
+                        {{ if(it.pdc_deal_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_deal_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_deal_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-2"></section>
+                            <section class="img-dot-box tx-dot-1"></section>
+                        </section>
+                        <section class="step-text font-color-ccc">提现成功</section>
+                        {{ if(it.pdc_payment_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_payment_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_payment_time)}}</section>
+                        {{ } }}
+                    </li>
+                </ul>
+                {{ }else if(it.pdc_payment_state==3){ }}
+                <ul>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-1"></section>
+                        </section>
+                        <section class="step-text">申请成功</section>
+                        {{ if(it.pdc_add_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_add_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_add_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-1"></section>
+                            <section class="img-dot-box tx-dot-0"></section>
+                            <section class="img-border-right border-color-1"></section>
+                        </section>
+                        <section class="step-text">处理中</section>
+                        {{ if(it.pdc_deal_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_deal_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_deal_time)}}</section>
+                        {{ } }}
+                    </li>
+                    <li>
+                        <section class="img-status-box">
+                            <section class="img-border-left border-color-1"></section>
+                            <section class="img-dot-box tx-dot-3"></section>
+                        </section>
+                        <section class="step-text">提现失败</section>
+                        {{ if(it.pdc_payment_time!=""){ }}
+                        <section class="step-time-1">{{=get_time_1(it.pdc_payment_time)}}</section>
+                        <section class="step-time-2">{{=get_time_2(it.pdc_payment_time)}}</section>
+                        {{ } }}
+                    </li>
+                </ul>
+                {{ } }}
+            </section>
+
+            {{ if(it.pdc_message!=""){ }}
+            <section class="tx-fail-warning-box">
+                    <span class="tx-fail-warning">{{=it.pdc_message}}</span>
+            </section>
+            {{ } }}
+
+            <section class="box-style bank-head-box">
+                <section class="fleft bank-img-box">
+                    <img src="{{=it.icon}}" />
+                </section>
+                <section class="fleft bank-text-box">
+                    <section class="bank-name">{{=it.pdc_bank_name}}</section>
+                    <section class="bank-type">{{=it.cardtype}}</section>
+                    <section class="bank-number">**** **** **** *** {{=it.pdc_bank_no}}</section>
+                </section>
+                <section class="clear-float"></section>
+                <section class="special-border-box">
+                    <section class="special-bor"></section>
+                    <section class="special-tri"></section>
+                </section>
+                <section class="bank-tip-box">
+                    申请提现成功后，我们将在3个工作日内进行审核，如无异常，我们会将对应的金额转入您指定的银行卡。如有疑问请联系客服。
+                </section>
+            </section>
+
+            <section class="contact-us"><a href="tel:400-627-7745">联系客服</a></section>
+        </script>
+
+        <!-- build:inlinejs -->
+        <script type="text/javascript" src="js/config.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/tmpl/common-top.js"></script>
+        <script type="text/javascript" src="js/withdrawal_details.js"></script>
+
+    </body>
+</html>

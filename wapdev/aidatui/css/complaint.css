@@ -1,0 +1,12 @@
+*{margin: 0;padding: 0;font-size: 14px;}
+header{width: 100%;height: 44px; background: #ff4946; text-align: center;line-height: 44px;color: #fff;}
+header .head-back{display: block;position: absolute;left: 0;top:0;width:44px;height:44px;background:url("../img/ic-back.png") center no-repeat; background-size: auto 20px;}
+body{background: #F7F3F2;}
+.user-info{width: 100%;height: 130px;background: #fff;margin-top: 15px;}
+.user-info-container{width: 90%;height: 130px;margin: 0 auto;}
+#info{width: 100%;height: 115px;border: none;margin-top: 15px;overflow: hidden;}
+.mobile{width: 100%;height: 50px;background: #fff;margin-top: 15px;}
+.mobile-container{width: 90%;height: 50px;margin: 0 auto;line-height: 50px;}
+#number{width: auto;height: 50px;overflow: hidden;border: none;margin-left: 10px;}
+#submit{width: 90%;height: 44px;line-height: 44px;text-align: center;color: #fff;margin-left: 5%;margin-top: 20px;background: #FF4946;border-radius: 4px;margin-bottom: 50px;}
+textarea{-webkit-touch-callout:default;-webkit-user-select:text; -webkit-appearance: none;}

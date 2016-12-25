@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/local_store_unconsume.css">
+
+    <title>订单详情</title>
+</head>
+<body>
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>订单详情</h2>
+</div>
+<div id="goodsMain"></div>
+<script type="text/template" id="orderDetails">
+<div class="s_main">
+    <section class="store-box">
+        <section class="store-img float-left"><img src="{{=it.store.store_avatar}}"/></section>
+        <section class="store-box-right float-left">
+            <section class="store-name-box">
+                <span class="store-name float-left">{{=it.store.store_name}}</span>
+                <span class="store-distance float-right">{{=it.store.distance}}</span>
+            </section>
+            <section class="clear-float"></section>
+            <section class="store-star-box">
+                {{ for(var i=0;i<it.store.store_credit;i++){ }}
+                    <img src="../images/star-orange@3x.png"/>
+                {{ } }}
+                {{ for(var i=0;i<5-it.store.store_credit;i++){ }}
+                    <img src="../images/star-gray@3x.png"/>
+                {{ } }}
+                
+
+                <span>{{=it.store.evaluate_count}}评价</span>
+            </section>
+            <section class="store-class-box"><span class="store-class">{{=it.store.area_info}}</span></section>
+        </section>
+        <section class="clear-float"></section>
+    </section>
+
+    <section class="consume-head-box">
+        <section class="consume-head float-left">消费码<span>（消费时出示给商家）</span></section>
+        <section class="consume-return float-right"><a id="apply-refund">申请退款</a></section>
+        <section class="clear-float"></section>
+    </section>
+    <section class="consume-box">
+        <section class="ewm-box"><img id="local_code" width="207px" height="207px"/> </section>
+        <section class="order-num">消费码：{{=it.order.consume_code}}</section>
+        <section class="input-box">
+            <section class="input-qrm float-left"><input type="password" name="" id="code" placeholder="输入员工确认码"/></section>
+            <section class="btn-confirm float-left">确认</section>
+        </section>
+    </section>
+
+    <section class="order-info-box">
+        <section class="order-info-head" >订单信息</section>
+        <section class="order-info-con">
+            <section class="order-info-l float-left">订单号</section>
+            <section class="order-info-r float-left">{{=it.order.order_sn}}</section>
+            <section class="clear-float"></section>
+        </section>
+        <section class="order-info-con">
+            <section class="order-info-l float-left">下单时间</section>
+            <section class="order-info-r float-left">{{=it.order.payment_time}}</section>
+            <section class="clear-float"></section>
+        </section>
+        <section class="order-info-con">
+            <section class="order-info-l float-left">总价</section>
+            <section class="order-info-r float-left">{{=it.order.order_amount}}元</section>
+            <section class="clear-float"></section>
+        </section>
+        <section class="order-info-con">
+            <section class="order-info-l float-left">数量</section>
+            <section class="order-info-r float-left">{{=it.order.goods_num}}</section>
+            <section class="clear-float"></section>
+        </section>
+        <section class="order-info-con">
+            <section class="order-info-l float-left">完成后获得积分</section>
+            <section class="order-info-r float-left">{{=it.order.rebate}}</section>
+            <section class="clear-float"></section>
+        </section>
+        <section class="order-info-con">
+            <section class="order-info-l float-left">有效期至</section>
+            {{ if(it.order.validate_time==0){ }}
+            <section class="order-info-r float-left">无限制</section>
+            {{ }else{ }}
+
+            <section class="order-info-r float-left">{{=get_time(it.order.validate_time)}}</section>
+            {{ } }}
+            <section class="clear-float"></section>
+        </section>
+    </section>
+</div>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="js/local_store_unconsume.js"></script>
+
+</body>
+</html>

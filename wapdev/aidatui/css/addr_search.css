@@ -1,0 +1,68 @@
+@charset "utf-8";
+html,body{
+    height: 100%;
+}
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#ff4946;
+}
+header h2 {
+    font-size:18px;
+    color:#FFF;
+    text-align: center;
+    line-height: 44px;
+}
+header .head-back{
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0;
+    width:44px;
+    height:44px;
+    background:url("../img/ic-back.png") center no-repeat;
+    background-size: auto 20px;
+}
+.my-main{
+    padding-top:126px;
+    width: 100%;
+    overflow-y: auto;
+    background: #fff;
+}
+.search {
+    padding:10px 16px;
+    background:#fff;
+}
+#searchBtn {
+    width: 96%;
+    height:38px;
+    padding:0 2%;
+    background:#f9f9f9;
+    background-size: 15px;
+    border:#d2d2d2 solid 1px;
+    border-radius:4px;
+}
+.ps {
+    height:30px;
+    padding:0 16px;
+    font-size: 12px;
+    line-height: 30px;
+    color:#ff883f;
+    background:#fff6e4;
+}
+.addrList li{
+    padding:10px 15px;
+    border-bottom:#e6e6e6 solid 1px;
+}
+.addrList p{
+    font-size: 12px;
+    line-height:20px;
+    color:#999;
+}
+.addrList p span {
+    font-size: 14px;
+    line-height:24px;
+    color:#666;
+}

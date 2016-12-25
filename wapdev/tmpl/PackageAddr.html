@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<title>选择收货地址</title>
+<link rel="stylesheet" type="text/css" href="../css/style_jl.css">
+<link type="text/css" rel="stylesheet" href="../css/packageAddr.css"/>
+
+<script src="../js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/packageAddr.js"></script>
+</head>
+
+<body style="background:#fff;">
+<header id="header"></header>
+<div class="main" id="main-container">
+<section style="width:100%;">
+	<section class="addr_list">
+    	<ul class="pdd">
+        	<!--<li>
+            	<div class="addr_check"></div>
+                <div class="addr_box">
+    				<p class="addrName"><span>李晓明</span>18763334564</p>
+        			<p class="addrAddress">安徽省合肥市高新技术开发区长江路合家福旁边的图肌肤市里广场金座A1020</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>
+            
+            <li>
+            	<div class="addr_check"></div>
+                <div class="addr_box">
+    				<p class="addrName"><span>李大华</span>18763334564</p>
+        			<p class="addrAddress">安徽省合肥市高新技术开发区长江路合家福旁边的图肌肤市里广场金座A1020</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>
+            <li>
+            	<div class="addr_check"></div>
+                <div class="addr_box">
+    				<p class="addrName"><span>李明珠</span>18763334564</p>
+        			<p class="addrAddress">安徽省合肥市高新技术开发区长江路合家福旁边的图肌肤市里广场金座A1020</p>
+                </div>
+                <div class="clear_float"></div>
+            </li>-->
+
+        </ul>
+    </section>
+    
+    <section class="addr_message">
+        <a class="addr_message_btn" style="color:#fff;">管理收货地址</a>
+    </section>
+</section>
+</div>
+<script>
+$(document).ready(function(){
+	var key = getcookie('key');
+	if(key==''){
+		window.location.href="http://120.25.240.53/agg/wap/tmpl/member/login.html";
+	}else{
+	var address_id=new Array(),true_name=new Array(),area_info=new Array(),address=new Array(),mob_phone=new Array(),is_default=new Array(),tel_phone=new Array(),city_id=new Array(),area_id=new Array();
+	$.ajax({
+		url:ApiUrl+"/index.php?act=member_address&op=address_list&client_type=wap&key="+key,
+		type:"get",
+		dataType:"jsonp",
+		jsonp:"callback",
+		success: function(data){
+			if(data.code=200){
+				$(data.data.address_list).each(function(index,jk){
+					true_name[index]=jk.true_name;
+					area_info[index]=jk.area_info;
+					mob_phone[index]=jk.mob_phone;
+					tel_phone[index]=jk.tel_phone;
+					city_id[index]=jk.city_id;
+					area_id[index]=jk.area_id;
+					address[index]=jk.address;
+					var subdiv="<li><div class='addr_check'></div><div class='addr_box'><p class='addrName'><span id='name'>"+true_name[index]+"</span><span id='mob'>"+mob_phone[index]+"</span></p><p class='addrAddress'>"+area_info[index]+"</p></div><div class='clear_float'></div><span style='display:none' id='tel'>"+tel_phone[index]+"</span><span style='display:none' id='city'>"+city_id[index]+"</span><span style='display:none' id='area'>"+area_id[index]+"</span><span style='display:none' id='address'>"+address[index]+"</span></li>";
+					$(".pdd").append(subdiv);
+				});
+				 
+				$(".addr_list ul li").click(function(){
+						$(".addr_list ul li").find(".addr_check").attr("class","addr_check");
+						$(this).find(".addr_check").attr("class","addr_check addr_checkon");
+						 var true_name=$(this).find("#name").html();
+						 var mob_phone=$(this).find("#mob").html();
+						 var tel_phone=$(this).find("#tel").html();
+						 var area_info=$(this).find(".addrAddress").html();
+						 var city_id=$(this).find("#city").html();
+						 var area_id=$(this).find("#area").html();
+						 var address=$(this).find("#address").html();
+						var choose=$(".addr_list ul li").index(this)+1;//获取用户选择的第几个地址
+						 $.ajax({
+							url:ApiUrl+"/index.php?act=member_address&op=address_add&client_type=wap&key="+key+"&true_name="+true_name+"&mob_phone="+mob_phone+"&tel_phone="+tel_phone+"&city_id="+city_id+"&area_id="+area_id+"&address="+address+"&area_info="+area_info,
+							type:"get",
+							dataType:"jsonp",
+							jsonp:"callback",
+							success: function(data){
+								
+							}	 
+						});
+						
+				});
+				/*$(".addr_message_btn").click(function(){
+					
+				});*/
+			}
+		}	
+	});	
+	}
+});
+
+</script>
+</body>
+</html>

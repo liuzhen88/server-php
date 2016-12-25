@@ -1,0 +1,91 @@
+@charset "utf-8";
+.content{
+    width:100%;height:100%;padding-top:56px ;overflow-y: auto;overflow-x:hidden;-webkit-overflow-scrolling: touch;margin-bottom: 10px;
+}
+.clear{
+    clear: both;
+}
+.fl{float: left}
+.fr{float:right}
+.line{
+    height:15px;width: 100%;
+}
+.more-list{
+    overflow: hidden;
+    background: #ffffff;
+    height:auto;
+    border-top:1px solid #e5e5e5;
+
+    padding:0;
+    margin-top: 6px;
+}
+.more-list li{
+    position: relative;
+    font-size: 14px;
+    padding-left:15px;
+    height: 40px;
+    width:100%;
+    line-height: 40px;
+    color: #000000;
+    border-bottom:1px solid #e5e5e5;
+}
+.more-list li a{width: 100%;display: inline-block;height: 39px;}
+.right-arrow{
+    position: absolute;
+    top: 0;
+    right: 30px;
+    height: 40px;
+    width: 120px;
+    color: #d6d6d6;
+}
+.right-arrow2{
+    background: url("../images/ic-more@3x.png") no-repeat center;
+    background-size:10px 10px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 40px;
+    width: 120px;
+    color: #d6d6d6;
+}
+/*关于我们*/
+.us-tittle{height:auto;width:100%;padding: 20px 0 0 0;}
+.us-tittle a{display: inline-block;width: 100%;height:50px;position: relative}
+.us-tittle a img{height: 50px;width:50px;left:50%;margin-left:-25px;position: absolute}
+.us-tittle p{text-align: center;color: #000000;font-size: 16px;margin: 10px 0;}
+.introduce{height: auto;width:94%;margin: 0 3%;line-height: 20px;font-size: 12px;color: #666666;word-wrap:break-word}
+/*反馈*/
+.sub{width:92%;margin:0 4%;border-radius: 5px;height: 40px;border: 0px solid #cccccc;background: #EF5350;color: #ffffff; line-height: 40px;text-align: center}
+.title{width:90%;padding-left:2%;margin:10px 4%;border-radius: 5px;height: 30px;border: 1px solid #cccccc; }
+textarea{
+    resize: none;
+    width:90%;
+    padding-left:2%;
+    margin:10px 4%;
+    height: 200px;
+    line-height: 20px;
+    font-size: 12px;
+    border: 1px solid #cccccc;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 5px;
+}
+.alert{
+    position:fixed;
+    top:100px;
+    left:50%;
+    margin-left:-100px;
+    display: none;
+    height: 140px;
+    width: 200px;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    color: #999999;
+    border-radius: 5px;
+}
+
+.sure{height:40px;line-height:40px;width:200px;font-size: 14px;color: #666666;text-align: right;position: absolute;top:100px; right: 20px;}
+.sure a{height: 40px;width: 100%;display: inline-block;}
+.sure a :hover{color: #EF5350}
+#tips{padding:10px;height:100px;line-height: 25px;overflow: hidden;font-size: 14px;}
+textarea{-webkit-touch-callout:default;-webkit-user-select:text; -webkit-appearance: none;}

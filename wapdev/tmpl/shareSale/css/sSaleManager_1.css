@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { text-align: center;font-size:14px;color:#666; font-family:"微软雅黑"; background-color:#fff;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+
+.clear_float{ clear:both;}
+
+#header{ width:100%; height:55px; line-height:55px; background-color:#ff4745; color:#fff; font-size:18px; position:fixed; top:0px; left:0px; z-index:10000; }
+#header a{color:#fff; position:absolute; top:0px; left:10px;}
+
+#fxManagerBox{ margin-top:55px; width:100%; height:230px; background-color:#fff;}
+
+#fxAvatorBox{ padding-top:30px;}
+#fxAvator{ width:80px; height:80px; overflow:hidden; border-radius:80px; margin:0px auto 30px;}
+#fxAvator img{width:100%; height:100%;}
+
+#fxLevel{ line-height:25px; color:#999;}
+#fxName{ font-size:18px;line-height:30px; height:30px;}
+
+#fxLabalHead{ width:100%; height:50px;border-bottom:#eae0df solid 1px; color:#dad0cf; font-size:16px;}
+#fxLabalHead ul{width:100%;height:50px; line-height:50px;}
+#fxLabalHead ul li{width:33.3%; height:50px; text-align:center; float:left; cursor:pointer;}
+#fxLabalHead .on{color:#333;}
+
+#canvasDiv{border-bottom:#eae0df solid 1px;}
+
+.fxYongjin{height:70px; line-height:70px; text-align:center;color:#333;font-size:16px;}
+.fxYongjin span{color:#ff5150;}

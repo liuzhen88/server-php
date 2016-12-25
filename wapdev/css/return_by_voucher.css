@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+body{background: #fff; font-size:14px;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+.float-left{float: left;}
+.clear-float{clear: both;}
+.dataNull{text-align:center;height:50px;line-height:50px;font-size:12px;color:#666;}
+
+.font-color-333{ color:#333;}
+.font-color-666{ color:#666;}
+.font-color-fd8900{ color:#fd8900; margin: 0px 4px;}
+
+.total-title{ font-size: 16px; line-height: 25px; padding:10px 10px 0px;}
+.space-time{ line-height: 30px;padding:0px 10px;}
+.return-addr-box{ border-bottom: #e6e6e6 solid 1px; line-height: 20px;padding:0px 10px 15px;}
+.return-addr-title{ width: 75px;}
+.return-addr-con{}
+
+.up-voucher-box{border-top: #e6e6e6 solid 1px; border-bottom: #e6e6e6 solid 1px; margin-top: 10px; padding: 0px 10px; text-align: left;}
+.up-voucher-line{ margin: 15px 0px;}
+.up-voucher-title{ line-height: 30px;}
+.up-voucher-content{}
+.up-voucher-content select{font-size: 14px; color: #999;  border: #e6e6e6 solid 1px;height: 30px; padding-left: 5px; background:#F6F3F3;}
+.up-voucher-content input{font-size: 14px; color: #999;  border: #e6e6e6 solid 1px; height: 30px;padding-left: 5px;background:#F6F3F3;}
+.up-voucher-content textarea{ font-family: "微软雅黑"; color: #999; font-size: 14px; border: #e6e6e6 solid 1px; min-height: 130px;max-height: 130px; padding-left: 5px;padding-top: 5px; text-align: left;background:#F6F3F3;}
+
+.return-v-commit{width:90%; margin: 20px auto; text-align: center;border-radius: 5px; letter-spacing: 2px; height:50px; line-height: 50px;color: #fff; font-size: 16px; background: #ff4946;}
+
+#send_imgBox{ display: none;}
+.up-v-img{}
+.up-v-img ul{}
+.up-v-img ul li{width: 70px; height:70px; float: left; margin-left: 10px;margin-bottom: 10px; }
+.up-v-img ul li img{width: 70px; height:70px;}
+
+.up-v-imgdef{margin-left: 0px;}
+.up-v-imgdef img{ width: 70px; height:70px;}
+
+.imgToBase64{ display: none;}
+.time-color{color:#fd8900;}
+textarea{-webkit-touch-callout:default;-webkit-user-select:text; -webkit-appearance: none;}

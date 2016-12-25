@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+    <!-- build:css css/build_adt_index.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <!-- endbuild -->
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="position1.html" class="my-address">
+            <span class="my-address-location"></span>
+            <span class="my-address-text">跑腿邦</span>
+            <span class="my-address-arrow"></span>
+        </a>
+        <a href="personal1.html" class="my-center"></a>
+    </div>
+    <div class="content">
+        <!--位置变化时的提示-->
+        <div class="changePosition">
+            <div class="changePosition-container">
+                <div class="changePosition-left">
+                    <span class="close-tishi">X</span>
+                    <span>当前收货地址不在您的附近哦~</span>
+                </div>
+                <div class="img-container">
+                    <img src="img/position.png" width="40px" id="changePositionButton"/>
+                </div>
+                <div class="changePosition-right">
+                    <label>定位当前位置</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="list-category" id="list-category">
+            <div class="scroller">
+                <ul id="categoryWrap">
+                </ul>
+            </div>
+        </div>
+        <div class="list-product" id="productWrap">
+            <div class="scroller">
+            </div>
+        </div>
+        <div class="noStore">当前定位地址暂未开通服务~<a href="../index_o2o.html" class="go">去商城逛逛</a></div>
+    </div>
+    <div class="pub-cart">
+        <div class="cart-num">
+            <span class="shopping-count"></span>
+        </div>
+        <div class="cart-total">
+            <div class="cart-total-pay">共 <span id="totalPrice">0.00</span>元</div>
+            <!--<div class="cart-total-postage">配送费<span id="allFree"></span> <span id="cart-pei-money">￥</span></div>-->
+            <div class="cart-num-page">另需配送费 <span id="allFree"></span></div>
+        </div>
+        <a class="cart-sure">选好了</a>
+        <a class="cart-clear">清空购物车</a>
+        <a class="cart-none" href="javascript:"></a>
+    </div>
+
+    <!--蒙层-->
+    <div class="index-lay"></div>
+
+    <!--购物车-->
+
+    <div class="pub-cart-box">
+        <div class="pub-cart-ul" id="pub-cart-ul">
+            <div class="scroller">
+                <ul id="list">
+
+
+                </ul>
+            </div>
+
+        </div>
+        <div class="cart-total-box">
+            <div class="float-left cart-total-left">
+                <div class="cart-total-price">共<span id="total-money"></span>元</div>
+                <div class="cart-send-price">免配送费</div>
+            </div>
+            <div class="float-right cart-total-right" id="selectOver">选好了</div>
+            <div class="clear-float"></div>
+        </div>
+    </div>
+
+    <!--商品详情-->
+    <div class="product-detail-box">
+        <div class="top-banner"></div>
+        <div class="product-detail-wrapper" id="product-detail-wrapper">
+            <div class="scroller">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="product-detail-confirm">确定</div>
+    <!--<div class="loading_img" style="display: none;"></div>-->
+</div>
+<div class="zhezhao"></div>
+<div id="shopHours">
+    <div class="time-out">
+        <p id="shopTime">小店已打烊，营业时间：09:00-21:00</p>
+        <a class="cancel">知道了，我只是逛逛</a>
+    </div>
+</div>
+
+<script type="text/template" id="list-category-tmpl">
+    {{ for(var i=0;i< it.length;i++){ }}
+    <li data-id="{{=it[i].gc_id}}">{{=it[i].gc_name}}</li>
+    {{ } }}
+</script>
+<script type="text/template" id="list-product-tmpl">
+    {{ for(var i=0;i< it.length;i++){ }}
+    <li class="clearfix list-per-goods" data-goodsid="{{=it[i].goods_id}}">
+        <div class="product-image" style="background-image: url({{=it[i].goods_image}})"></div>
+        <div class="product-desc" style="position: relative;">
+            <p class="product-desc-title"><span>{{=it[i].goods_name}}</span>
+                {{ if(it[i].league_goods_storage <= 0){ }}
+                <span class="lower" style="color: red;position: absolute;bottom: 10px;right: 10px;">缺货</span>
+                {{ } }}
+            </p>
+            <div class="product-desc-box clearfix">
+                <div class="product-desc-box-text">
+                    <p class="product-desc-attribute">{{=it[i].goods_size}}</p>
+                    <p class="product-desc-price">
+                        <span>￥</span>
+                        <span class="price-num">{{=it[i].league_goods_price}}</span>
+                    </p>
+                </div>
+                {{ if(it[i].goods_detail.good_info.goods_storage>0){ }}
+                <div class="product-desc-box-btn" data-goodsid="{{=it[i].goods_id}}" data-price="{{=it[i].league_goods_price}}">
+
+                    {{ if(it[i].cart_goods_num!=0){ }}
+                    <div class="desc-box-btn-del" style="display: block;float: left;">
+                        <img src="img/del_icon.png" width="30px"/>
+                    </div>
+                    <div class="desc-box-num" style="display: block; float: left;">{{=it[i].cart_goods_num}}</div>
+                    {{ } else{ }}
+                    <div class="desc-box-btn-del">
+                        <img src="img/del_icon.png" width="30px"/>
+                    </div>
+                    <div class="desc-box-num">{{=it[i].cart_goods_num}}</div>
+                    {{ } }}
+
+                    {{ if(it[i].league_goods_storage != 0){ }}
+                    <div class="desc-box-btn-add">
+                        <img src="img/add_icon.png" width="30px"/>
+                        <span style="display: none">{{=it[i].goods_detail.good_info.goods_storage}}</span>
+                    </div>
+                    {{ } }}
+
+                </div>
+                {{ } }}
+            </div>
+        </div>
+        <span class="none">{{=it[i].goods_id}}</span>
+    </li>
+    {{ } }}
+</script>
+
+<script type="text/template" id="product-detail-tmpl">
+    <div class="product-detail-banner">
+        {{ if(it.good_image.length>0){ }}
+        <img src="{{=it.good_image[0]}}"/>
+        {{ }else{ }}
+        <img src="img/pd_img.jpg"/>
+        {{ } }}
+    </div>
+    <div class="product-detail-des">
+        <div class="pd-goods-name">{{=it.good_info.goods_name}}</div>
+        <div class="pd-price-box">
+            {{ if(it.good_info.goods_promotion_type==0){ }}
+            <div class="pd-price-now float-left">¥{{=it.good_info.goods_price}}</div>
+            {{ }else{ }}
+            <div class="pd-price-now float-left">¥{{=it.good_info.goods_promotion_price}}</div>
+            <div class="pd-price-old float-left">¥{{=it.good_info.goods_price}}</div>
+            {{ } }}
+            {{ if(it.good_info.goods_storage>0){ }}
+            <div class="pd-price-right float-right"><img src="img/add_icon.png" /><span class="goods_id">{{=it.good_info.goods_id}}</span>
+                <span class="storage">{{=it.good_info.goods_storage }}</span>
+            </div>
+            <div class="pd-price-center float-right">{{=it.good_info.goods_num}}</div>
+            <div class="pd-price-left float-right"><img src="img/del_icon.png" /><span class="goods_id">{{=it.good_info.goods_id}}</span></div>
+            <div class="clear-float"></div>
+            {{ }else{ }}
+            <div class="quehuo">缺货</div>
+            {{ } }}
+        </div>
+        {{ if(it.good_info.brand_name){ }}
+        <div class="pd-goods-style">
+            <span class="pd-goods-left">品牌</span>
+            <span class="pd-goods-right">{{=it.good_info.brand_name}}</span>
+        </div>
+        {{ } }}
+        <div class="pd-goods-style">
+            <span class="pd-goods-left">产品规格</span>
+            <span class="pd-goods-right">{{=it.good_info.goods_size}}</span>
+        </div>
+        {{ if(it.good_info.validity_time){ }}
+        <div class="pd-goods-style">
+            <span class="pd-goods-left">保质期</span>
+            <span class="pd-goods-right">{{=it.good_info.validity_time}}</span>
+        </div>
+        {{ } }}
+        <div class="product-details">
+            {{=it.good_info.mobile_body}}
+            <div class="pd-null">
+                <img src="img/data_null.png"/>
+                跑腿邦，您身边的移动商店~
+            </div>
+        </div>
+    </div>
+
+</script>
+
+
+<script type="text/javascript" src="../js/config.js"></script>
+
+
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<!--<script type="text/javascript" src="../js/lib/iscroll-probe.js"></script>-->
+<script type="text/javascript" src="../js/lib/is.js"></script>
+<script type="text/javascript" src="js/common/jsfloat.js"></script>
+<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    var s;
+    $(".list-category").css({"height":(document.documentElement.clientHeight-44-48)+"px"});
+    //iscroll模拟滚动事件
+    var scroller1,scroller2,scroller3=null,scroller4;
+    function loadScroller(selector,index) {
+        var op={
+//            tap:true,
+//            disableMouse:true,
+//            disablePointer:true,
+//            mouseWheel: false,
+//            scrollbars: true,
+//            fadeScrollbars:true,
+//            bounce:true,
+//            deceleration:0.0002,
+//            probeType:3,
+//            momentum:false,
+//            HWCompositing:true
+            hScroll:false,
+            fadeScrollbar:true,
+            fixedScrollbar:true,
+            tap:true,
+            click:true,
+            onBeforeScrollStart:function(e){
+                e.preventDefault;
+            }
+        };
+        switch (index){
+            case 1:op.scrollbars=false;scroller1 = new iScroll(selector,op);break;
+            case 2:scroller2 = new iScroll(selector,op);break;
+            case 3:
+                scroller3 = new iScroll(selector,op);
+                s=$(".product-detail-banner img");
+                op.onScrollMove=updatePosition;
+                op.onScrollEnd=updatePosition;
+                op.onTouchEnd=updatePosition;
+                op.bounce=false;
+//                scroller3.probeType=3;
+//                scroller3.onScrollMove=updatePosition;
+//                scroller3.on('scrollEnd', updatePosition);
+                break;
+            case 4:scroller4 = new iScroll(selector,op);break;
+        }
+
+    }
+    function destroyScroller(index){
+        switch (index){
+            case 1:scroller1.destroy();scroller1=null;break;
+            case 2:scroller2.destroy();scroller2=null;break;
+            case 3:
+                if (scroller3 != null) {
+                    scroller3.destroy();
+                    scroller3 = null;
+                }
+                break;
+            case 4:scroller4.destroy();scroller4=null;break;
+        }
+//        $(".iScrollVerticalScrollbar").re
+    }
+    function iScrollClick(){
+        if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+        if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+        if (/Silk/i.test(navigator.userAgent)) return false;
+        if (/Android/i.test(navigator.userAgent)) {
+            var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
+            return parseFloat(s[0]+s[3]) < 44 ? false : true
+        }
+    }
+
+    function updatePosition () {
+        if(!(this.y>0))
+        {
+//            console.log(this.y>>0);
+            var i = -this.y / 2;
+            s.css("-webkit-transform", "translateY(" + i + "px)")
+        }
+    }
+    document.addEventListener('touchmove', function (e) { e.preventDefault();}, false);
+
+</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=btsVVWf0TM1zUBEbzFz6QqWF"></script>
+
+<!-- build:js2  js/build_ptb_index.min.js -->
+<script type="text/javascript" src="js/share_wx.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/shopping_cart.js"></script>
+<script type="text/javascript" src="js/product_details.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

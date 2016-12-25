@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我的</title>
+    <!-- build:css css/build_pay.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/pay.css">
+    <!-- endbuild -->
+</head>
+<body>
+<header>
+    <h2>支付订单</h2>
+</header>
+<div class="my-main">
+    <div class="my-list">
+        <p>订单号：<span class="order"></span></p>
+        <p>订单金额：<span class="price">￥</span><span class="price" id="allMoney">0.00</span></p>
+    </div>
+        <ul class="pay-way">
+            <li>
+                <p class="weixin">微信支付</p>
+                <span class="radio2"></span>
+            </li>
+        </ul>
+    <!--<a id="payBtn" class="payBtn" href="order_info.html">确认支付</a>-->
+    <a id="payBtn" class="payBtn" href="javasvript:;">确认支付</a>
+</div>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common/global.js"></script>
+<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/share_wx.js"></script>
+<!-- build:js2  js/build_pay.min.js -->
+<script type="text/javascript" src="js/pay.js"></script>
+<!-- endbuild -->
+</body>
+</html>

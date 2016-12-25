@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>退货退款</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="css/style_jl.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="css/refund.css">
+</head>
+<body class="bg_c">
+<header id="header"></header>
+<div class="main" id="main-container">  
+    <div class="jl-refund">
+    	<dl class="jl-refund-info">
+    		<dt>退款金额 (最多<b class="clr-e53">250.0</b>元)</dt>
+    		<dd><input type="text" id="back_money" /></dd>
+    		<dt>退货数量</dt>
+    		<dd><input type="text" id="number"/></dd>
+    		<dt>退款原因</dt>
+    		<dd><!--<select><option>7天无理由退货</option><option>722</option><option>733</option><option>744</option></select>--><input type="text"  id="reason"/></dd>
+    		<dt>描述说明 (200字以内)</dt>
+    		<dd><textarea placeholder="请输入..." id="miaosu"></textarea></dd>
+    	</dl>
+    	<div class="jl-refund-img">
+    		<div class="refund-btn b-radius"><input type="file" id="send_img"/>上传凭证照片</div>
+    		<div class="refund-ps">最多3张,每张不超过1M,支持GIF,JPEG,JPG,PNG,BMP格式</div>
+    		<ul class="refund-img">
+    		</ul>
+    	</div>
+    	<div class="jl-refund-btn"><a class="ok"></a></div>
+    </div>
+</div>
+<footer style="display:none;"></footer>
+<script src="js/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/lib/template.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script src="js/lib/ajaxfileupload.js" type="text/javascript"></script>
+<script src="js/mobileFix.js" type="text/javascript"></script>
+<script src="js/exif.js" type="text/javascript"></script>
+<script src="js/lrz.js" type="text/javascript"></script>
+<script src="js/index1.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var money=$("#back_money").val();
+	var number=$("#number").val();
+	var reason=$("#reason").val();
+	var miaosu=$("#miaosu").val();
+	var key=getcookie("key");
+	var order_id=request("order_id");
+	var rec_id=request("rec_id");
+	var flag;//1为退款,2为退货
+	/*if(key==''){
+		//window.location.href=WapSiteUrl+"/tmpl/member/login.html";
+	}else{*/
+	
+	//上传图片
+	/*$("#send_img").change(function(){
+		var change_url=$("#send_img").val();	
+	});*/
+		$(".close").click(function(){
+			$(this).parent(".b-radius").remove();	
+		});
+		$(".ok").click(function(){
+			 
+			 if(money==''||number==''||reason==''||miaosu==''){
+				alert("请填写完整的信息");	 
+			 }else{
+				send_fun(2);
+			 }	
+		});
+	/*}*/
+	function send_fun(flag){
+		$.ajax({
+			url:ApiUrl+"/index.php?act=member_refund&client_type=wap&op=add_refund&key=c5bd8e27543561d2cbed7c05410dc9d6&refund_amount="+money+"&order_id=1&rec_id=1&goods_num="+number+"&reason_id="+reason+"&refund_type="+flag+"&buyer_message="+miaosu,
+			type:"get",
+			dataType:"jsonp",
+			jsonp:"callback",
+			success: function(data){
+				if(data.code==200){
+					alert(data.message);	
+				}
+			}	
+		});	
+	}
+});
+//获取url参数
+function request(paras)
+	    { 
+	        var url = location.href; 
+	        url=decodeURI(url);
+	        var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+	        var paraObj = {}; 
+	        for (var i=0; j=paraString[i]; i++){ 
+	        paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+	        } 
+	        var returnValue = paraObj[paras.toLowerCase()]; 
+	        if(typeof(returnValue)=="undefined"){ 
+	        return ""; 
+	        }else{ 
+	        return returnValue; 
+	        } 
+	    }
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>店铺详情</title>
+
+    <!-- build:css css/build_store_detail.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/StoreDetails.css"/>
+    <!-- endbuild -->
+
+</head>
+
+<body>
+<!--<header class="pro-header">
+    <a class="back" href="javascript:history.back();"></a>
+    <a class="favorites"></a>
+</header>-->
+
+<div class="sheader">
+    <a href="javascript:history.back();" class="sh_back"></a>
+    <h2>店铺详情</h2>
+    <a class="favorites"></a>
+</div>
+
+<div class="s_main">
+
+<div class="store-main" id="storeMain">
+
+</div>
+
+<div class="mdmPayLay">
+    <div class="mdmPayLayBox">
+        <div class="mdmPLText1">请输入消费金额</div>
+        <div class="mdmPLText2">商户确认订单后可获得返利积分</div>
+        <div class="moneyBox">
+            <input type="number" name="moneyBT" id="moneyBT" placeholder="金额" />
+        </div>
+        <div class="btnLayBox">
+            <div class="btnLayB1">取消</div>
+            <div class="btnLayB2">确认</div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script type="text/template" id="storetmpl">
+    <div class="shopDImg_boxPa"><img src="{{=it.data.store_info.store_banner }}"></div>
+    <div class="store-info">
+        <div class="store-logo"><img src="{{=it.data.store_info.store_avatar }}"></div>
+
+        <div class="store-name-box">
+            <section>
+                <span class="store-name">{{=it.data.store_info.store_name }}</span>
+                {{ if( it.data.store_info.whole_discount ){ }}
+                {{ if(parseFloat(it.data.store_info.whole_discount) != 10&&parseFloat(it.data.store_info.whole_discount) !=0) { }}
+                <span class="store-discount">{{=parseFloat(it.data.store_info.whole_discount) }}折</span>
+                {{ } }}
+                {{ } }}
+                {{ if(parseFloat(it.data.store_info.per_consumption) != 0) { }}
+                <span class="store-avg">人均{{=it.data.store_info.per_consumption }}元</span>
+                {{ } }}
+                <span class="clear-float"></span>
+            </section>
+            <section>
+                <section class="star-box">
+                    <div class="eva-star-li"><span style="width:{{=evaluateNum(it.data.store_info.store_credit)}}%"></span></div>
+                    <span class="st-detail-eve">{{=it.data.store_info.evaluate_count }}人评价</span>
+                </section>
+                <section class="store-btn mdmPay">买单</section>
+                <section class="clear-float"></section>
+            </section>
+        </div>
+
+    </div>
+    <div class="shopBox">
+        <p class="shopAddr">{{=it.data.store_info.area_info }}{{=it.data.store_info.store_address }}</p>
+
+        <div class="telButton"><a class="telicon" href="tel:{{=it.data.store_info.store_phone}}"></a></div>
+    </div>
+    <div class="store-activity">
+        <ul class="store-nav">
+            <li class="on" onclick="changMenu(this,'store-act');"><span>商品</span></li>
+            <li onclick="changMenu(this,'share-list');" id="li-sharelist"><span>商城</span></li>
+            <li onclick="changMenu(this,'store-introduction');"><span>商家介绍</span></li>
+        </ul>
+        <div class="store-activity-box">
+            <div class="store-act">
+                <ul>
+                    {{ if(it.data.goods_info.length>0){ }}
+                    {{ for ( var i=0 ; i < it.data.goods_info.length ;i++){ }}
+                    <li>
+                        <a href="wap_product_details.html?goods_id={{=it.data.goods_info[i].id }}">
+                            <div class="store-act-img"><img src="{{=it.data.goods_info[i].goods_image }}"></div>
+                            <h2>{{=it.data.goods_info[i].goods_name }}</h2>
+
+                            <p>
+                                {{ if(parseFloat(it.data.goods_info[i].goods_price) != 0) { }}
+
+                                    <span class="PriceN">￥{{=toFixedTwo(it.data.goods_info[i].goods_price) }}</span>
+                                    {{ if(it.data.goods_info[i].goods_price != it.data.goods_info[i].goods_marketprice) { }}
+                                        <span class="PriceF">￥{{=toFixedTwo(it.data.goods_info[i].goods_marketprice) }}</span>
+                                    {{ } }}
+
+                                {{ }else{ }}
+
+                                    <span class="PriceN"><strong>面议</strong></span>
+
+                                {{ } }}
+
+                                <span class="sold">已售：{{=it.data.goods_info[i].goods_salenum }}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {{ } }}
+                    {{ }else{ }}
+                    <div class="list-null-box list-null-s">
+                        <div class="list-null-img"><img src="images/productNullImg@3x.png"/> </div>
+                        <div class="list-null-text">本店暂无商品，逛逛其他店铺吧</div>
+                    </div>
+                    {{ } }}
+                </ul>
+            </div>
+
+            <div class="share-list" id="shareList">
+
+            </div>
+
+            <div class="store-introduction">
+                {{ if(it.data.store_info.store_describe) { }}
+                <div class="has-con">
+                    {{=it.data.store_info.store_describe }}
+                </div>
+                {{}else{}}
+                <div class="list-null-box">
+                    <div class="list-null-img"><img src="images/introNullImg@3x.png"/> </div>
+                    <div class="list-null-text">本店暂无商家介绍</div>
+                </div>
+                {{ } }}
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="shareListTmpl">
+    <ul>
+        {{ if(it.data.data_list.length>0){ }}
+        {{ for ( var i=0 ; i < it.data.data_list.length ;i++){ }}
+        <li>
+            <a href="tmpl/productdetail.html?goods_id={{=it.data.data_list[i].goods_id }}&dis_store_id={{= it.data.data_list[i].goods_store_id }}">
+                <div class="store-act-img"><img src="{{=it.data.data_list[i].imgList[0]}}"></div>
+                <h2>{{=it.data.data_list[i].goods_name }}</h2>
+
+                <p>
+                    {{ if(parseFloat(it.data.data_list[i].goods_price) != 0) { }}
+                    <span class="PriceN">￥<strong>{{=toFixedTwo(it.data.data_list[i].goods_price) }}</strong></span>
+                    {{ if(it.data.data_list[i].goods_price != it.data.data_list[i].goods_marketprice) { }}
+                    <span class="PriceF">￥{{=toFixedTwo(it.data.data_list[i].goods_marketprice) }}</span>
+                    {{ }}else{ }}
+                    <span class="PriceN"><strong>面议</strong></span>
+                    {{ } }}
+                    <span class="sold">已售{{=it.data.data_list[i].goods_salenum }}</span>
+                </p>
+            </a>
+        </li>
+        {{ } }}
+        {{ }else{ }}
+        <li class="store-no-act">商家目前暂时还没有分销商品</li>
+        {{ } }}
+    </ul>
+</script>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_store_detail.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/store_detail.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

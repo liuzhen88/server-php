@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait"> 
+<title>专题详情</title>
+
+<!-- build:css css/build_special_details.min.css -->
+<link href="css/style_jl.css" type="text/css" rel="stylesheet"/>
+<link href="css/special_details.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="css/foot.header.css"/>
+<!-- endbuild -->
+
+</head>
+
+<body>
+    <header id="header"></header>
+    <div class="main" id="main-container"></div>
+
+    <section class="content-box">
+
+    </section>
+
+    <script type="text/template" id="specialDetialTmpl">
+        <section class="special-list">
+            <ul>
+                <li>
+                    <a>
+                        <section class="special-img"><img src="{{=it.datas.special.special_image}}"/></section>
+                        <section class="special-title">{{=it.datas.special.special_desc}}</section>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="special-explain">{{=it.datas.special.special_explain}}</section>
+
+        {{ for(var i=0; i<it.datas.goods.length; i++){ }}
+        <section class="special-goodbox">
+            <section class="special-image"><a href="tmpl/productdetail.html?goods_id={{=it.datas.goods[i].goods_id}}"><img src="{{=it.datas.goods[i].goods_image}}"/></a></section>
+            <section class="special-boxtop">
+                <a class="collect_star"><img src="images/icon-collect@2x.png"/><span class="collect_star_text"> {{=it.datas.goods[i].goods_collect}}</span> </a>
+                <a class="evaluate-btn"><img src="images/icon-comment@2x.png"/> {{=it.datas.goods[i].evaluation_count}} </a>
+                <a href="tmpl/productdetail.html?goods_id={{=it.datas.goods[i].goods_id}}"><img src="images/icon-check@2x.png"/> {{=it.datas.goods[i].goods_click}} </a>
+            </section>
+            <section class="special-bg"></section>
+            <section class="special-g-title">{{=it.datas.goods[i].goods_name}}</section>
+        </section>
+        <section class="special-boxBottom">
+            <section class="special-price">¥{{=it.datas.goods[i].goods_promotion_price}}</section>
+            <section class="special-goBuy">立即购买<span style="display: none;">{{=it.datas.goods[i].goods_id}}</span></section>
+            <section class="clear_float"></section>
+        </section>
+        {{ } }}
+
+    </script>
+
+    <section class="look-for-more"><a href="special_list.html">查看更多专题</a></section>
+
+    <!--<div id="footer" class="footer"></div>-->
+
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_special_details.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/lib/template.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/special_details.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

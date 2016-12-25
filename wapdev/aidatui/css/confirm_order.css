@@ -1,0 +1,270 @@
+@charset "utf-8";
+header {
+    position: fixed;
+    z-index: 99;
+    top:0;
+    left:0;
+    width:100%;
+    height:44px;
+    background:#ff4946;
+}
+header h2 {
+    font-size:18px;
+    color:#FFF;
+    text-align: center;
+    line-height: 44px;
+}
+header .head-back{
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0;
+    width:44px;
+    height:44px;
+    background:url("../img/ic-back.png") center no-repeat;
+    background-size: auto 20px;
+}
+.my-main{
+    padding-top:44px;
+    padding-bottom:58px;
+    overflow-y: auto;
+}
+.my-list {
+    padding:0 15px;
+    margin-top:10px;
+    font-size: 14px;
+    color:#666;
+    background:#fff;
+    border-top:#e5e5e5 solid 1px;
+    border-bottom:#e5e5e5 solid 1px;
+}
+.my-list a.add {
+    display: block;
+    height:43px;
+    padding-left:23px;
+    line-height: 43px;
+    color:#666;
+    background: url("../img/ic-add.png") 0 center no-repeat;
+    background-size:14px;
+}
+.my-list a.link{
+    display: block;
+    padding:13px 0;
+    line-height: 22px;
+    color:#666;
+    background: url("../img/right-arrow.png") right center no-repeat;
+    background-size: auto 12px;
+}
+.my-list .user{
+    color:#666;
+    font-size: 14px;
+}
+.my-list .user span {
+    padding-right:10px;
+}
+.my-list .area {
+    color:#999;
+    font-size: 12px;
+}
+.time {
+    height:44px;
+    line-height: 44px;
+    overflow:hidden;
+    text-align: right;
+}
+.time span{
+    float: left;
+}
+.time select{
+    height:30px;
+    text-align: center;
+    padding:0 5px;
+    font-size: 14px;
+    line-height: 30px;
+    border:#ccc solid 1px;
+}
+.time .sel1{
+    width: 66px;
+}
+.time .sel2{
+    width: 138px;
+}
+.message {
+    position: relative;
+    height:44px;
+    padding-left:40px;
+    line-height: 44px;
+    text-align: right;
+    overflow:hidden;
+}
+.message label{
+    position: absolute;
+    left:0;
+    display: inline-block;
+    width: 40px;
+    height:44px;
+    padding-right: 4px;
+    text-align: left;
+    vertical-align: top;
+}
+.message input{
+    width: 93%;
+    height:30px;
+    padding:0 3%;
+    color: #333;
+    font-size: 14px;
+    line-height: 30px;
+    border:#ccc solid 1px;
+    background: none;
+    border-radius: 4px;
+    -webkit-appearance:none;
+}
+.order-info,.total {
+    padding-left:15px;
+    margin-top:10px ;
+    background:#fff;
+    border-top:#e6e6e6 solid 1px;
+    border-bottom:#e6e6e6 solid 1px;
+}
+.order-info li {
+    position: relative;
+    height:64px;
+    padding:7px 96px 7px 72px;
+    line-height: 26px;
+    color:#333;
+    font-size: 12px;
+    border-bottom:#e6e6e6 solid 1px;
+}
+.order-info li:last-child{
+    border-bottom:0;
+}
+.goods-img {
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width:64px;
+    height:64px;
+    overflow:hidden;
+}
+.goods-img img{
+    width: 64px;
+    height:64px;
+}
+.goods-name {
+    font-size: 15px;
+    padding-bottom: 12px;
+    color:#333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.goods-info span {
+    padding-right:10px;
+}
+.goods-info .price{
+    color:#ff4946;
+}
+.goods-info .spec{
+    color:#999;
+}
+.goods-info .null{
+    color:#ff9e05;
+    padding-right:0;
+}
+.select {
+    position: absolute;
+    right:14px;
+    top:7px;
+    width: 82px;
+    height:64px;
+    font-size: 0;
+}
+.goodsDel {
+    display:block;
+    float:right;
+    margin-top:16px;
+    width:60px;
+    height:28px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 28px;
+    color: #666;
+    border:#666 solid 1px;
+    border-radius: 4px;
+}
+.num{
+    display: inline-block;
+    width:30px;
+    height:26px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 38px;
+    vertical-align: top;
+}
+.numAdd,
+.numDel{
+    display: inline-block;
+    height:24px;
+    width: 24px;
+    margin-top: 38px;
+    border:#dedede solid 1px;
+    border-radius: 50%;
+}
+.numAdd{
+    background: url("../img/add_icon.png") center no-repeat;
+    background-size: 24px;
+}
+.numDel{
+    background: url("../img/del_icon.png") center no-repeat;
+    background-size: 24px;
+}
+.total {
+    padding: 8px 15px;
+}
+.total li{
+    height:26px;
+    overflow:hidden;
+    font-size: 14px;
+    line-height: 26px;
+    color:#666;
+}
+.total span {
+    color:#ff4946;
+}
+.total p.total-left{
+    float: left;
+}
+.total p.total-right{
+    float: right;
+}
+.order-btn {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 47px;
+    overflow:hidden;
+    text-align: right;
+    background:#fff;
+    border-top:#e6e6e6 solid 1px;
+}
+.order-btn p{
+    float:left;
+    padding-left:15px;
+    font-size: 16px;
+    line-height: 47px;
+    color:#999;
+}
+.order-btn span{
+    color:#ff4946;
+}
+.order-btn a{
+    display: inline-block;
+    width:88px;
+    height:47px;
+    margin:0 auto;
+    line-height: 47px;
+    text-align: center;
+    color:#fff;
+    background:#ff4946;
+}

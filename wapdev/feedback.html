@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>意见反馈</title>
+
+    <!-- build:css css/build_example.min.css -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/foot.header.css"/>
+    <link rel="stylesheet" href="css/more.css"/>
+    <!-- endbuild -->
+
+</head>
+<body>
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+    <h2>意见反馈</h2>
+</div>
+<div class="content">
+    <input id="title"class="title" name="title" type="text"  maxlength="20" value="" placeholder="意见标题就写这里吧"/>
+    <textarea id="content" name="content" placeholder=" 嗨，来说两句意见细节吧！"></textarea>
+    <div class="sub" id="sub">提交</div>
+    <div id="alert" class="alert">
+        <div id="tips"></div>
+        <div class="sure"><a id="close">确定</a></div>
+    </div>
+</div>
+<footer></footer>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var key=getcookie("key");
+        var title=$("#title").val();
+        var content=$("#content").val();
+        if(key==''){
+            window. location.href = WapSiteUrl + '/tmpl/member/login.html';
+        }else {
+
+            $("#sub").click(function () {
+               // console.log($("#title").val());
+                if ($("#title").val() == "") {
+                    $("#alert").show();
+                    $("#tips").html("请输入意见的标题");
+                    $("#close").click(function () {
+                        $("#alert").hide();
+                    });
+
+                }
+                else if ($("#content").val() == "") {
+                    $("#alert").show();
+                    $("#tips").html("请输入意见的内容");
+                    $("#close").click(function () {
+                        $("#alert").hide();
+                    });
+
+                }
+                else{
+                    $.ajax({
+                        url: ApiUrl+"/index.php?act=user_action&op=feedback&title=" + title + "&content=" + content + "&key=" + key + "&client_type=wap",
+                        type: "get",
+                        dataType: "jsonp",
+                        jsonp: "callback",
+                        success: function (result) {
+                            if (result.code == 200) {
+                                alert("提交成功");
+                                window.location.href=WapSiteUrl+"/member.html";
+                            }
+
+                        }
+                    });
+                }
+
+            })
+
+
+        }
+    });
+    function validateForm(){
+
+
+        return true;
+    }
+
+
+</script>
+<!-- endbuild -->
+
+</body>
+</html>

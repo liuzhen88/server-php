@@ -1,0 +1,404 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+
+
+    <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style_jl.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/myOrder.css"/>
+</head>
+
+<body>
+<header id="header"></header>
+<div class="main" id="main-container">
+    <section style="width:100%;" class="sec_all">
+        <section class="myOrder_header">
+            <ul>
+                <li class="li">全部订单</li>
+                <li class="li">待付款</li>
+                <li class="li">待发货</li>
+                <li class="li">待收货</li>
+                <li class="li">已收货</li>
+            </ul>
+        </section>
+        <p id="OrderNull" style="display:none;padding:14px;">暂无商品</p>
+    </section>
+</div>
+<script src="../../js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../js/lib/template.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/myOrder.js"></script>
+<script>
+    //获取url参数
+    function request(paras) {
+        var url = location.href;
+        url = decodeURI(url);
+        var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+        var paraObj = {};
+        for (var i = 0; j = paraString[i]; i++) {
+            paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+        }
+        var returnValue = paraObj[paras.toLowerCase()];
+        if (typeof(returnValue) == "undefined") {
+            return "";
+        } else {
+            return returnValue;
+        }
+    }
+    $(document).ready(function () {
+        key = request('key');
+        var type = request('client_type');
+        addcookie('type', type);
+        type = getcookie('type');
+        if (key == '') {
+            if (request('client_type') == 'ios' || request('client_type') == 'android' || request('client_type') == 'iOS') {
+                if (getcookie("key") != '') {
+                    key = getcookie('key');
+                } else {
+                    addcookie("key", "");
+                }
+            } else {
+                key = getcookie('key');
+            }
+        } else {
+            addcookie('key', key);
+            key = getcookie('key');
+        }
+        var all_num = 0;
+        var max_length1;
+        var max_length2;
+        var max_length3;
+        var max_length4;
+        var max_lengthall;
+        var order_id = new Array(), store_name = new Array(), state_desc = new Array(), goods_image_url = new Array(), goods_name = new Array(), goods_price = new Array(), goods_num = new Array(), pay_amount = new Array(), pay_sn = new Array(), shipping_fee = new Array();
+        if (key == '') {
+            window.location.href = WapSiteUrl + "/tmpl/member/login.html";
+        } else {
+            $("#OrderNull").hide();
+            get_list(false, 10, 2, 1,false);
+            get_list2(true, 20, 2, 1,false);
+            get_list3(true, 30, 2, 1,false);
+            get_list4(true, 40, 2, 1,false);
+            get_listall(false, 2, 1,true);
+            $(".myOrder_header ul li").click(function () {
+                $(".myOrder_header ul li").css("border-bottom-color", "#fff");
+                $(this).css("border-bottom-color", "#f44336");
+                var index = $(".myOrder_header ul li").index(this);
+                $(".myOrder_box").remove();
+                if (index == 0) {
+                    //全部订单
+                    $("#OrderNull").hide();
+                    get_list(false, 10, 2, 1,false);
+                    get_list2(true, 20, 2, 1,false);
+                    get_list3(true, 30, 2, 1,false);
+                    get_list4(true, 40, 2, 1,false);
+                    get_listall(false, 2, 1,true);
+                } else if (index == 1) {
+                    //待付款
+                    $("#OrderNull").hide();
+                    get_list(false, 10, 2, 1,true);
+                } else if (index == 2) {
+                    //待发货
+                    $("#OrderNull").hide();
+                    get_list2(true, 20, 2, 1,true);
+                } else if (index == 3) {
+                    //待收货
+                    $("#OrderNull").hide();
+                    get_list3(true, 30, 2, 1,true);
+                } else if (index == 4) {
+                    //待评价
+                    $("#OrderNull").hide();
+                    get_list4(true, 40, 2, 1,true);
+                }
+
+            });
+
+
+        }
+        function get_listall(getpayment, order_type, curpage,allNum) {
+            $.ajax({
+                url: ApiUrl + "/index.php?act=member_order&client_type=wap&op=order_list&key=" + key + "&getpayment=" + getpayment + "&order_state=&order_type=" + order_type + "&curpage=" + curpage,
+                type: "get",
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
+                    if (data.code == 200) {
+                        max_lengthall = data.data.datas.order_group_list.length;
+                        var x = new Array();
+                        if(allNum){
+                            if (max_lengthall == 0) {
+                                $("#OrderNull").show();
+                            } else {
+                                $("#OrderNull").hide();
+                            }
+                        }
+
+
+                    }
+                }
+            });
+        }
+
+        //待付款
+        function get_list(getpayment, order_state, order_type, curpage,allNum) {
+            $.ajax({
+                url: ApiUrl + "/index.php?act=member_order&client_type=wap&op=order_list&key=" + key + "&getpayment=" + getpayment + "&order_state=" + order_state + "&order_type=" + order_type + "&curpage=" + curpage,
+                type: "get",
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
+                    if (data.code == 200) {
+                        max_length1 = data.data.datas.order_group_list.length;
+                        var x = new Array();
+                        for (var i = 0; i < max_length1; i++) {
+                            order_id[i] = data.data.datas.order_group_list[i].order_list[0].order_id;
+                            store_name[i] = data.data.datas.order_group_list[i].order_list[0].store_name;
+                            state_desc[i] = data.data.datas.order_group_list[i].order_list[0].state_desc;
+                            shipping_fee[i] = data.data.datas.order_group_list[i].order_list[0].shipping_fee;
+                            pay_amount[i] = data.data.datas.order_group_list[i].pay_amount;
+                            pay_sn[i] = data.data.datas.order_group_list[i].pay_sn;
+                            var listdiv = "<section class='myOrder_box'><section class='orderBox'><section class='orderBox_header'><a class='shop_name'>" + store_name[i] + "</a><a><img src='../../images/jiantou.png'/></a><span>" + state_desc[i] + "</span></section><section class='order_list'><ul class='list_ul g_list1'></ul></section></section><section class='myO_total'>共<span class='myO_t_jian'>0</span>件商品&nbsp;&nbsp;合计：<span class='myO_t_red'>¥" + parseFloat(pay_amount[i]).toFixed(2) + "</span><span class='myO_t_black'>（含运费&nbsp;¥" + shipping_fee[i] + "）</span></section><section class='order_js'><a class='ord_pay' style='color:#fff;' onclick='pay(this)'>付款<span class='pay' style='display:none;'>" + pay_sn[i] + "</span></a><a  class='ord_delete' style='color:#333;' onclick='del(this)'>删除<span style='display:none;'>" + order_id[i] + "</span></a></section></section>";
+                            $(".sec_all").append(listdiv);
+                            x = data.data.datas.order_group_list[i].order_list[0].extend_order_goods.length;
+                            for (var j = 0; j < x; j++) {
+                                goods_image_url[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_image_url;
+                                goods_name[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_name;
+                                goods_price[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_price;
+                                goods_num[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_num;
+                                var list_info = "<li><div class='o_list_img'><img src='" + goods_image_url[j] + "'/></div><div class='o_list_cs'><p class='order_gName'>" + goods_name[j] + "</p><p class='order_money'>¥" + goods_price[j] + "<span>×" + goods_num[j] + "</span></p></div></li>";
+                                $(".g_list1").eq(i).append(list_info);
+                                all_num = all_num + parseInt(goods_num[j]);
+                            }
+                            $(".myO_t_jian").eq(i).html(all_num);
+                            all_num = 0;
+                        }
+                        if(allNum){
+                            if (max_length1 == 0) {
+                                $("#OrderNull").show();
+                            }
+                        }
+
+
+                    }
+                }
+            });
+        }
+
+        //待发货
+        function get_list2(getpayment, order_state, order_type, curpage,allNum) {
+            $.ajax({
+                url: ApiUrl + "/index.php?act=member_order&client_type=wap&op=order_list&key=" + key + "&getpayment=" + getpayment + "&order_state=" + order_state + "&order_type=" + order_type + "&curpage=" + curpage,
+                type: "get",
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
+                    if (data.code == 200) {
+                        max_length2 = data.data.datas.order_group_list.length;
+                        var x = new Array();
+                        for (var i = 0; i < max_length2; i++) {
+                            order_id[i] = data.data.datas.order_group_list[i].order_list[0].order_id;
+                            store_name[i] = data.data.datas.order_group_list[i].order_list[0].store_name;
+                            state_desc[i] = data.data.datas.order_group_list[i].order_list[0].state_desc;
+                            shipping_fee[i] = data.data.datas.order_group_list[i].order_list[0].shipping_fee;
+                            pay_amount[i] = data.data.datas.order_group_list[i].pay_amount;
+                            pay_sn[i] = data.data.datas.order_group_list[i].pay_sn;
+                            var listdiv = "<section class='myOrder_box'><section class='orderBox'><section class='orderBox_header'><a class='shop_name'>" + store_name[i] + "</a><a><img src='../../images/jiantou.png'/></a><span>" + state_desc[i] + "</span></section><section class='order_list'><ul class='list_ul g_list2'></ul></section></section><section class='myO_total'>共<span class='my2_t_jian'>0</span>件商品&nbsp;&nbsp;合计：<span class='myO_t_red'>¥" + parseFloat(pay_amount[i]).toFixed(2) + "</span><span class='myO_t_black'>（含运费&nbsp;¥" + shipping_fee[i] + "）</span></section><section class='order_js'><a  class='ord_delete' style='color:#333;' onclick='del(this)'>删除<span style='display:none;'>" + order_id[i] + "</span></a></section></section>";
+                            $(".sec_all").append(listdiv);
+                            x = data.data.datas.order_group_list[i].order_list[0].extend_order_goods.length;
+                            for (var j = 0; j < x; j++) {
+                                goods_image_url[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_image_url;
+                                goods_name[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_name;
+                                goods_price[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_price;
+                                goods_num[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_num;
+                                var list_info = "<li><div class='o_list_img'><img src='" + goods_image_url[j] + "'/></div><div class='o_list_cs'><p class='order_gName'>" + goods_name[j] + "</p><p class='order_money'>¥" + goods_price[j] + "<span>×" + goods_num[j] + "</span></p></div></li>";
+                                $(".g_list2").eq(i).append(list_info);
+                                all_num = all_num + parseInt(goods_num[j]);
+                            }
+                            $(".my2_t_jian").eq(i).html(all_num);
+                            all_num = 0;
+                        }
+                        if(allNum){
+                            if (max_length2 == 0) {
+                                $("#OrderNull").show();
+                            }
+                        }
+
+
+                    }
+                }
+            });
+        }
+
+        //待收货
+        function get_list3(getpayment, order_state, order_type, curpage,allNum) {
+            $.ajax({
+                url: ApiUrl + "/index.php?act=member_order&client_type=wap&op=order_list&key=" + key + "&getpayment=" + getpayment + "&order_state=" + order_state + "&order_type=" + order_type + "&curpage=" + curpage,
+                type: "get",
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
+                    if (data.code == 200) {
+                        max_length3 = data.data.datas.order_group_list.length;
+                        var x = new Array();
+                        for (var i = 0; i < max_length3; i++) {
+                            order_id[i] = data.data.datas.order_group_list[i].order_list[0].order_id;
+                            store_name[i] = data.data.datas.order_group_list[i].order_list[0].store_name;
+                            state_desc[i] = data.data.datas.order_group_list[i].order_list[0].state_desc;
+                            shipping_fee[i] = data.data.datas.order_group_list[i].order_list[0].shipping_fee;
+                            pay_amount[i] = data.data.datas.order_group_list[i].pay_amount;
+                            pay_sn[i] = data.data.datas.order_group_list[i].pay_sn;
+                            var listdiv = "<section class='myOrder_box'><section class='orderBox'><section class='orderBox_header'><a class='shop_name'>" + store_name[i] + "</a><a><img src='../../images/jiantou.png'/></a><span>" + state_desc[i] + "</span></section><section class='order_list'><ul class='list_ul g_list3'></ul></section></section><section class='myO_total'>共<span class='my3_t_jian'>0</span>件商品&nbsp;&nbsp;合计：<span class='myO_t_red'>¥" + parseFloat(pay_amount[i]).toFixed(2) + "</span><span class='myO_t_black'>（含运费&nbsp;¥" + shipping_fee[i] + "）</span></section><section class='order_js'><a class='ord_pay' style='color:#fff;' onclick='Confirm(this)'>确认收货<span style='display:none;' class='orderId'>" + order_id[i] + "</span></a><a  class='ord_delete' style='color:#333;' onclick='logistics(this)'>查看物流<span style='display:none;' class='orderIdd'>" + order_id[i] + "</span></a></section></section>";
+                            $(".sec_all").append(listdiv);
+                            x = data.data.datas.order_group_list[i].order_list[0].extend_order_goods.length;
+                            for (var j = 0; j < x; j++) {
+                                goods_image_url[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_image_url;
+                                goods_name[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_name;
+                                goods_price[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_price;
+                                goods_num[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_num;
+                                var list_info = "<li><div class='o_list_img'><img src='" + goods_image_url[j] + "'/></div><div class='o_list_cs'><p class='order_gName'>" + goods_name[j] + "</p><p class='order_money'>¥" + goods_price[j] + "<span>×" + goods_num[j] + "</span></p></div></li>";
+                                $(".g_list3").eq(i).append(list_info);
+                                all_num = all_num + parseInt(goods_num[j]);
+                            }
+                            $(".my3_t_jian").eq(i).html(all_num);
+                            all_num = 0;
+                        }
+                        if(allNum){
+                            if (max_length3 == 0) {
+                                $("#OrderNull").show();
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+        // 待评价
+        function get_list4(getpayment, order_state, order_type, curpage,allNum) {
+            $.ajax({
+                url: ApiUrl + "/index.php?act=member_order&client_type=wap&op=order_list&key=" + key + "&getpayment=" + getpayment + "&order_state=" + order_state + "&order_type=" + order_type + "&curpage=" + curpage,
+                type: "get",
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
+                    if (data.code == 200) {
+                        max_length4 = data.data.datas.order_group_list.length;
+                        var x = new Array();
+                        for (var i = 0; i < max_length4; i++) {
+                            order_id[i] = data.data.datas.order_group_list[i].order_list[0].order_id;
+                            store_name[i] = data.data.datas.order_group_list[i].order_list[0].store_name;
+                            state_desc[i] = data.data.datas.order_group_list[i].order_list[0].state_desc;
+                            shipping_fee[i] = data.data.datas.order_group_list[i].order_list[0].shipping_fee;
+                            pay_amount[i] = data.data.datas.order_group_list[i].pay_amount;
+                            pay_sn[i] = data.data.datas.order_group_list[i].pay_sn;
+                            var listdiv = "<section class='myOrder_box'><section class='orderBox'><section class='orderBox_header'><a class='shop_name'>" + store_name[i] + "</a><a><img src='../../images/jiantou.png'/></a><span>" + state_desc[i] + "</span></section><section class='order_list'><ul class='g_list4'></ul></section></section><section class='myO_total'>共<span class='my4_t_jian'>0</span>件商品&nbsp;&nbsp;合计：<span class='myO_t_red'>¥" + parseFloat(pay_amount[i]).toFixed(2) + "</span><span class='myO_t_black'>（含运费&nbsp;¥" + shipping_fee[i] + "）</span></section><section class='order_js'><a  class='ord_delete' style='color:#333;' onclick='logistics(this)'>查看物流<span style='display:none;' class='orderIdd'>" + order_id[i] + "</span></a></section></section>";
+                            $(".sec_all").append(listdiv);
+                            x = data.data.datas.order_group_list[i].order_list[0].extend_order_goods.length;
+                            for (var j = 0; j < x; j++) {
+                                goods_image_url[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_image_url;
+                                goods_name[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_name;
+                                goods_price[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_price;
+                                goods_num[j] = data.data.datas.order_group_list[i].order_list[0].extend_order_goods[j].goods_num;
+                                var list_info = "<li><div class='o_list_img'><img src='" + goods_image_url[j] + "'/></div><div class='o_list_cs'><p class='order_gName'>" + goods_name[j] + "</p><p class='order_money'>¥" + goods_price[j] + "<span>×" + goods_num[j] + "</span></p></div></li>";
+                                $(".g_list4").eq(i).append(list_info);
+                                all_num = all_num + parseInt(goods_num[j]);
+                            }
+                            $(".my4_t_jian").eq(i).html(all_num);
+                            all_num = 0;
+                        }
+                        if(allNum){
+                            if (max_length4 == 0) {
+                                $("#OrderNull").show();
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+    });
+    //取消订单
+    function del(this_obj) {
+        var orderId = $(this_obj).children("span").html();
+        var thisdiv = $(this_obj).parents(".myOrder_box");
+        $.ajax({
+            url: ApiUrl + "/index.php?act=member_order&op=order_cancel&client_type=wap&key=" + key + "&order_id=" + orderId,
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data) {
+                if (data.code == 200) {
+                    alert("删除成功!");
+                    thisdiv.remove();
+                } else {
+                    alert(data.message);
+                }
+            }
+        });
+    }
+    //付款
+    function pay(obj) {
+        var pay_sn = $(obj).find(".pay").html();
+        if (type == 'iOS' || type == 'ios' || type == 'android') {
+            window.location.href = WapSiteUrl + "/tmpl/pay.html?key=" + key + "&pay_sn=" + pay_sn + "&payment_code=alipay";
+            /*window.location.href=ApiUrl+"/index.php?act=member_payment&op=pay&key="+key+"&pay_sn="+pay_sn+"&payment_code=alipay";//支付宝支付*/
+        } else {
+            window.location.href = WapSiteUrl + "/tmpl/pay.html?key=" + key + "&pay_sn=" + pay_sn + "&payment_code=wxpay";
+            /* window.location.href=ApiUrl+"/index.php?act=member_payment&op=pay&key="+key+"&pay_sn="+pay_sn+"&payment_code=wxpay";    //微信支付*/
+        }
+    }
+    //确认收货
+    function Confirm(obj) {
+        var orderId = $(obj).find(".orderId").html();
+        $.ajax({
+            url: ApiUrl + "/index.php?act=member_order&client_type=wap&op=order_receive&key=" + key + "&order_id=" + orderId,
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data) {
+                if (data.code == 200) {
+                    alert(data.message);
+                } else {
+                    alert("确认失败");
+                }
+            }
+        });
+    }
+    //查看物流
+    function logistics(obj) {
+        var orderIdd = $(obj).find(".orderIdd").html();
+        window.location.href = "logistDetail.html?orderIdd=" + orderIdd;
+    }
+    //app返回按钮
+    var username = getcookie("username");
+    var password = getcookie("password");
+    $(function () {
+        $(".header-back").on("click", function () {
+            if (type == "iOS" || type == "ios") {
+                pop();
+            } else if (type == "android") {
+                app.pop();
+            } else {
+                history.back();
+            }
+        });
+    });
+</script>
+</body>
+</html>

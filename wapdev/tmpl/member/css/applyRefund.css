@@ -1,0 +1,20 @@
+*{ margin:0; padding:0; letter-spacing:1px; font-family:"微软雅黑";}
+header{ width:100%; height:56px; background:#ff4946; text-align:center; line-height:56px; font-size:20px; color:#fff;}
+#se1{ width:100%; height:180px;}
+.jianxi{ width:100%; height:20px; background:#f6f3f3;}
+.contain{ width:90%; height:180px; margin:0 auto;}
+.time{ font-size:15px; color:#666; margin-top:10px;}
+#box{ margin-top:30px;}
+#left{ width:46%; height:40px; line-height:40px; text-align:center; font-size:13px; color:#ff4946; border:solid #ff4946 1px; /*float:left; overflow:hidden;*/ margin-left:27%}
+/*#right{ width:45%; height:40px; line-height:40px; text-align:center; font-size:13px; color:#ff4946; border:solid #ff4946 1px; float:right; overflow:hidden;}*/
+#se2{ width:100%; height:auto;}
+.container{ width:90%; height:auto; margin:0 auto; font-size:15px;}
+#order_num{ margin-left:10px; font-weight:100;}
+#order_time{margin-left:10px; font-weight:100;}
+#order_reason{margin-left:10px; font-weight:100;}
+#order_money{margin-left:10px; font-weight:100;}
+.reason{ position:relative;}
+.reason_left{ position:absolute; left:0; top:0;color:#333; margin-top:10px; font-weight:700;}
+.reason_right{ position:absolute; left:80px; top:0;margin-top:10px;color:#8c8c8c;}
+.time-color{color:#fd8900;}
+ 

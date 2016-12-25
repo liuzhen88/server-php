@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+body{background: #fff;font-size: 14px;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.s_main{ }
+
+.input-line{ height: 50px; line-height: 50px; padding: 0px 10px; border-bottom:#efefef solid 1px;position: relative; top: 0; left: 0px;}
+.input-line #phone{ height: 50px;width:100%; border: 0px;}
+.input-line #v-code{ height: 50px;width:70%; border: 0px;}
+
+.btn-commit{ height: 44px; line-height: 44px; font-size: 16px; letter-spacing: 2px; cursor: pointer; margin: 10px 15px; background: #ff4946; border-radius: 4px; text-align: center; color: #fff;}
+.messageTips {color: #ff4946;line-height: 20px;margin: 10px auto 0px;text-align: center; width: 80%; }
+
+#get-code{ position: absolute; top: 9px; right: 15px; cursor: pointer; display:block; width: 85px; height: 30px; line-height: 30px;font-size: 12px; border:#ff4946 solid 1px; color:#ff4946; text-align: center; border-radius: 30px; }

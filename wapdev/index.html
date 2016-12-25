@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- build:css css/build_index.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/foot.header.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- endbuild -->
+</head>
+
+<body>
+
+<div class="new-header-app b-shadow">
+    <a class="new-header-name">商城</a>
+    <a class="header-menuBtn"><img src="images/icon-back@3x.png"/></a>
+    <a class="header-shopCartBtn" href="tmpl/shoppingCart.html"><img src="images/icon-shopping-cart@2x.png"/></a>
+    <a class="header-searchBtn" href="tmpl/search.html"> <img src="images/icon-search@2x.png"/></a>
+</div>
+
+<div class="new-header b-shadow">
+    <a class="header-shopCartBtn" href="tmpl/shoppingCart.html"><img src="images/icon-shopping-cart@2x.png"/></a>
+    <a class="header-searchBtn2" href="tmpl/search.html"> <img src="images/icon-search@2x.png"/></a>
+</div>
+
+<div class="new-header-margin"></div>
+
+<div class="main">
+    <!--banner广告位-->
+    <div class="adv_list loading height1">
+        <div class="swipe-wrap border5" id="swipeBox"></div>
+    </div>
+
+    <!--热点文字滚动-->
+    <div class="hotspot">
+        <div class="title">热点</div>
+        <div id="marqueebox"></div>
+    </div>
+
+    <!--分类商品-->
+    <dl class="classify"></dl>
+
+    <!--固定专题广告位-->
+    <div class="adv-box"></div>
+
+    <!--抢购-->
+    <div class="type-title">
+        <h2>抢购</h2>
+        <a class="more">更多</a>
+    </div>
+    <div class="buy-box" id="panicBuyingBox"></div>
+
+
+    <!--热门分销-->
+    <div class="type-title">
+        <h2>热门分销</h2>
+        <a class="more">更多</a>
+    </div>
+    <div class="hot-distribute">
+        <ul id="distribute"></ul>
+    </div>
+
+    <!--热门专题-->
+    <div class="type-title">
+        <h2>热门专题</h2>
+        <a class="more" href="special_list.html">更多</a>
+    </div>
+    <ul class="hot-topic"></ul>
+
+
+</div>
+
+<div id="footer" class="footer"></div>
+
+<!--banner广告位-->
+<script type="text/template" id="swipe-tmpl">
+    {{ for(var i =0;i <it.length;i++){ }}
+    <div class="item">
+        <a href="{{=it[i].data}}">
+            <img src="{{=it[i].image}}" >
+        </a>
+    </div>
+    {{ } }}
+</script>
+
+<!--热点文字-->
+<script type="text/template" id="hotspotTmpl">
+    <ul>
+        {{ for(var i =0;i <it.length;i++){ }}
+        <li>
+            <a href="{{=it[i].data}}">{{=it[i].title}}</a>
+        </li>
+        {{ } }}
+    </ul>
+</script>
+
+<!--分类商品-->
+<script type="text/template" id="classifyTmpl">
+    {{ if(it.length>=4){ }}
+    <dt><a href="{{=it[0].data}}"><img data-echo="{{=it[0].image}}" class="lazyLoad" /></a></dt>
+    <dd>
+        <a href="{{=it[1].data}}" class="classify1"><img data-echo="{{=it[1].image}}" class="lazyLoad" /></a>
+        <a href="{{=it[2].data}}" class="classify2"><img data-echo="{{=it[2].image}}" class="lazyLoad" /></a>
+    </dd>
+    {{ } }}
+</script>
+
+<!--中部广告-->
+<script type="text/template" id="advTmpl">
+    <a href="#"><img data-echo="{{=it[0].image}}" class="lazyLoad"/></a>
+</script>
+
+
+<!--抢购-->
+<script type="text/template" id="panicTmpl">
+    <a class="buy-left" href="tmpl/productdetail.html?goods_id={{=it[0].goods_id}}">
+        <div class="buy-img"><img class="lazyLoad" data-echo="{{=it[0].goods_image}}"></div>
+        <div class="buy-info">
+            <h2>{{=it[0].goods_name}}</h2>
+            <p><span class="price">￥{{=it[0].goods_promotion_price}}</span><span class="price2">￥88</span></p>
+        </div>
+    </a>
+    <div class="buy-right">
+        <a class="buy1" href="tmpl/productdetail.html?goods_id={{=it[1].goods_id}}">
+            <div class="buy-img"><img class="lazyLoad" data-echo="{{=it[1].goods_image}}"></div>
+            <div class="buy-info">
+                <h2>{{=it[1].goods_name}}</h2>
+                <p><span class="price2">￥{{=it[1].goods_promotion_price}}</span><span class="price">￥{{=it[1].goods_promotion_price}}</span></p>
+            </div>
+        </a>
+        <a class="buy2" href="tmpl/productdetail.html?goods_id={{=it[2].goods_id}}">
+            <div class="buy-img"><img class="lazyLoad" data-echo="{{=it[2].goods_image}}"></div>
+            <div class="buy-info">
+                <h2>{{=it[2].goods_name}}</h2>
+                <p><span class="price2">￥{{=it[2].goods_promotion_price}}</span><span class="price">￥{{=it[2].goods_promotion_price}}</span></p>
+            </div>
+        </a>
+    </div>
+</script>
+
+<!--热门分销-->
+<script type="text/template" id="distributeTmpl">
+    {{ for(var i =0;i <it.length;i++){ }}
+    <li>
+        <a href="tmpl/productdetail.html?goods_id={{=it[i].goods_id}}">
+            <div class="hot-img"><img data-echo="{{=it[i].goods_image}}" class="lazyLoad"/></div>
+            <div class="hot-name">{{=it[i].goods_name}}</div>
+            <div class="hot-price">￥{{=it[i].goods_price}}</div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+<!--热门专题-->
+<script type="text/template" id="topicTmpl">
+    {{ for(var i =0;i <it.length;i++){ }}
+    <li>
+        <img data-echo="{{=it[i].special_image}}" class="lazyLoad"/>
+        <a href="special_details.html?special_id={{=it[i].special_id}}">
+            <h4>{{=it[i].special_desc}}</h4>
+            <p>{{=it[i].special_explain}}</p>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+
+<!-- build:js js/build_index.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/lib/swipe.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!-- endbuild -->
+<script>
+    AGG.optimize.autoChange(750,100);
+</script>
+</body>
+</html>

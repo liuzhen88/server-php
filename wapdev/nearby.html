@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>商家</title>
+
+    <!-- build:css css/build_nearby.min.css -->
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/foot.header.css"/>
+    <link type="text/css" rel="stylesheet" href="css/nearby.css"/>
+    <!-- endbuild -->
+
+</head>
+
+<body>
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+    <h2>商家</h2>
+</div>
+<div class="nearby_header">
+    <ul>
+        <li class="nearby-header-all"><span>全部</span><img src="images/pro01@3xcheck.png"/></li>
+        <li class="nearby-header-dis"><span>附近</span><img src="images/pro01@3xcheck.png"/></li>
+        <li class="nearby-header-sort"><span>排序</span><img src="images/pro01@3xcheck.png"/></li>
+        <!-- <li>价格<img src="images/pro01@3xcheck.png"/></li> -->
+    </ul>
+</div>
+<div class="nearby-main">
+    <div class="nearby_lay allClassLay clearfix">
+        <div class="allClassLayL">
+            <ul>
+
+            </ul>
+        </div>
+
+        <div class="allClassLayR">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="nearby_lay nearLay">
+        <ul>
+            <li data-des="">全城</li>
+            <li data-des="500">500m</li>
+            <li data-des="1000">1km</li>
+            <li data-des="3000">3km</li>
+            <li data-des="5000">5km</li>
+        </ul>
+    </div>
+
+    <div class="nearby_lay sortLay">
+        <ul>
+            <li data-sort="0">默认排序</li>
+            <li data-sort="1">距离优先</li>
+            <li data-sort="2">最新发布</li>
+            <li data-sort="3">好评优先</li>
+            <li data-sort="4">人均由高到低</li>
+            <li data-sort="5">人均由低到高</li>
+        </ul>
+    </div>
+    <div class="listOfNear">
+        <div class="network-error">网络出错！请返回后重试。</div>
+        <ul class="perStoreBox loading" id="perStoreBox">
+        </ul>
+    </div>
+</div>
+<div class="footer" id="footer"></div>
+<script type="text/template" id="nearby-tmpl">
+    {{console.log(it.data.length);}}
+    {{ for(var i=0;i<it.data.length;i++){ }}
+    <li class="per_nearby">
+        <a class="clearfix react" href="{{=WapSiteUrl }}/store_detail.html?store_id={{=it.data[i].store_id}}">
+            <div class="per_pic_box"><img src="{{=it.data[i].store_avatar}}"/></div>
+            <div class="per_contant">
+                <div class="per_contant_name"><span class="perName">{{=it.data[i].store_name}}</span>
+                    {{ if( it.data[i].whole_discount ){ }}
+                        {{ if(parseFloat(it.data[i].whole_discount) != 10&&parseFloat(it.data[i].whole_discount) != 0) { }}
+                        <span class="sale">{{=parseFloat(it.data[i].whole_discount) }}折</span>
+                        {{ } }}
+                    {{ } }}
+                </div>
+                <div class="perContantPrice">
+                    <div class="eva-star-li evaluate-l"><span style="width:{{= evaluateNum( it.data[i].store_credit)}}%"></span></div>
+                    {{ if( (it.data[i].per_consumption) && (it.data[i].per_consumption!='0.00') ){ }}
+                    <span class="perPrice">人均{{=it.data[i].per_consumption}}元</span>
+                    {{ } }}
+                </div>
+                <div class="perClass">{{=it.data[i].class_name}}&nbsp;{{=it.data[i].district_name}}<span class="perDistance">
+                {{ if( it.data[i].distance < 500 ){ }}
+                <500m
+                {{ }else if( it.data[i].distance < 1000 ){ }}
+                <1km
+                {{ }else if( it.data[i].distance >= 1000 ){ }}
+                {{=it.data[i].distance/1000}}km
+                {{}}}
+            </span></div>
+            </div>
+        </a>
+    </li>
+    {{ } }}
+</script>
+
+
+<script type="text/template" id="li-tmpl">
+    {{ for (var i=0;i
+    <it.length;i++) { }}
+    <li data-id="{{=it[i].gc_id}}">{{=it[i].gc_name}}</li>
+    {{ } }}
+</script>
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/build_nearby.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/module/get_location.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/nearby.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

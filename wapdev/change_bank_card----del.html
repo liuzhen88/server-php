@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>更改银行卡</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/foot.header.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bind_bank_card.css"/>
+</head>
+<body>
+<div class="header-wrap">
+    <a href="javascript:history.back();" class="header-back"><span>返回</span></a>
+
+    <h2>更改银行卡</h2>
+</div>
+<div class="bind-prompt">
+    <div class="bind-prompt-container">请绑定持卡人本人的银行卡，提现只支持借记卡</div>
+</div>
+<section class="list">
+    <section class="list-container">
+        <input type="text" placeholder="银行卡号" class="bank-card-number" id="bank-number"/>
+    </section>
+</section>
+<section class="list">
+    <section class="list-container">
+        <input type="text" placeholder="银行名称" class="bank-card-number" id="bank-card-name"/>
+    </section>
+</section>
+<section class="list">
+    <section class="list-container">
+        <input type="text" placeholder="开户行" class="bank-card-number" id="bank-name"/>
+    </section>
+</section>
+<section class="list">
+    <section class="list-container">
+        <input type="text" class="bank-card-number" id="username"/>
+    </section>
+</section>
+<section class="list">
+    <section class="list-container">
+        <input type="text" placeholder="手机" class="bank-card-number" id="mobile"/>
+    </section>
+</section>
+<div class="submit">提交</div>
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/bind_bank_card.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+body{background: #fff;font-size: 14px;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.s_main{ }
+
+.jl-member .member-list{
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.jl-member .member-list li{
+    height:44px;
+    border-top:1px solid #e5e5e5;
+    padding:0;
+    position: relative;
+}
+
+.jl-member .member-list a {
+    display:block;
+    padding:0 16px;
+    height:100%;
+    color:#333;
+    line-height:44px;
+    font-size:14px;
+}
+
+.jl-member span.ic-jian {
+    background: url(../images/ic-more@3x.png) center center no-repeat;
+    background-size: auto 10px;
+    width:10px;
+    height:10px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}

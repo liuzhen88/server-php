@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- build:css css/build_index.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/foot.header.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index_11.css">
+    <!-- endbuild -->
+
+</head>
+
+<body>
+
+<div class="new-header-app b-shadow">
+    <a class="new-header-name">商城</a>
+    <a class="header-menuBtn"><img src="images/icon-back@3x.png"/></a>
+    <a class="header-shopCartBtn" href="tmpl/shoppingCart.html"><img src="images/icon-shopping-cart@2x.png"/></a>
+    <a class="header-searchBtn" href="tmpl/search.html"> <img src="images/icon-search@2x.png"/></a>
+</div>
+
+<div class="new-header b-shadow">
+    <a class="header-shopCartBtn" href="tmpl/shoppingCart.html"><img src="images/icon-shopping-cart@2x.png"/></a>
+    <a class="header-searchBtn2" href="tmpl/search.html"> <img src="images/icon-search@2x.png"/></a>
+</div>
+
+<div class="new-header-margin"></div>
+
+<div class="main">
+    <div class="adv_list loading height1">
+        <div class="swipe-wrap border5" id="swipeBox"></div>
+    </div>
+    <div class="y-swiper-container b-radius height4">
+        <div class="title" style="padding-top:12px; padding-bottom: 12px;">抢购</div>
+        <div class="swiper-wrapper" id="panicBuyingBox">
+        </div>
+        <div class="bottom12"></div>
+    </div>
+    <div class="hot-and-new clearfix" style="border-top: #efefef solid 1px; padding-top: 15px;">
+        <a href="tmpl/search.html?sort=hot">
+            <img class="hot-and-new-1" src="images/rexiao2@2x.png">
+        </a>
+        <a href="tmpl/search.html?sort=new">
+            <img class="hot-and-new-2" src="images/xinpin2@2x.png">
+        </a>
+    </div>
+    <div class="y-swiper-container b-radius height3 special-box-bottom">
+        <div class="swiper-wrapper" id="specialBox"></div>
+    </div>
+    <div class="you-like">
+        <div class="title" style="margin-top:-10px;margin-bottom: 13px;">猜你喜欢</div>
+        <div id="likeBox"></div>
+    </div>
+    <div class="get-more-box">加载中...</div>
+</div>
+
+<div id="footer" class="footer"></div>
+
+<script type="text/template" id="swipe-tmpl">
+    {{ for(var i =0;i
+    <it.length;i++){ }}
+    <div class="item">
+        <a href="{{=it[i].data}}">
+            <img src="{{=it[i].image}}">
+        </a>
+    </div>
+    {{ } }}
+</script>
+
+<script type="text/template" id="special-tmpl">
+
+    {{ for(var i =0;i
+    <it.length;i++){ }}
+    <div class="swiper-slide border5">
+        <a href="special_details.html?special_id={{=it[i].special_id}}">
+            <div><img class="img2 border5" src="{{=it[i].special_image}}" alt="" style="border: #e5e5e5 solid 1px;">
+            </div>
+        </a>
+    </div>
+    {{ } }}
+
+
+</script>
+
+<script type="text/template" id="panic-tmpl" style="margin-bottom:8px;">
+    {{ for(var i =0;i
+    <it.length;i++){ }}
+    <div class="swiper-slide border5" style="border: #e5e5e5 solid 1px;">
+        <a class="box" href="tmpl/productdetail.html?goods_id={{=it[i].goods_id}}">
+            <div><img class="hot_img borderimg5" src="{{=it[i].goods_image}}"></div>
+            <div class="hot_tittle">{{=it[i].goods_name}}</div>
+            <div class="price">
+                <div class="hot_price">￥{{=it[i].goods_promotion_price}}</div>
+                <div class="hot_price2">已售{{=it[i].goods_salenum}}</div>
+            </div>
+        </a>
+    </div>
+    {{ } }}
+</script>
+
+<script type="text/template" id="like-tmpl-1">
+    <div class="like-box">
+        <div class="like-box-1l clearfix">
+            {{ for( var i=0;i<3;i++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[i].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[i].goods_image}}')">
+                    <p>￥{{=it.goods_random[i].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-2l clearfix">
+            <div class="like-left">
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[3].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[3].goods_image}}')">
+                        <p>￥{{=it.goods_random[3].goods_price}}</p>
+                    </div>
+                </a>
+            </div>
+            <div class="like-right">
+                {{ for( var k=4;k<6;k++){ }}
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[k].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[k].goods_image}}')">
+                        <p>￥{{=it.goods_random[k].goods_price}}</p>
+                    </div>
+                </a>
+                {{ } }}
+            </div>
+        </div>
+        <div class="like-box-1l clearfix">
+            {{ for( var j=6;j<9;j++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[j].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[j].goods_image}}')">
+                    <p>￥{{=it.goods_random[j].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="like-tmpl-2">
+    <div class="like-box">
+        <div class="like-box-2l clearfix">
+            <div class="like-left">
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[0].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[0].goods_image}}')">
+                        <p>￥{{=it.goods_random[0].goods_price}}</p>
+                    </div>
+                </a>
+            </div>
+            <div class="like-right">
+                {{ for( var i=1;i<3;i++){ }}
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[i].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[i].goods_image}}')">
+                        <p>￥{{=it.goods_random[i].goods_price}}</p>
+                    </div>
+                </a>
+                {{ } }}
+            </div>
+        </div>
+        <div class="like-box-1l clearfix">
+            {{ for( var k=3;k<6;k++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[k].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[k].goods_image}}')">
+                    <p>￥{{=it.goods_random[k].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-1l clearfix">
+
+            {{ for( var j=6;j<9;j++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[j].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[j].goods_image}}')">
+                    <p>￥{{=it.goods_random[j].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="like-tmpl-3">
+    <div class="like-box">
+        <div class="like-box-1l clearfix">
+            {{ for( var i=0;i<3;i++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[i].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[i].goods_image}}')">
+                    <p>￥{{=it.goods_random[i].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-1l clearfix">
+            {{ for( var k=3;k<6;k++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[k].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[k].goods_image}}')">
+                    <p>￥{{=it.goods_random[k].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-3l clearfix">
+            <div class="like-left">
+                {{ for( var j=6;j<8;j++){ }}
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[j].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[j].goods_image}}')">
+                        <p>￥{{=it.goods_random[j].goods_price}}</p>
+                    </div>
+                </a>
+                {{ } }}
+            </div>
+            <div class="like-right">
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[8].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[8].goods_image}}')">
+                        <p>￥{{=it.goods_random[8].goods_price}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="like-tmpl-4">
+    <div class="like-box">
+        <div class="like-box-1l clearfix">
+            {{ for( var i=0;i<3;i++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[i].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[i].goods_image}}')">
+                    <p>￥{{=it.goods_random[i].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-1l clearfix">
+            <a class="like-item-2l" href="special_details.html?special_id={{=it.special_random[0].special_id}}">
+                <div style="background-image: url('{{=it.special_random[0].special_image}}')">
+                    <p></p>
+                </div>
+            </a>
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[3].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[3].goods_image}}')">
+                    <p>￥{{=it.goods_random[3].goods_price}}</p>
+                </div>
+            </a>
+        </div>
+        <div class="like-box-3l clearfix">
+            <div class="like-left">
+                {{ for( var k=4;k<6;k++){ }}
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[k].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[k].goods_image}}')">
+                        <p>￥{{=it.goods_random[k].goods_price}}</p>
+                    </div>
+                </a>
+                {{ } }}
+            </div>
+            <div class="like-right">
+                <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[6].goods_id}}">
+                    <div style="background-image: url('{{=it.goods_random[6].goods_image}}')">
+                        <p>￥{{=it.goods_random[6].goods_price}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="like-tmpl-5">
+    <div class="like-box">
+        <div class="like-box-1l clearfix">
+            {{ for( var i=0;i<3;i++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[i].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[i].goods_image}}')">
+                    <p>￥{{=it.goods_random[i].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-1l clearfix">
+            {{ for( var k=3;k<6;k++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[k].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[k].goods_image}}')">
+                    <p>￥{{=it.goods_random[k].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+        <div class="like-box-1l clearfix">
+            <a class="like-item-2l" href="special_details.html?special_id={{=it.special_random[0].special_id}}">
+                <div style="background-image: url('{{=it.special_random[0].special_image}}')">
+                    <p></p>
+                </div>
+            </a>
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[6].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[6].goods_image}}')">
+                    <p>￥{{=it.goods_random[6].goods_price}}</p>
+                </div>
+            </a>
+        </div>
+        <div class="like-box-1l clearfix">
+            {{ for( var j=7;j<10;j++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[j].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[j].goods_image}}')">
+                    <p>￥{{=it.goods_random[j].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="like-tmpl-6">
+    <div class="like-box">
+        <div class="like-box-1l clearfix">
+            {{ for( var i=0;i<12;i++){ }}
+            <a class="like-item" href="tmpl/productdetail.html?goods_id={{=it.goods_random[i].goods_id}}">
+                <div style="background-image: url('{{=it.goods_random[i].goods_image}}')">
+                    <p>￥{{=it.goods_random[i].goods_price}}</p>
+                </div>
+            </a>
+            {{ } }}
+        </div>
+    </div>
+</script>
+
+
+<!-- build:inlinejs -->
+<script type="text/javascript" src="js/config.js"></script>
+<!-- endbuild -->
+
+
+<!-- build:js js/build_index.min.js -->
+<script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+<script type="text/javascript" src="js/lib/swipe.js"></script>
+<script type="text/javascript" src="js/lib/swiper.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/footer_o2o.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+body{background: #fff; font-size:14px;}
+*{margin:0px;padding:0px;}
+img{border:none; vertical-align:bottom;}
+p,ul,ol,li,form{margin:0;padding:0;list-style:none;}
+a{text-decoration: none;color:#666;border: none;}
+a:hover{text-decoration: none;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+.dataNull{text-align:center;height:50px;line-height:50px;font-size:12px;color:#666;}
+
+.font-color-333{ color:#333;}
+.font-color-666{ color:#666;}
+.font-color-fd8900{ color:#fd8900;}
+.font-color-ff4846{ color:#ff4846;}
+
+.border-top{border-top: #e7e7e7 solid 1px;}
+.border-bottom{border-bottom: #e7e7e7 solid 1px;}
+
+.margin-top-10{ margin-top: 10px;}
+.margin-top-7{ margin-top: 7px;}
+
+.order-sn-box{ line-height: 22px; padding: 10px 10px;}
+.receive-box{}
+.receive-people-box{ padding: 10px 0px 10px 10px;line-height: 22px;}
+#receive-tel{padding: 10px 10px 10px 0px;line-height: 22px;}
+
+.receive-address-box{padding: 0px 10px 10px 10px; line-height: 22px;}
+
+.store-box{ margin-top: 10px; padding: 10px 10px;}
+
+#store-name{ line-height: 25px; height: 25px; font-size: 16px; width: 73%; text-align: left; overflow: hidden;}
+#store-status{ line-height: 25px; height: 25px;font-size: 16px;width: 26%; text-align: right;}
+
+.goods-list{}
+.goods-list ul{}
+.goods-list ul li{}
+
+.goods-img-box{width:70px; height: 70px; border-radius: 5px; overflow: hidden; margin: 10px;}
+.goods-img{ width: 100%; height: 100%;}
+
+.text-box{margin: 10px 10px 0px 0px;}
+.text-box-title{ line-height: 22px;  height: 44px; overflow: hidden; }
+.text-box-price{line-height: 26px;}
+.text-price{}
+.text-num{ margin-left: 10px;  color:#999;}
+
+.pick-box{ padding: 10px; text-align: right; line-height: 22px; color:#333;}
+.pick-num{ margin-right: 10px;}
+
+.logist-header{ margin-top: 10px; padding: 10px; line-height: 25px; font-size: 16px;}
+
+.logist-img-box{ width: 55px; height:55px; overflow: hidden; border: #e7e7e7 solid 1px; margin: 10px;}
+.logist-img-box img{ width: 100%;height: 100%;}
+
+.logist-text{}
+.logist-line{ line-height: 19px; font-size: 12px; margin-top: 10px;}
+
+.list-of-logist{ padding:0px 10px; margin-bottom: 65px;}
+.list-of-logist ul{}
+.list-of-logist ul li{height:77px; overflow: hidden;}
+.list-of-logist img{ height: 77px; width: auto; margin-right: 10px;}
+
+.lo-per-text{ line-height: 22px; height: 73px; overflow: hidden; padding-bottom: 3px;}
+.lo-per-t{max-height:44px; overflow: hidden;}
+
+.receipt-footer{ width: 100%; height: 50px; position: fixed; bottom: 0px; left: 0px; background: #fff;}
+
+/*#confirm-receive,#confirm-return{ cursor:pointer; padding: 0px 10px; margin-right: 10px; height: 34px; margin-top: 8px; background: #fd8900; border-radius: 4px; line-height: 34px; color: #fff;}*/
+.common{cursor:pointer; padding: 0px 10px; margin-right: 10px; height: 34px; margin-top: 8px; background: #fd8900; border-radius: 4px; line-height: 34px; color: #fff;}
+.goods-state{ position:absolute; bottom:0px; right:10px; color:#999999;}

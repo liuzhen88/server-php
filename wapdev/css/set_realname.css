@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+body{background: #fff;font-size: 14px;}
+.float-left{float: left;}
+.float-right{float: right;}
+.clear-float{clear: both;}
+
+.s_main{ }
+
+.tip-info{background:#fffdee; color: #666; line-height: 20px; padding:10px;}
+
+.input-line{ height: 50px; line-height: 50px; padding: 0px 10px; border-bottom:#efefef solid 1px;}
+.input-left{ float: left; width:20%;}
+.input-right{float: right;width:80%;}
+.input-right input{ height: 50px;width:100%; border: 0px;}
+
+.btn-commit{ height: 44px; line-height: 44px; font-size: 16px; letter-spacing: 2px; cursor: pointer; margin: 10px 15px; background: #ff4946; border-radius: 4px; text-align: center; color: #fff;}
+.messageTips {color: #ff4946;line-height: 20px;margin: 10px auto 0px;text-align: center; width: 80%;
+}
+
+

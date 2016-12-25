@@ -1,0 +1,493 @@
+@charset "utf-8";
+
+body {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    font-family: "微软雅黑";
+    background-color: #FFF;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    border: none;
+    vertical-align: bottom;
+}
+
+p, ul, ol, li, form {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    border: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.clear_float {
+    clear: both;
+}
+
+/*确认订单*/
+.orderNoBox {
+    height: 44px;
+    text-align: left;
+    background: #fff;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 22px;
+}
+
+.orderNo {
+    color: #333;
+}
+
+.orderTime {
+    font-size: 12px;
+    color: #888;
+}
+
+.orderAddr {
+    cursor: pointer;
+    text-align: left;
+    padding: 16px 16px 12px;
+    background: #fffbe6;
+    min-height: 50px;
+    position:relative;
+    border-top: #e5e5e5 solid 1px;
+}
+
+.orderName {
+    color: #333;
+    width: 90%;
+}
+
+.orderName span {
+    padding-right: 16px;
+}
+
+.orderAddress {
+    font-size: 12px;
+    color: #888;
+    margin-top: 12px;
+    line-height: 20px;
+    width: 90%;
+}
+
+.orderBox {
+    border-bottom: #eee solid 1px;
+}
+
+.orderBox_header {
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    color: #333;
+    border-bottom: #eee solid 1px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.orderBox_header a {
+    float: left;
+    line-height: 50px;
+    display: block;
+    height: 50px;
+    color: #333;
+    font-size: 16px;
+}
+
+.orderBox_header span {
+    color: #e53935;
+    float: right;
+    display: block;
+    height: 50px;
+}
+
+.lmy_sec {
+    margin-top: 16px;
+    border-top: #e5e5e5 solid 1px;
+}
+
+.order_list {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    background-color: #fff;
+}
+
+.order_list ul {
+}
+
+.order_list ul li {
+    padding: 10px 0px;
+    height: 85px;
+}
+
+.o_list_img {
+    width: 95px;
+    height: 85px;
+    overflow: hidden;
+    border-radius: 5px;
+    float: left;
+}
+
+.o_list_img img {
+    width: 85px;
+    height: 85px;
+}
+
+.o_list_cs {
+    text-align: left;
+    margin-left: 10px;
+    color: #333; /* background-color:#9F6;*/
+}
+
+.order_gName {
+    line-height: 25px;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.order_money {
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.order_money span {
+    letter-spacing: 2px;
+    margin-left: 10px;
+    color: #999;
+}
+
+.order_payway {
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: left;
+    color: #999;
+    border-bottom: #eee solid 1px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.oo_payway {
+    display: block;
+    height: 50px;
+    float: left;
+}
+
+#PayWay {
+    display: block;
+    height: 50px;
+    float: right;
+    color: #333;
+    cursor: pointer;
+}
+
+.order_fp {
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: left;
+    color: #999;
+    border-bottom: #eee solid 1px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.order_fp span {
+    display: block;
+    height: 50px;
+    float: left;
+}
+
+.order_fp a {
+    display: block;
+    height: 50px;
+    float: right;
+    color: #333;
+}
+
+.o_le {
+    display: block;
+    height: 50px;
+    float: left;
+}
+
+.o_ri {
+    display: block;
+    height: 50px;
+    float: right;
+    color: #333;
+}
+
+.order_ze {
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: left;
+    color: #999;
+    border-bottom: #eee solid 1px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.order_yf {
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: left;
+    color: #999;
+    border-bottom: #eee solid 1px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*.order_sfk{height:50px; font-size:14px; line-height:50px; text-align:left; color:#999; border-bottom:#eee solid 1px; background-color:#fff; padding-left:20px; padding-right:20px; margin-bottom:8px;}
+
+.o_ri2{ height:50px;color:#333; float:right;}
+.o_ri2 span{font-size:18px; color:#e53935;}*/
+
+/*.order_js{ letter-spacing:2px; height:60px; font-size:16px; line-height:40px; color:#999; border-top:#eee solid 1px; background-color:#fff; padding-left:20px; padding-right:20px;}
+
+.ord_delete{ display:block; float:right; width:85px; height:40px; background-color:#eee; margin-top:10px; margin-right:10px; border-radius:5px;}
+.ord_pay{ display:block;float:right;width:85px; height:40px; background-color:#f44336;margin-top:10px; border-radius:5px;}*/
+
+#payWayLay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: url(../images/orderPayLay.png) repeat;
+}
+
+.payw_box {
+    width: 300px;
+    height: 200px;
+    background-color: #FFF;
+    margin: 0px auto;
+}
+
+.myO_total {
+    text-align: right;
+    color: #999;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #FFF;
+    clear: both;
+    border-bottom: #e5e5e5 solid 1px;
+    margin-bottom: 8px;
+}
+
+.myO_t_red {
+    color: #f44336;
+}
+
+.myO_t_black {
+    color: #333;
+    padding-right: 20px;
+}
+
+.confOrder_sfk {
+    width: 100%;
+    height: 50px;
+    background-color: #fff6e2;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.confOrder_sfk_L {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    width: 75%;
+    text-align: right;
+    font-size: 16px;
+    color: #333;
+}
+
+.confOrder_sfk_L .num-money {
+    color: #f44336;
+    padding-right: 20px;
+    font-size: 18px;
+}
+
+.confOrder_sfk_R {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    width: 25%;
+    letter-spacing: 2px;
+    background-color: #f44336;
+    font-size: 16px;
+}
+
+.confOrder_jian {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    height: 50px;
+    margin-top:-25px;
+}
+
+#zf {
+    width: 80%;
+    height: 200px;
+    background: #FFF;
+    position: fixed;
+    left: 10%;
+    z-index: 100;
+    display: none;
+}
+
+#screen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.7;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: none;
+}
+
+#lmy_close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    right: 0;
+    top: 14px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.mui-btn {
+    font-size: 16px;
+    padding: 8px;
+    margin: 3px;
+}
+
+h5.mui-content-padded {
+    margin-left: 3px;
+    margin-top: 20px !important;
+}
+
+h5.mui-content-padded:first-child {
+    margin-top: 12px !important;
+}
+
+.ui-alert {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 16px;
+}
+
+.mui-backdrop {
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.kz {
+    width: 100%;
+    height: auto;
+}
+#obj {
+    padding-right:5px;
+}
+/*选择收货地址*/
+.addr_check {
+    float: left;
+    width: 70px;
+    height: 80px;
+    background: url(../images/addr_check.png) center center no-repeat;
+}
+
+.addr_checkon {
+    float: left;
+    width: 70px;
+    height: 80px;
+    background: url(../images/addr_checkon.png) center center no-repeat;
+}
+
+.addr_box {
+    text-align: left;
+    padding: 15px 20px 15px 0px;
+}
+
+.addrName {
+    color: #333;
+}
+
+.addrName span {
+    padding-right: 20px;
+}
+
+.addrAddress {
+    font-size: 12px;
+    color: #888;
+    margin-top: 12px;
+    line-height: 20px;
+}
+
+.addr_list {
+    margin-bottom: 60px;
+    background: #FFF;
+}
+
+.addr_list ul li {
+    border-bottom: #eee solid 1px;
+    cursor: pointer;
+}
+
+.addr_message {
+    width: 100%;
+    height: 60px;
+    border-top: #eee solid 1px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: #fff;
+}
+
+.addr_message_btn {
+    display: block;
+    margin: 10px auto 0px;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f44336;
+}
+
+.red-money {
+    color: #f44336;
+}

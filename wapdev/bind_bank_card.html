@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>银行卡</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/bind_bank_card.css"/>
+    </head>
+
+    <body>
+        <div class="sheader">
+            <a href="javascript:history.back();" class="sh_back"></a>
+            <h2>银行卡</h2>
+            <a href="javascript:history.back();" class="btn_success">完成</a>
+        </div>
+
+        <div class="s_main">
+            <div class="add-bank-card-box">
+                <div class="bind-prompt">
+                    <div class="bind-prompt-container">请绑定持卡人本人的银行卡</div>
+                </div>
+
+                <section class="list">
+                    <section class="list-container">
+                        <section class="list-container-title">持卡人</section>
+                        <input type="text" class="bank-card-number" id="username" placeholder="请输入实名认证姓名" readonly="readonly"/>
+                    </section>
+                </section>
+                <section class="list">
+                    <section class="list-container">
+                        <section class="list-container-title">身份证号</section>
+                        <input type="text" class="bank-card-number" id="id-card2" placeholder="请输入身份证号" readonly="readonly"/>
+                        <input type="text" id="id-card"/>
+                    </section>
+                </section>
+                <section class="list bank-kh">
+                    <section class="list-container">
+                        <section class="list-container-title">开户行</section>
+                        <input type="text" class="bank-card-number" id="bank-kh" placeholder="请输入银行名称"/>
+                    </section>
+                </section>
+                <section class="list">
+                    <section class="list-container">
+                        <section class="list-container-title">卡号</section>
+                        <input type="text" class="bank-card-number" id="bank-card2" placeholder="请输入银行卡号"/>
+                        <input type="text" id="bank-card"/>
+                    </section>
+                </section>
+
+                <div class="submit">下一步</div>
+            </div>
+            <div class="add-bank-card-success">
+                <img src="images/add-bank-success@3x.png"/>添加成功
+            </div>
+        </div>
+
+        <!-- build:inlinejs -->
+        <script type="text/javascript" src="js/config.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/lib/zepto.fastclick.doT.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/tmpl/common-top.js"></script>
+        <script type="text/javascript" src="js/bind_bank_card.js"></script>
+    </body>
+</html>
